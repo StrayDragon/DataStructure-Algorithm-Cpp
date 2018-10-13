@@ -2,12 +2,6 @@
 A library of Data Structure And Algorithm implemented by C++
 
 
-```markdown
-FIXME:BAD SOLUTION
-# Test Doxygen doc and Some diagrams
-[Here](Doc/html/index.html)
-```
-
 # FIXME
 - How to use Clion effectively and understand some CMake syntax? /(ㄒoㄒ)/~~
 

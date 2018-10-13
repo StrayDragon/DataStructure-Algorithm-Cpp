@@ -1,0 +1,4 @@
+<map id="类继承关系图" name="类继承关系图">
+<area shape="rect" id="node2" href="$class_exception.html" title="Exception" alt="" coords="132,5,212,32"/>
+<area shape="rect" id="node3" href="$class_precondition_failed_exception.html" title="PreconditionFailedException" alt="" coords="260,5,447,32"/>
+</map>

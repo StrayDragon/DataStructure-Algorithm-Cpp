@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DataStructure-Algorithm-Cpp: /home/straydragon/GitHubRepo/DataStructure-Algorithm-Cpp/ADTs/LinkedList.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DataStructure-Algorithm-Cpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_11dab9f970064a1ab2cb6fa60693d073.html">GitHubRepo</a></li><li class="navelem"><a class="el" href="dir_da332b41a56be0a2a357e7b134344235.html">DataStructure-Algorithm-Cpp</a></li><li class="navelem"><a class="el" href="dir_a7d2128b6f9bb5a2cbeb72c0447b4d31.html">ADTs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">LinkedList.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_linked_list_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by straydragon on 18-10-13.</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef DATASTRUCTURE_ALGORITHM_CPP_LINKEDLIST_H</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define DATASTRUCTURE_ALGORITHM_CPP_LINKEDLIST_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_node_8h.html">Node.h</a>&quot;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_precondition_failed_exception_8h.html">exceptions/PreconditionFailedException.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_list_8h.html">interfaces/List.h</a>&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> E&gt;</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_linked_list.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_linked_list.html">LinkedList</a> : <span class="keyword">public</span> <a class="code" href="class_list.html">List</a>&lt;E&gt; {</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; <span class="keyword">private</span>:</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_linked_list.html#a1feaaada94e3b9b8fe143a494eaf864d">   15</a></span>&#160;  <a class="code" href="class_node.html">Node&lt;E&gt;</a>* <a class="code" href="class_linked_list.html#a1feaaada94e3b9b8fe143a494eaf864d">_elementsHeadPtr</a>;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_linked_list.html#aa2ebe01b47fccdb1527646bb3f48864f">   16</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_linked_list.html#aa2ebe01b47fccdb1527646bb3f48864f">_length</a>;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="class_node.html">Node&lt;E&gt;</a>* <a class="code" href="class_linked_list.html#acdfed94e49b6fa9a97e620a38db7bde5">_getNodeAt</a>(<span class="keywordtype">int</span> Position) <span class="keyword">const</span>;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; <span class="keyword">public</span>:</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_linked_list.html#a977956ec91f5ddde40492bf128f9b871">LinkedList</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <a class="code" href="class_linked_list.html#a977956ec91f5ddde40492bf128f9b871">LinkedList</a>(<span class="keyword">const</span> <a class="code" href="class_linked_list.html">LinkedList&lt;E&gt;</a>&amp; aLinkedList);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="class_linked_list.html#a2cb55113fbbe1f63fe6aa61f9dfdda55">~LinkedList</a>();</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_linked_list.html#af46a203be6d405d0eb69a6703afc6202">isEmpty</a>() <span class="keyword">const override</span>;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_linked_list.html#a8454a6f3142c4969b1b01d14c74ab147">getLength</a>() <span class="keyword">const override</span>;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="class_linked_list.html#a7b73b85dbf8795b5e881a7edb457f9fd">insert</a>(<span class="keywordtype">int</span> newPosition, <span class="keyword">const</span> E&amp; element) <span class="keyword">override</span>;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">bool</span> <span class="keyword">remove</span>(<span class="keywordtype">int</span> position) <span class="keyword">override</span>;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a84c697596503776ae8f60bbb02388c63">clear</a>() <span class="keyword">override</span>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  E <a class="code" href="class_linked_list.html#ae16297c9838906cbf3f2acb677666e3e">getElementAt</a>(<span class="keywordtype">int</span> position) <span class="keywordflow">throw</span>(<a class="code" href="class_precondition_failed_exception.html">PreconditionFailedException</a>)</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">override</span>;  </div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_linked_list.html#a1ba3a95766edb76d605ddb2bc1adc41b">setElementAt</a>(<span class="keywordtype">int</span> position, E&amp; element) <span class="keywordflow">throw</span>(<a class="code" href="class_precondition_failed_exception.html">PreconditionFailedException</a>)</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">override</span>;  </div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif  // DATASTRUCTURE_ALGORITHM_CPP_LINKEDLIST_H</span></div><div class="ttc" id="class_linked_list_html_a1feaaada94e3b9b8fe143a494eaf864d"><div class="ttname"><a href="class_linked_list.html#a1feaaada94e3b9b8fe143a494eaf864d">LinkedList::_elementsHeadPtr</a></div><div class="ttdeci">Node&lt; E &gt; * _elementsHeadPtr</div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8h_source.html#l00015">LinkedList.h:15</a></div></div>
+<div class="ttc" id="class_linked_list_html_acdfed94e49b6fa9a97e620a38db7bde5"><div class="ttname"><a href="class_linked_list.html#acdfed94e49b6fa9a97e620a38db7bde5">LinkedList::_getNodeAt</a></div><div class="ttdeci">Node&lt; E &gt; * _getNodeAt(int Position) const</div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8cpp_source.html#l00008">LinkedList.cpp:8</a></div></div>
+<div class="ttc" id="class_node_html"><div class="ttname"><a href="class_node.html">Node</a></div><div class="ttdoc">结点POCO(Plain Ordinary Cpp Object)类 </div><div class="ttdef"><b>Definition:</b> <a href="_node_8h_source.html#l00014">Node.h:14</a></div></div>
+<div class="ttc" id="class_linked_list_html_a977956ec91f5ddde40492bf128f9b871"><div class="ttname"><a href="class_linked_list.html#a977956ec91f5ddde40492bf128f9b871">LinkedList::LinkedList</a></div><div class="ttdeci">LinkedList()</div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8cpp_source.html#l00013">LinkedList.cpp:13</a></div></div>
+<div class="ttc" id="class_list_html"><div class="ttname"><a href="class_list.html">List</a></div><div class="ttdoc">列表(List) 接口声明 </div><div class="ttdef"><b>Definition:</b> <a href="_list_8h_source.html#l00014">List.h:14</a></div></div>
+<div class="ttc" id="class_linked_list_html_a8454a6f3142c4969b1b01d14c74ab147"><div class="ttname"><a href="class_linked_list.html#a8454a6f3142c4969b1b01d14c74ab147">LinkedList::getLength</a></div><div class="ttdeci">int getLength() const override</div><div class="ttdoc">返回列表中元素数量 </div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8cpp_source.html#l00027">LinkedList.cpp:27</a></div></div>
+<div class="ttc" id="class_precondition_failed_exception_html"><div class="ttname"><a href="class_precondition_failed_exception.html">PreconditionFailedException</a></div><div class="ttdef"><b>Definition:</b> <a href="_precondition_failed_exception_8h_source.html#l00004">PreconditionFailedException.h:4</a></div></div>
+<div class="ttc" id="class_linked_list_html_a2cb55113fbbe1f63fe6aa61f9dfdda55"><div class="ttname"><a href="class_linked_list.html#a2cb55113fbbe1f63fe6aa61f9dfdda55">LinkedList::~LinkedList</a></div><div class="ttdeci">virtual ~LinkedList()</div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8cpp_source.html#l00019">LinkedList.cpp:19</a></div></div>
+<div class="ttc" id="class_linked_list_html_a7b73b85dbf8795b5e881a7edb457f9fd"><div class="ttname"><a href="class_linked_list.html#a7b73b85dbf8795b5e881a7edb457f9fd">LinkedList::insert</a></div><div class="ttdeci">bool insert(int newPosition, const E &amp;element) override</div><div class="ttdoc">向指定位置插入元素 指定位置的最大有效值定义为:元素数量+1  若指定位置有效  若此位置不存在元素,将会在此位置插入元素  若此位置存在元素,将会在此位置之前插入元素,维持逻辑位置与指定位置相同  成功插入后,列表中的内容将重新排号. </div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8cpp_source.html#l00032">LinkedList.cpp:32</a></div></div>
+<div class="ttc" id="_node_8h_html"><div class="ttname"><a href="_node_8h.html">Node.h</a></div></div>
+<div class="ttc" id="class_linked_list_html_a1ba3a95766edb76d605ddb2bc1adc41b"><div class="ttname"><a href="class_linked_list.html#a1ba3a95766edb76d605ddb2bc1adc41b">LinkedList::setElementAt</a></div><div class="ttdeci">void setElementAt(int position, E &amp;element) override</div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8cpp_source.html#l00050">LinkedList.cpp:50</a></div></div>
+<div class="ttc" id="class_linked_list_html_aa2ebe01b47fccdb1527646bb3f48864f"><div class="ttname"><a href="class_linked_list.html#aa2ebe01b47fccdb1527646bb3f48864f">LinkedList::_length</a></div><div class="ttdeci">int _length</div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8h_source.html#l00016">LinkedList.h:16</a></div></div>
+<div class="ttc" id="class_linked_list_html"><div class="ttname"><a href="class_linked_list.html">LinkedList</a></div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8h_source.html#l00013">LinkedList.h:13</a></div></div>
+<div class="ttc" id="class_linked_list_html_a84c697596503776ae8f60bbb02388c63"><div class="ttname"><a href="class_linked_list.html#a84c697596503776ae8f60bbb02388c63">LinkedList::clear</a></div><div class="ttdeci">void clear() override</div><div class="ttdoc">移除所有元素 </div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8cpp_source.html#l00042">LinkedList.cpp:42</a></div></div>
+<div class="ttc" id="class_linked_list_html_af46a203be6d405d0eb69a6703afc6202"><div class="ttname"><a href="class_linked_list.html#af46a203be6d405d0eb69a6703afc6202">LinkedList::isEmpty</a></div><div class="ttdeci">bool isEmpty() const override</div><div class="ttdoc">判断列表是否为空 </div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8cpp_source.html#l00022">LinkedList.cpp:22</a></div></div>
+<div class="ttc" id="class_linked_list_html_ae16297c9838906cbf3f2acb677666e3e"><div class="ttname"><a href="class_linked_list.html#ae16297c9838906cbf3f2acb677666e3e">LinkedList::getElementAt</a></div><div class="ttdeci">E getElementAt(int position) override</div><div class="ttdoc">获取指定位置的元素 </div><div class="ttdef"><b>Definition:</b> <a href="_linked_list_8cpp_source.html#l00045">LinkedList.cpp:45</a></div></div>
+<div class="ttc" id="_list_8h_html"><div class="ttname"><a href="_list_8h.html">List.h</a></div></div>
+<div class="ttc" id="_precondition_failed_exception_8h_html"><div class="ttname"><a href="_precondition_failed_exception_8h.html">PreconditionFailedException.h</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

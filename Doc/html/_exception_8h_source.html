@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DataStructure-Algorithm-Cpp: /home/straydragon/GitHubRepo/DataStructure-Algorithm-Cpp/ADTs/exceptions/Exception.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">DataStructure-Algorithm-Cpp
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','搜索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_11dab9f970064a1ab2cb6fa60693d073.html">GitHubRepo</a></li><li class="navelem"><a class="el" href="dir_da332b41a56be0a2a357e7b134344235.html">DataStructure-Algorithm-Cpp</a></li><li class="navelem"><a class="el" href="dir_a7d2128b6f9bb5a2cbeb72c0447b4d31.html">ADTs</a></li><li class="navelem"><a class="el" href="dir_acda8cf64d5f8775fa5086da034e2d29.html">exceptions</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Exception.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_exception_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DATASTRUCTURE_ALGORITHM_CPP_EXCEPTION</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DATASTRUCTURE_ALGORITHM_CPP_EXCEPTION</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;exception&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;typeinfo&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_exception.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_exception.html">Exception</a> : <span class="keyword">public</span> std::exception {</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; <span class="keyword">public</span>:</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_exception.html#ac541ead5c20548813d7dea73c28c7fab">   15</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="class_exception.html#ac541ead5c20548813d7dea73c28c7fab">Exception</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* message) : <a class="code" href="class_exception.html#ada3e6321ba9ff91bec9bc4e57569fb79">_msg</a>(message) {}</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_exception.html#a472b7904dadf1047ba48c23741888456">   19</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="class_exception.html#a472b7904dadf1047ba48c23741888456">Exception</a>(<span class="keyword">const</span> std::string&amp; message) : <a class="code" href="class_exception.html#ada3e6321ba9ff91bec9bc4e57569fb79">_msg</a>(message) {}</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_exception.html#ad1ba411de295ef2eeb02ba26284a829a">   23</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="class_exception.html#ad1ba411de295ef2eeb02ba26284a829a">~Exception</a>() throw() {}</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_exception.html#a0c46cd7d8695d934ed35339d83780661">   29</a></span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="class_exception.html#a0c46cd7d8695d934ed35339d83780661">what</a>() <span class="keyword">const</span> throw() { <span class="keywordflow">return</span> <a class="code" href="class_exception.html#ada3e6321ba9ff91bec9bc4e57569fb79">_msg</a>.c_str(); }</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; <span class="keyword">protected</span>:</div><div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_exception.html#ada3e6321ba9ff91bec9bc4e57569fb79">   34</a></span>&#160;  std::string <a class="code" href="class_exception.html#ada3e6321ba9ff91bec9bc4e57569fb79">_msg</a>;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="class_exception_html"><div class="ttname"><a href="class_exception.html">Exception</a></div><div class="ttdef"><b>Definition:</b> <a href="_exception_8h_source.html#l00007">Exception.h:7</a></div></div>
+<div class="ttc" id="class_exception_html_ac541ead5c20548813d7dea73c28c7fab"><div class="ttname"><a href="class_exception.html#ac541ead5c20548813d7dea73c28c7fab">Exception::Exception</a></div><div class="ttdeci">Exception(const char *message)</div><div class="ttdoc">Constructor (C strings). </div><div class="ttdef"><b>Definition:</b> <a href="_exception_8h_source.html#l00015">Exception.h:15</a></div></div>
+<div class="ttc" id="class_exception_html_ad1ba411de295ef2eeb02ba26284a829a"><div class="ttname"><a href="class_exception.html#ad1ba411de295ef2eeb02ba26284a829a">Exception::~Exception</a></div><div class="ttdeci">virtual ~Exception()</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="_exception_8h_source.html#l00023">Exception.h:23</a></div></div>
+<div class="ttc" id="class_exception_html_a472b7904dadf1047ba48c23741888456"><div class="ttname"><a href="class_exception.html#a472b7904dadf1047ba48c23741888456">Exception::Exception</a></div><div class="ttdeci">Exception(const std::string &amp;message)</div><div class="ttdoc">Constructor (C++ STL strings). </div><div class="ttdef"><b>Definition:</b> <a href="_exception_8h_source.html#l00019">Exception.h:19</a></div></div>
+<div class="ttc" id="class_exception_html_a0c46cd7d8695d934ed35339d83780661"><div class="ttname"><a href="class_exception.html#a0c46cd7d8695d934ed35339d83780661">Exception::what</a></div><div class="ttdeci">virtual const char * what() const</div><div class="ttdoc">Returns a pointer to the (constant) error description. </div><div class="ttdef"><b>Definition:</b> <a href="_exception_8h_source.html#l00029">Exception.h:29</a></div></div>
+<div class="ttc" id="class_exception_html_ada3e6321ba9ff91bec9bc4e57569fb79"><div class="ttname"><a href="class_exception.html#ada3e6321ba9ff91bec9bc4e57569fb79">Exception::_msg</a></div><div class="ttdeci">std::string _msg</div><div class="ttdoc">Error message. </div><div class="ttdef"><b>Definition:</b> <a href="_exception_8h_source.html#l00034">Exception.h:34</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者 &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
