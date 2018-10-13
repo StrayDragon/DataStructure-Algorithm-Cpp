@@ -1,20 +1,116 @@
+# Created by .ignore support plugin (hsz.mobi)
+### JetBrains template
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+# Gradle
+.idea/**/gradle.xml
+.idea/**/libraries
+
+# Gradle and Maven with auto-import
+# When using Gradle or Maven with auto-import, you should exclude module files,
+# since they will be recreated, and may cause churn.  Uncomment if using
+# auto-import.
+# .idea/modules.xml
+# .idea/*.iml
+# .idea/modules
+
+# CMake
+cmake-build-*/
+
+# Mongo Explorer plugin
+.idea/**/mongoSettings.xml
+
+# File-based project format
+*.iws
+
+# IntelliJ
+out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Cursive Clojure plugin
+.idea/replstate.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# Editor-based Rest Client
+.idea/httpRequests
+### C template
 # Prerequisites
 *.d
 
-# Compiled Object files
-*.slo
-*.lo
+# Object files
 *.o
+*.ko
 *.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
 
 # Precompiled Headers
 *.gch
 *.pch
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
 *.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
 
 # Fortran module files
 *.mod
@@ -22,53 +118,20 @@
 
 # Compiled Static libraries
 *.lai
-*.la
-*.a
-*.lib
 
-# Executables
-*.exe
-*.out
-*.app
+### VisualStudioCode template
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+out
+gen
+将删除 .gitignore
 将删除 .idea/
-将删除 ADTs/
-将删除 cmake-build-debug/CMakeCache.txt
-将删除 cmake-build-debug/CMakeFiles/3.12.2/CMakeCCompiler.cmake
-将删除 cmake-build-debug/CMakeFiles/3.12.2/CMakeCXXCompiler.cmake
-将删除 cmake-build-debug/CMakeFiles/3.12.2/CMakeDetermineCompilerABI_C.bin
-将删除 cmake-build-debug/CMakeFiles/3.12.2/CMakeDetermineCompilerABI_CXX.bin
-将删除 cmake-build-debug/CMakeFiles/3.12.2/CMakeSystem.cmake
-将删除 cmake-build-debug/CMakeFiles/3.12.2/CompilerIdC/CMakeCCompilerId.c
-将删除 cmake-build-debug/CMakeFiles/3.12.2/CompilerIdC/tmp/
-将删除 cmake-build-debug/CMakeFiles/3.12.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
-将删除 cmake-build-debug/CMakeFiles/3.12.2/CompilerIdCXX/tmp/
-将删除 cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake
-将删除 cmake-build-debug/CMakeFiles/CMakeOutput.log
-将删除 cmake-build-debug/CMakeFiles/CMakeTmp/
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/
-将删除 cmake-build-debug/CMakeFiles/Makefile.cmake
-将删除 cmake-build-debug/CMakeFiles/Makefile2
-将删除 cmake-build-debug/CMakeFiles/TargetDirectories.txt
-将删除 cmake-build-debug/CMakeFiles/clion-environment.txt
-将删除 cmake-build-debug/CMakeFiles/clion-log.txt
-将删除 cmake-build-debug/CMakeFiles/cmake.check_cache
-将删除 cmake-build-debug/CMakeFiles/feature_tests.bin
-将删除 cmake-build-debug/CMakeFiles/feature_tests.c
-将删除 cmake-build-debug/CMakeFiles/feature_tests.cxx
-将删除 cmake-build-debug/CMakeFiles/progress.marks
-将删除 cmake-build-debug/DataStructure-Algorithm-Cpp.cbp
-将删除 cmake-build-debug/Makefile
-将删除 cmake-build-debug/Project.cbp
-将删除 cmake-build-debug/cmake_install.cmake
-将删除 test/
-/.gitignore
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/CXX.includecache
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/DependInfo.cmake
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/build.make
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/cmake_clean.cmake
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/depend.internal
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/depend.make
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/flags.make
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/link.txt
-将删除 cmake-build-debug/CMakeFiles/DataStructure-Algorithm-Cpp.dir/progress.make
-将删除 cmake-build-debug/DataStructure-Algorithm-Cpp
+将删除 cmake-build-debug/
