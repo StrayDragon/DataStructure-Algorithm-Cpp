@@ -55,7 +55,7 @@ void ArrayList<E>::clear() {
 }
 
 template <typename E>
-E ArrayList<E>::getElementAt(int position) throw(PreconditionFailedException) {
+E ArrayList<E>::getElementAt(int position) noexcept(false) {
   if ((1 <= position) && (position <= _length)) {
     return _elements[position - 1];
   } else {
@@ -67,8 +67,7 @@ E ArrayList<E>::getElementAt(int position) throw(PreconditionFailedException) {
 }
 
 template <typename E>
-void ArrayList<E>::setElementAt(int position, E &&element) throw(
-    PreconditionFailedException) {
+void ArrayList<E>::setElementAt(int position, E &&element) noexcept(false) {
   if ((1 <= position) && (position <= _length)) {
     _elements[position - 1] = element;
   } else {

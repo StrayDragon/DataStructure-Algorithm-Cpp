@@ -29,10 +29,10 @@ class ArrayList : public List<E> {
   void clear() override;
 
   // TODO:这俩货的命名改成get/setElementLogicallyAt会不会更好些2333333
-  E getElementAt(int position) throw(PreconditionFailedException) override;
+  E getElementAt(int position) noexcept(false) override;
 
   void setElementAt(int position,
-                    E &&element) throw(PreconditionFailedException) override;
+                    E &&element) noexcept(false) override;
 };
 
 #include "ArrayList.cpp"

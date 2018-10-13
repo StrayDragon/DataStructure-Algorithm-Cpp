@@ -14,7 +14,7 @@ using namespace std;
 void testListMethod() {
   List<int>* list = new ArrayList<int>();
 
-  assert(list->getLength() == 0 && list->isEmpty() == true);
+  assert(list->getLength() == 0 && list->isEmpty());
 
   for (int i = 1; i <= 10; i++) list->insert(i, i);
 
@@ -42,12 +42,12 @@ void testListMethod() {
   }
 
   // try {
-  list->getElementAt(list->getLength());
+  list->getElementAt(list->getLength()+1);
   // } catch (...) {
   // }
 
   list->clear();
-  assert(list->getLength() == 0 && list->isEmpty() == true);
+  assert(list->getLength() == 0 && list->isEmpty());
 
   delete list;
 }
