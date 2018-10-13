@@ -1,7 +1,9 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_EXCEPTION
 #define DATASTRUCTURE_ALGORITHM_CPP_EXCEPTION
 #include <exception>
+#include <typeinfo>
 #include <string>
+
 class Exception : public std::exception {
  public:
   /** Constructor (C strings).

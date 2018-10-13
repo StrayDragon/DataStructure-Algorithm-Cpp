@@ -4,7 +4,7 @@
 class PreconditionFailedException : public Exception {
  public:
   explicit PreconditionFailedException(const std::string& msg = "")
-      : Exception("(Assert precondition failed!)" + msg) {}
+      : Exception(msg) {}
 };
 
 #endif
