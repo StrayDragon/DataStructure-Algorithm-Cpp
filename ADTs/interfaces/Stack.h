@@ -5,6 +5,11 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_STACK_H
 #define DATASTRUCTURE_ALGORITHM_CPP_STACK_H
 
+/**
+ * @brief 栈(Stack) 接口声明
+ * 
+ * @tparam E 元素声明
+ */
 template <typename E>
 class Stack {
  public:
