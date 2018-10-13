@@ -4,4 +4,4 @@ project(DataStructure-Algorithm-Cpp)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(DataStructure-Algorithm-Cpp test/u_Bag.cpp)
+add_executable(DataStructure-Algorithm-Cpp Test/unit_test_main.cpp)
