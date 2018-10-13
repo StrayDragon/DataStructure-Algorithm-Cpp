@@ -6,6 +6,7 @@
 #define DATASTRUCTURE_ALGORITHM_CPP_LINKEDLIST_H
 
 #include "Node.h"
+#include "exceptions/PreconditionFailedException.h"
 #include "interfaces/List.h"
 
 template <typename E>
@@ -30,9 +31,11 @@ class LinkedList : public List<E> {
 
   void clear() override;
 
-  E getElementAt(int position) throw(PreconditionFailedException) override ;//TODO:Exceptions headers implementation;
+  E getElementAt(int position) throw(PreconditionFailedException)
+      override;  
 
-  E setElementAt (int position, E& element) throw(PreconditionFailedException) override ;//TODO:Exceptions headers implementation;
+  void setElementAt(int position, E& element) throw(PreconditionFailedException)
+      override;  
 };
 
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_LINKEDLIST_H

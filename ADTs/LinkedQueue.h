@@ -5,13 +5,13 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_LINKEDQUEUE_H
 #define DATASTRUCTURE_ALGORITHM_CPP_LINKEDQUEUE_H
 
-#include "interfaces/Queue.h"
 #include "LinkedList.h"
+#include "interfaces/Queue.h"
 
 template <typename E>
 class LinkedQueue : public Queue<E> {
  private:
-  LinkedList<E>* elememtsListPtr;     //TODO:LinkedList header implementation
+  LinkedList<E>* elememtsListPtr;
 
  public:
   LinkedQueue();
@@ -26,7 +26,7 @@ class LinkedQueue : public Queue<E> {
 
   bool dequeue() override;
 
-  E front() const throw(PreconditionFailedException) override  ;
+  E front() const throw(PreconditionFailedException) override;
 };
 
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_LINKEDQUEUE_H

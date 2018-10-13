@@ -85,6 +85,6 @@ class List {
    * @param position 目标位置
    * @param element 替换元素
    */
-  virtual void setElementAt(int position, E& element) = 0;
+  virtual void setElementAt(int position, E&& element) = 0;
 };
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_LIST_H
