@@ -5,6 +5,11 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_NODE_H
 #define DATASTRUCTURE_ALGORITHM_CPP_NODE_H
 
+/**
+ * @brief 结点POCO(Plain Ordinary Cpp Object)类
+ *
+ * @tparam E 元素类型
+ */
 template <typename E>
 class Node {
  private:
