@@ -14,22 +14,22 @@ template <typename E>
 class Node {
  private:
   E _element;
-  Node<E> _next;
+  Node<E>* _next;
 
  public:
   Node();
 
-  Node(const E& element);
+  explicit Node(const E& element);
 
-  Node(const E& elememt, Node<E>* next);
+  Node(const E& element, Node<E>* next);
 
-  void setElement(E element);
+  void setElement(const E& element);
 
-  void setNext(const Node<E>& next);
+  void setNext(Node<E>* next);//TODO:原来参数为(const Node<E>* next)
 
   E getElement() const;
 
-  Node<E>& getNext() const;
+  Node<E>* getNext() const;
 };
 
 #include "Node.cpp"
