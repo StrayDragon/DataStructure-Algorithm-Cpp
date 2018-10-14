@@ -7,12 +7,14 @@
 #include <vector>
 
 #include "../ADTs/ArrayList.h"
+#include "../ADTs/LinkedList.cpp"
 #include "../ADTs/exceptions/PreconditionFailedException.h"
 #include "../ADTs/interfaces/List.h"
 using namespace std;
 
-void testListMethod() {
-  List<int>* list = new ArrayList<int>();
+template <typename E>
+void ADTListTestMachine(List<E>* list) {
+  cout << flush << "\ttest target implementation : " << typeid(*list).name();
 
   assert(list->getLength() == 0 && list->isEmpty());
 
@@ -36,25 +38,25 @@ void testListMethod() {
     assert(list->getElementAt(i) == 5);
   }
 
-  try {
-    list->setElementAt(10, 1);
-  } catch (...) {
-  }
+  // list->setElementAt(10, 1);
 
-  // try {
-  list->getElementAt(list->getLength()+1);
-  // } catch (...) {
-  // }
+  // list->getElementAt(list->getLength() + 1);
 
   list->clear();
   assert(list->getLength() == 0 && list->isEmpty());
 
-  delete list;
+  cout << "\t\t==OK==" << endl;
 }
 
 int main() {
-  cout << "Hello! This is unit test main" << endl;
-  testListMethod();
+  cout << "Hello! This is unit test main." << endl;
+
+  auto* arrayList = new ArrayList<int>();
+  ADTListTestMachine(arrayList);
+
+  auto* linkedList = new LinkedList<int>();
+  ADTListTestMachine(linkedList);
+
   cout << "\nCONGRATULATIONS! ALL TESTS PASSED SUCCESSFULLY " << endl;
 
   return 0;
