@@ -20,7 +20,7 @@ void Node<E>::setElement(const E& element) {
 }
 
 template <typename E>
-void Node<E>::setNext(Node<E>* next) {//TODO:原来参数为(const Node<E>* next)
+void Node<E>::setNext(Node<E>* next) {
   _next = next;
 }
 

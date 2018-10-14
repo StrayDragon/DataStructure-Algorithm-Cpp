@@ -18,7 +18,9 @@ template <typename E>
 LinkedList<E>::LinkedList() : _elementsHeadPtr(nullptr), _length(0) {}
 
 template <typename E>
-LinkedList<E>::LinkedList(const LinkedList<E> &aLinkedList) {}
+LinkedList<E>::LinkedList(const LinkedList<E> &aLinkedList)
+    : _elementsHeadPtr(aLinkedList._elementsHeadPtr),
+      _length(aLinkedList._length) {}
 
 template <typename E>
 LinkedList<E>::~LinkedList() = default;
@@ -37,7 +39,6 @@ template <typename E>
 bool LinkedList<E>::insert(int newPosition, const E &element) {
   bool canInsert = 1 <= newPosition && newPosition <= _length + 1;
   if (canInsert) {
-    //    auto* node = new Node<E>(element);
     auto *node = new Node<E>(element);
     if (newPosition == 1) {
       //插入节点到链表头
@@ -76,8 +77,8 @@ bool LinkedList<E>::remove(int position) {
 
 template <typename E>
 void LinkedList<E>::clear() {
-  if(_length != 0){
-    for(int i = _length ; i >= 1 ;i--){
+  if (_length != 0) {
+    for (int i = _length; i >= 1; i--) {
       remove(i);
     }
     _length = 0;
@@ -86,10 +87,10 @@ void LinkedList<E>::clear() {
 
 template <typename E>
 E LinkedList<E>::getElementAt(int position) noexcept(false) {
-  if(1 <= position && position <= _length){
-    Node<E>* targetNode = _getNodeAt(position);
+  if (1 <= position && position <= _length) {
+    Node<E> *targetNode = _getNodeAt(position);
     return targetNode->getElement();
-  }else{
+  } else {
     std::string msg = std::string(typeid(this).name()) +
                       " 目标位置(position = " + std::to_string(position);
     msg += ")不符合条件,检查是否在区间[1,getLength()]中!";
@@ -99,10 +100,10 @@ E LinkedList<E>::getElementAt(int position) noexcept(false) {
 
 template <typename E>
 void LinkedList<E>::setElementAt(int position, E &&element) noexcept(false) {
-  if(1 <= position && position <= _length){
-    Node<E>* targetNode = _getNodeAt(position);
+  if (1 <= position && position <= _length) {
+    Node<E> *targetNode = _getNodeAt(position);
     return targetNode->setElement(element);
-  }else{
+  } else {
     std::string msg = std::string(typeid(this).name()) +
                       " 目标位置(position = " + std::to_string(position);
     msg += ")不符合条件,检查是否在区间[1,getLength()]中!";
