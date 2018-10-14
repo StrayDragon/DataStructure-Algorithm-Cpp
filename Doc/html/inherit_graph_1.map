@@ -1,5 +1,0 @@
-<map id="类继承关系图" name="类继承关系图">
-<area shape="rect" id="node1" href="$class_list.html" title="列表(List) 接口声明 " alt="" coords="5,31,81,57"/>
-<area shape="rect" id="node2" href="$class_array_list.html" title="ArrayList\&lt; E \&gt;" alt="" coords="133,5,240,32"/>
-<area shape="rect" id="node3" href="$class_linked_list.html" title="LinkedList\&lt; E \&gt;" alt="" coords="129,56,244,83"/>
-</map>
