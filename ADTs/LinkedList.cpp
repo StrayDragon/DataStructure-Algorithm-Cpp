@@ -20,10 +20,12 @@ LinkedList<E>::LinkedList() : _elementsHeadPtr(nullptr), _length(0) {}
 template <typename E>
 LinkedList<E>::LinkedList(const LinkedList<E> &aLinkedList)
     : _elementsHeadPtr(aLinkedList._elementsHeadPtr),
-      _length(aLinkedList._length) {}
+      _length(aLinkedList._length) {}  // TODO:浅拷贝,可能引发Bug
 
 template <typename E>
-LinkedList<E>::~LinkedList() = default;
+LinkedList<E>::~LinkedList() {
+  clear();
+}
 
 template <typename E>
 bool LinkedList<E>::isEmpty() const {

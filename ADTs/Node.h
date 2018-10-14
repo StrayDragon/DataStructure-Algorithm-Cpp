@@ -25,7 +25,7 @@ class Node {
 
   void setElement(const E& element);
 
-  void setNext(Node<E>* next);//TODO:原来参数为(const Node<E>* next)
+  void setNext(Node<E>* next);  // TODO:原来参数为(const Node<E>* next)
 
   E getElement() const;
 

@@ -1,8 +1,8 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_EXCEPTION
 #define DATASTRUCTURE_ALGORITHM_CPP_EXCEPTION
 #include <exception>
-#include <typeinfo>
 #include <string>
+#include <typeinfo>
 
 class Exception : public std::exception {
  public:

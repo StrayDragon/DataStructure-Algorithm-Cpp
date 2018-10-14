@@ -7,12 +7,12 @@
 
 #include "interfaces/Stack.h"
 
-const int MAX_CAPACITY = 10;
+const int MAX_STACK_CAPACITY = 10;
 
 template <typename E>
 class ArrayStack : public Stack<E> {
  private:
-  E _e[MAX_CAPACITY];
+  E _elements[MAX_STACK_CAPACITY];
   int _top;
 
  public:
@@ -20,12 +20,12 @@ class ArrayStack : public Stack<E> {
 
   bool isEmpty() const override;
 
-  bool push(const E &e) override;
+  bool push(const E &element) override;
 
   bool pop() override;
 
   E top() const override;
 };
 
-#include "ArrayBag.cpp"
+#include "ArrayStack.cpp"
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_ARRAYSTACK_H

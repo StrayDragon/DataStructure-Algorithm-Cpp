@@ -8,10 +8,10 @@ template <typename E>
 Node<E>::Node() : _next(nullptr) {}
 
 template <typename E>
-Node<E>::Node(const E &element) : _element(element), _next(nullptr) {}
+Node<E>::Node(const E& element) : _element(element), _next(nullptr) {}
 
 template <typename E>
-Node<E>::Node(const E &element, Node<E> *next)
+Node<E>::Node(const E& element, Node<E>* next)
     : _element(element), _next(next) {}
 
 template <typename E>

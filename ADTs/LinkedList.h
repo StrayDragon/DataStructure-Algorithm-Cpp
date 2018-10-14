@@ -23,6 +23,7 @@ class LinkedList : public List<E> {
    * @return Node<E>* 返回指向指定位置Node<E>指针
    */
   Node<E>* _getNodeAt(int position) const;
+
  public:
   LinkedList();
   LinkedList(const LinkedList<E>& aLinkedList);
@@ -39,14 +40,17 @@ class LinkedList : public List<E> {
   void clear() override;
 
   /**
-   * @throw PreconditionFailedException 若 position < 1 或者 position > getLength()
+   * @throw PreconditionFailedException 若 position < 1 或者 position >
+   * getLength()
    */
   E getElementAt(int position) noexcept(false) override;
 
   /**
-   * @throw PreconditionFailedException 若 position < 1 或者 position > getLength()
+   * @throw PreconditionFailedException 若 position < 1 或者 position >
+   * getLength()
    */
   void setElementAt(int position, E&& element) noexcept(false) override;
 };
 
+#include "LinkedList.cpp"
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_LINKEDLIST_H
