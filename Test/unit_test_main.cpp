@@ -15,10 +15,13 @@ using namespace std;
 template <typename E>
 void ADTListTestMachine(List<E>* list) {
   cout << flush << "\ttest target implementation : " << typeid(*list).name();
-
+  if (typeid(*list) == typeid(LinkedList<E>)) {
+    LinkedList<E> linkedListCopy;
+    list = new LinkedList<E>(linkedListCopy);
+  }
   assert(list->getLength() == 0 && list->isEmpty());
 
-  for (int i = 1; i <= 10; i++) list->insert(i, i);
+  for (int i = 1; i <= 10; i++) assert(list->insert(i, i) == true);
 
   assert(list->getLength() == 10);
 
@@ -37,10 +40,15 @@ void ADTListTestMachine(List<E>* list) {
   for (int i = 1; i <= 3; i++) {
     assert(list->getElementAt(i) == 5);
   }
+  try {
+    list->setElementAt(10, 1);
+  } catch (...) {
+  }
 
-  // list->setElementAt(10, 1);
-
-  // list->getElementAt(list->getLength() + 1);
+  try {
+    list->getElementAt(list->getLength() + 1);
+  } catch (...) {
+  }
 
   list->clear();
   assert(list->getLength() == 0 && list->isEmpty());
