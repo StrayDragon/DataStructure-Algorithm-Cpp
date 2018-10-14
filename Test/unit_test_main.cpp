@@ -21,7 +21,7 @@ void ADTListTestMachine(List<E>* list) {
   }
   assert(list->getLength() == 0 && list->isEmpty());
 
-  for (int i = 1; i <= 10; i++) assert(list->insert(i, i) == true);
+  for (int i = 1; i <= 10; i++) assert(list->insert(i, i));
 
   assert(list->getLength() == 10);
 
@@ -66,27 +66,27 @@ void ADTStackTestMachine(Stack<E>* stack) {
 
   if (typeid(*stack) == typeid(LinkedStack<E>)) {
     LinkedStack<E> linkedStackCopy;
-    assert(linkedStackCopy.push(1) == true);
+    assert(linkedStackCopy.push(1));
 
     stack = new LinkedStack<E>(linkedStackCopy);
-    assert(stack->pop() == true);
+    assert(stack->pop());
   }
 
-  assert(stack->isEmpty() == true);
+  assert(stack->isEmpty());
 
   for (int i = 0; i < MAX_STACK_CAPACITY; i++) {
-    assert(stack->push(i) == true);
+    assert(stack->push(i));
   }
   if (typeid(*stack) == typeid(ArrayStack<E>)) {
-    assert(stack->push(-1) == false);
+    assert(!stack->push(-1));
   }
 
   assert(stack->top() == MAX_STACK_CAPACITY - 1);
 
   for (int i = 0; i < MAX_STACK_CAPACITY; i++) {
-    assert(stack->pop() == true);
+    assert(stack->pop());
   }
-  assert(stack->pop() == false);
+  assert(!stack->pop());
 
   cout << "\t\t==OK==" << endl;
 }
