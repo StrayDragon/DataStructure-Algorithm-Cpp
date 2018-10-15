@@ -17,7 +17,7 @@ void ADTListTestMachine(List<E>* list) {
   cout << flush << "\ttest target implementation : " << typeid(*list).name();
   if (typeid(*list) == typeid(LinkedList<E>)) {
     LinkedList<E> linkedListCopy;
-    list = new LinkedList<E>(linkedListCopy);  // TODO:浅拷贝
+    list = new LinkedList<E>(linkedListCopy);  // 浅拷贝
   }
   assert(list->getLength() == 0 && list->isEmpty());
 
@@ -68,7 +68,7 @@ void ADTStackTestMachine(Stack<E>* stack) {
     LinkedStack<E> linkedStackCopy;
     assert(linkedStackCopy.push(1));
 
-    stack = new LinkedStack<E>(linkedStackCopy);
+    stack = new LinkedStack<E>(linkedStackCopy);  //深拷贝
     assert(stack->pop());
   }
 
@@ -91,6 +91,32 @@ void ADTStackTestMachine(Stack<E>* stack) {
   cout << "\t\t==OK==" << endl;
 }
 
+#include "../ADTs/ArrayQueue.h"
+#include "../ADTs/interfaces/Queue.h"
+
+template <typename E>
+void ADTQueueTestMachine(Queue<E>* queue) {
+  cout << flush << "\ttest target implementation : " << typeid(*queue).name();
+
+  assert(queue->isEmpty());
+
+  for (int i = 0; i < MAX_QUEUE_CAPACITY; i++) {
+    assert(queue->enqueue(i));
+  }
+
+  if (typeid(*queue) == typeid(ArrayQueue<E>)) {
+    assert(!queue->enqueue(-1));
+  }
+
+  for (int i = 0; i < MAX_QUEUE_CAPACITY; i++) {
+    assert(queue->front() == i);
+    assert(queue->dequeue());
+  }
+  assert(!queue->dequeue());
+
+  cout << "\t\t==OK==" << endl;
+}
+
 int main() {
   cout << "Hello! This is unit test main.\n" << endl;
 
@@ -105,6 +131,9 @@ int main() {
 
   auto* linkedStack = new LinkedStack<int>();
   ADTStackTestMachine(linkedStack);
+
+  auto* arrayQueue = new ArrayQueue<int>();
+  ADTQueueTestMachine(arrayQueue);
 
   cout << "\nCONGRATULATIONS! ALL TESTS PASSED SUCCESSFULLY " << endl;
   return 0;
