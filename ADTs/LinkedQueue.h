@@ -5,7 +5,7 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_LINKEDQUEUE_H
 #define DATASTRUCTURE_ALGORITHM_CPP_LINKEDQUEUE_H
 
-#include "LinkedList.h"
+#include "Node.h"
 #include "interfaces/Queue.h"
 
 template <typename E>
