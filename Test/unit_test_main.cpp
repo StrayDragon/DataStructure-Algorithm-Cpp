@@ -83,7 +83,8 @@ void ADTStackTestMachine(Stack<E>* stack) {
 
   assert(stack->top() == MAX_STACK_CAPACITY - 1);
 
-  for (int i = 0; i < MAX_STACK_CAPACITY; i++) {
+  for (int i = MAX_STACK_CAPACITY - 1; i >= 0; i--) {
+    assert(stack->top() == i);
     assert(stack->pop());
   }
   assert(!stack->pop());
@@ -92,11 +93,20 @@ void ADTStackTestMachine(Stack<E>* stack) {
 }
 
 #include "../ADTs/ArrayQueue.h"
+#include "../ADTs/LinkedQueue.h"
 #include "../ADTs/interfaces/Queue.h"
 
 template <typename E>
 void ADTQueueTestMachine(Queue<E>* queue) {
   cout << flush << "\ttest target implementation : " << typeid(*queue).name();
+  // if (typeid(*queue) == typeid(LinkedQueue<E>)) {
+  //   {
+  //     LinkedQueue<E> linkedQueue;
+  //     linkedQueue.enqueue(1);
+  //     queue = new LinkedQueue<E>(linkedQueue);
+  //   }
+  //   assert(queue->dequeue());
+  // }//FIXME:LinkedQueue<E>拷贝构造函数有点问题,见定义处注释
 
   assert(queue->isEmpty());
 
@@ -134,6 +144,9 @@ int main() {
 
   auto* arrayQueue = new ArrayQueue<int>();
   ADTQueueTestMachine(arrayQueue);
+
+  auto* linkedQueue = new LinkedQueue<int>();
+  ADTQueueTestMachine(linkedQueue);
 
   cout << "\nCONGRATULATIONS! ALL TESTS PASSED SUCCESSFULLY " << endl;
   return 0;
