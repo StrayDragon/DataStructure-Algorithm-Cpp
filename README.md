@@ -5,7 +5,7 @@ A library of Data Structure And Algorithm implemented by C++
 ## Code
 - [x] ADT List and implementations ( ArrayList , LinkedList )
 - [x] ADT Stack and implementations ( ArrayList , LinkedList )
-- [ ] ADT Queue and implementations ( ArrayQueue , LinkedQueue , ListQueue )
+- [X] ADT Queue and implementations ( ArrayQueue , LinkedQueue , ListQueue )
 
 ## Style
 - Code Specification
@@ -17,8 +17,8 @@ A library of Data Structure And Algorithm implemented by C++
     - **C++11**
   - [ ] Target compiler:
     - **G++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0**
-  - [ ] Target Platform
-    - Linux
+  - [x] Target Platform
+    - **Linux**
 - Design principle
 - ......
 
