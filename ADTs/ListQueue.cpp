@@ -4,37 +4,38 @@
 
 #include "ListQueue.h"
 
-template<typename E>
+template <typename E>
 ListQueue<E>::ListQueue() {
-
+  _elementsPtr = new LinkedList<E>();
 }
 
-template<typename E>
-ListQueue<E>::ListQueue(const ListQueue &listQueue) {
+template <typename E>
+ListQueue<E>::ListQueue(const ListQueue &listQueue)
+    : _elementsPtr(listQueue._elementsPtr) {}
 
-}
+template <typename E>
+ListQueue<E>::~ListQueue() {}
 
-template<typename E>
-ListQueue<E>::~ListQueue() {
-
-}
-
-template<typename E>
+template <typename E>
 bool ListQueue<E>::isEmpty() const {
-	return false;
+  return _elementsPtr->isEmpty();
 }
 
-template<typename E>
+template <typename E>
 bool ListQueue<E>::enqueue(const E &element) {
-	return false;
+  return _elementsPtr->insert(_elementsPtr->getLength() + 1, element);
 }
 
-template<typename E>
+template <typename E>
 bool ListQueue<E>::dequeue() {
-	return false;
+  return _elementsPtr->remove(1);
 }
 
-template<typename E>
-E ListQueue<E>::front() const noexcept(false){
-	return E();
+template <typename E>
+E ListQueue<E>::front() const noexcept(false) {
+  if (isEmpty())
+    throw PreconditionFailedException(std::string(typeid(this).name()) +
+                                      " front():队列为空\n");
+
+  return _elementsPtr->getElementAt(1);
 }
