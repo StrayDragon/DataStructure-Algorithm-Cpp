@@ -18,9 +18,11 @@ template <typename E>
 LinkedList<E>::LinkedList() : _elementsHeadPtr(nullptr), _length(0) {}
 
 template <typename E>
-LinkedList<E>::LinkedList(const LinkedList<E> &aLinkedList)
-    : _elementsHeadPtr(aLinkedList._elementsHeadPtr),
-      _length(aLinkedList._length) {}  // TODO:浅拷贝,可能引发Bug
+LinkedList<E>::LinkedList(const LinkedList<E> &linkedList) {
+  for (int i = 1; i < linkedList._length; ++i) {
+    insert(i,(linkedList._elementsHeadPtr)->getElement());
+  }
+}
 
 template <typename E>
 LinkedList<E>::~LinkedList() {

@@ -26,7 +26,7 @@ class LinkedList : public List<E> {
 
  public:
   LinkedList();
-  LinkedList(const LinkedList<E>& aLinkedList);
+  LinkedList(const LinkedList<E>& linkedList);
   virtual ~LinkedList();
 
   bool isEmpty() const override;
