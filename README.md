@@ -1,16 +1,33 @@
 # DataStructure-Algorithm-Cpp
 A library of Data Structure And Algorithm implemented by C++
 
+# UML Class Relation Diagram
+![](https://s1.ax1x.com/2018/10/15/iaQrRI.png)
+
 # TODO
 ## Code
-- [x] ADT List and implementations ( ArrayList , LinkedList )
-- [x] ADT Stack and implementations ( ArrayList , LinkedList )
-- [X] ADT Queue and implementations ( ArrayQueue , LinkedQueue , ListQueue )
-
+- [x] ADT **List** and implementations : 
+    - [x] **ArrayList**
+    - [x] **LinkedList** 
+- [x] ADT **Stack** and implementations :
+    - [x] **ArrayList**
+    - [x] **LinkedList**
+- [X] ADT Queue and implementations :
+    - [x] ArrayQueue
+    - [x] LinkedQueue
+    - [x] ListQueue
+- [ ] ADT BinaryTree and implementations : 
+    - [ ] BinaryNodeTree
+    - [ ] BinarySearchTree
+- [ ] ADT Heap and implementations : 
+    - [ ] ...
+- [ ] ADT Graph and implementations : 
+    - [ ] ...
+    
 ## Style
 - Code Specification
   - [x] Identifier(Class:private,public,method...)
-    - **Java Style** but private members have prefix '**_**'
+    - **Java Style** but private/protected members have prefix '**_**'
   - [x] Indent and auto format style...
     - **`clang-format`** : **Google**
   - [x] C++ version
@@ -19,12 +36,12 @@ A library of Data Structure And Algorithm implemented by C++
     - **G++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0**
   - [x] Target Platform
     - **Linux**
+    
 - Design principle
 - ......
 
 ## Bugs:
-- [ ] [Weird Segmentation Fault]
+- [ ] (1) Weird Segmentation Fault [See report issue](https://github.com/Straydragonl/DataStructure-Algorithm-Cpp/issues/1)
   - When: Test the LinkedQueue<E> copy constructor When `new` a Node<E> 
-  - Error1: Segmentation Fault (G++)
-  - Error2: Not expect result (Clang++)
-    - [See report issue](https://github.com/Straydragonl/DataStructure-Algorithm-Cpp/issues/1)
+      - Error1: Segmentation Fault (G++)
+      - Error2: Not expect result (Clang++)
