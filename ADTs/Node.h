@@ -17,48 +17,19 @@ class Node {
   Node<E>* _next;
 
  public:
-  Node();
+  Node() : _next(nullptr){};
 
-  explicit Node(const E& element);
+  explicit Node(const E& element) : _element(element), _next(nullptr) {}
 
-  Node(const E& element, Node<E>* next);
+  Node(const E& element, Node<E>* next) : _element(element), _next(next) {}
 
-  void setElement(const E& element);
+  void setElement(const E& element) { _element = element; }
 
-  void setNext(Node<E>* next);  // TODO:原来参数为(const Node<E>* next)
+  void setNext(Node<E>* next) { _next = next; }
 
-  E getElement() const;
-
-  Node<E>* getNext() const;
+  E getElement() const { return _element; }
+  
+  Node<E>* getNext() const { return _next; }
 };
-template <typename E>
-Node<E>::Node() : _next(nullptr) {}
-
-template <typename E>
-Node<E>::Node(const E& element) : _element(element), _next(nullptr) {}
-
-template <typename E>
-Node<E>::Node(const E& element, Node<E>* next)
-				: _element(element), _next(next) {}
-
-template <typename E>
-void Node<E>::setElement(const E& element) {
-	_element = element;
-}
-
-template <typename E>
-void Node<E>::setNext(Node<E>* next) {
-	_next = next;
-}
-
-template <typename E>
-E Node<E>::getElement() const {
-	return _element;
-}
-
-template <typename E>
-Node<E>* Node<E>::getNext() const {
-	return _next;
-}
 
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_NODE_H
