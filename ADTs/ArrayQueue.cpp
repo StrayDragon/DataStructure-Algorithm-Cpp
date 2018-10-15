@@ -42,7 +42,9 @@ bool ArrayQueue<E>::dequeue() {
 
 template <typename E>
 E ArrayQueue<E>::front() const noexcept(false) {
-  if (isEmpty()) throw PreconditionFailedException("队列为空!");
+  if (isEmpty())
+    throw PreconditionFailedException(std::string(typeid(this).name()) +
+                                      " :队列为空\n");
 
   return _elements[_head];
 }
