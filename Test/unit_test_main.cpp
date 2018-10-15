@@ -99,14 +99,14 @@ void ADTStackTestMachine(Stack<E>* stack) {
 template <typename E>
 void ADTQueueTestMachine(Queue<E>* queue) {
   cout << flush << "\ttest target implementation : " << typeid(*queue).name();
-  // if (typeid(*queue) == typeid(LinkedQueue<E>)) {
-  //   {
-  //     LinkedQueue<E> linkedQueue;
-  //     linkedQueue.enqueue(1);
-  //     queue = new LinkedQueue<E>(linkedQueue);
-  //   }
-  //   assert(queue->dequeue());
-  // }//FIXME:LinkedQueue<E>拷贝构造函数有点问题,见定义处注释
+//   if (typeid(*queue) == typeid(LinkedQueue<E>)) {
+//     {
+//       LinkedQueue<E> linkedQueue;
+//       linkedQueue.enqueue(1);
+//       queue = new LinkedQueue<E>(linkedQueue);
+//     }
+//     assert(queue->dequeue());
+//   }//FIXME:LinkedQueue<E>拷贝构造函数有点问题,见定义处注释
 
   assert(queue->isEmpty());
 
