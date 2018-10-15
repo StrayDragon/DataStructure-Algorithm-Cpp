@@ -11,12 +11,13 @@
 template <typename E>
 class LinkedQueue : public Queue<E> {
  private:
-  LinkedList<E>* elememtsListPtr;
+  Node<E>* _headPtr;
+  Node<E>* _rearPtr;
 
  public:
   LinkedQueue();
 
-  LinkedQueue(const E& elememtsListPtr);
+  LinkedQueue(const E& linkedQueue);
 
   virtual ~LinkedQueue();
 
@@ -26,7 +27,8 @@ class LinkedQueue : public Queue<E> {
 
   bool dequeue() override;
 
-  E front() const throw(PreconditionFailedException) override;
+  E front() const noexcept(false) override;
 };
 
+#include "LinkedQueue.cpp"
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_LINKEDQUEUE_H
