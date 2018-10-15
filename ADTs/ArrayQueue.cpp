@@ -44,7 +44,7 @@ template <typename E>
 E ArrayQueue<E>::front() const noexcept(false) {
   if (isEmpty())
     throw PreconditionFailedException(std::string(typeid(this).name()) +
-                                      " :队列为空\n");
+                                      " front():队列为空\n");
 
   return _elements[_head];
 }
