@@ -6,23 +6,33 @@ A library of Data Structure And Algorithm implemented by C++
 
 # TODO
 ## Code
-- [x] ADT **List** and implementations : 
+### ADTs
+- [x] **List** and implementations : 
     - [x] **ArrayList**
     - [x] **LinkedList** 
-- [x] ADT **Stack** and implementations :
+- [x] **Stack** and implementations :
     - [x] **ArrayList**
     - [x] **LinkedList**
-- [X] ADT Queue and implementations :
-    - [x] ArrayQueue
-    - [x] LinkedQueue
-    - [x] ListQueue
-- [ ] ADT BinaryTree and implementations : 
-    - [ ] BinaryNodeTree
-    - [ ] BinarySearchTree
-- [ ] ADT Heap and implementations : 
+- [X] **Queue** and implementations :
+    - [x] **ArrayQueue**
+    - [x] **LinkedQueue**
+    - [x] **ListQueue**
+- [ ] **BinaryTree** and implementations : 
+    - [ ] **BinaryNodeTree**
+    - [ ] **BinarySearchTree**
+- [ ] **Heap** and implementations : 
     - [ ] ...
-- [ ] ADT Graph and implementations : 
+- [ ] **Graph** and implementations : 
     - [ ] ...
+    
+### Algorithms
+- Basic on raw type `[]` sort algorithms:
+    - [ ] **selectionSort**
+    - [ ] **bubbleSort**
+    - [ ] **insertionSort**
+    - [ ] **mergeSort**
+    - [ ] **quickSort**
+    - [ ] **radixSort**
     
 ## Style
 - Code Specification
@@ -41,7 +51,7 @@ A library of Data Structure And Algorithm implemented by C++
 - ......
 
 ## Bugs:
-- [ ] (1) Weird Segmentation Fault [See report issue](https://github.com/Straydragonl/DataStructure-Algorithm-Cpp/issues/1)
-  - When: Test the LinkedQueue<E> copy constructor When `new` a Node<E> 
+- [ ] **[1]** Weird Segmentation Fault [See report issue](https://github.com/Straydragonl/DataStructure-Algorithm-Cpp/issues/1)
+  - When: Test the LinkedQueue<E> copy constructor When `new` a Node\<E\> 
       - Error1: Segmentation Fault (G++)
       - Error2: Not expect result (Clang++)
