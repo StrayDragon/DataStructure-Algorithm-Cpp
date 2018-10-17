@@ -7,7 +7,7 @@
 
 #include "Node.h"
 #include "interfaces/Queue.h"
-
+#include "exceptions/PreconditionFailedException.h"
 template <typename E>
 class LinkedQueue : public Queue<E> {
  private:
@@ -17,7 +17,7 @@ class LinkedQueue : public Queue<E> {
  public:
   LinkedQueue();
 
-  LinkedQueue(const E& linkedQueue);
+  explicit LinkedQueue(const E& linkedQueue);
 
   virtual ~LinkedQueue();
 
@@ -27,7 +27,7 @@ class LinkedQueue : public Queue<E> {
 
   bool dequeue() override;
 
-  E front() const noexcept(false) override;
+  E front() const noexcept(false) override; //throw PreconditionFailedException
 };
 
 #include "LinkedQueue.cpp"
