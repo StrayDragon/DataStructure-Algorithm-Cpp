@@ -32,14 +32,14 @@ A library of Data Structure And Algorithm implemented by C++
     - [x] **insertionSort**
     - [x] **mergeSort**
     - [x] **quickSort**
-    - [ ] **radixSort**
+    - [x] **radixSort**
     
 ## Style
 - Code Specification
   - [x] Identifier(Class:private,public,method...)
     - **Java Style** but private/protected members have prefix '**_**'
   - [x] Indent and auto format style...
-    - **`clang-format`** : **Google**
+    - **`clang-format -style=Google`**
   - [x] C++ version
     - **C++11**
   - [x] Target compiler:
