@@ -2,8 +2,9 @@
 // Created by straydragon on 18-10-16.
 //
 
-#include "BasicRawArraySort.h"
+#include "RawArraySort.h"
 #include <algorithm>
+#include <typeinfo>
 
 int RawArray::SortBy::HelperFunc::findIndexOfLargest(
     const RawArray::ElementType *targetArray, int size) {
@@ -41,8 +42,8 @@ void RawArray::SortBy::bubbleSort(RawArray::ElementType *targetArray,
     }
 #ifdef DEBUG
 
-    for (int i = 0; i < n - pass; i++) {
-      assert(targetArray[i] < targetArray[n - pass]);
+    for (int i = 0; i < size - pass; i++) {
+      assert(targetArray[i] < targetArray[size - pass]);
     }
 
 #endif
@@ -126,7 +127,26 @@ void RawArray::SortBy::mergeSort(RawArray::ElementType *targetArray, int first,
 
 int RawArray::SortBy::HelperFunc::partition(RawArray::ElementType *targetArray,
                                             int first, int last) {
-  return (first + last) / 2;  // TODO:偷懒的分区算法
+  // 把原数组的第一个元素 targetArray[first]
+  // 中间元素             targetArray[(last - first) / 2]
+  // 最后一个元素         targetArray[last]
+  // 按元素大小排序,最后返回三元素排序后的中间位置元素下标
+  int mid = (last - first) / 2;
+  if (targetArray[first] > targetArray[mid]) {
+    std::swap(targetArray[first], targetArray[mid]);
+  }
+#ifdef DEBUG
+  std::cout << targetArray[first] << " " << targetArray[mid] << " "
+            << targetArray[last] << std::endl;
+#endif
+  if (targetArray[mid] > targetArray[last]) {
+    std::swap(targetArray[mid], targetArray[last]);
+  }
+#ifdef DEBUG
+  std::cout << targetArray[first] << " " << targetArray[mid] << " "
+            << targetArray[last] << std::endl;
+#endif
+  return mid;
 }
 
 void RawArray::SortBy::quickSort(RawArray::ElementType *targetArray, int first,
@@ -141,6 +161,32 @@ void RawArray::SortBy::quickSort(RawArray::ElementType *targetArray, int first,
 }
 
 void RawArray::SortBy::radixSort(RawArray::ElementType *targetArray, int size,
-                                 int d) {
-  return;  // TODO:等待实现
+                                 int digits) {
+  if (typeid(targetArray[0]) == typeid(int)) {
+    //创建10个桶（队列）分别给每个数位（0到9）
+    LinkedQueue<ElementType> queue[10];
+    int nDigitValue;
+    //遍历每个数位
+    for (int n = 1; n <= digits; ++n) {
+      for (int i = 0; i < size; ++i) {
+        //遍历数列中的每个元素,指示下标(i)
+        nDigitValue = HelperFunc::countSpecificDigitOfNumber(targetArray[i], n);
+        //并将元素移至相应的桶中
+        queue[nDigitValue].enqueue(targetArray[i]);
+      }
+      //在每个桶中，从最小的数位(j)开始
+      for (int j = 0, k = 0; j < 10; ++j) {
+        //当桶不是空的
+        while (!((queue[j]).isEmpty())) {
+          //将元素恢复至数列中,元素下标(k)
+          targetArray[k] = queue[j].front();
+          queue[j].dequeue();
+          //将元素下标(k)递增1,到下一元素
+          ++k;
+        }
+      }
+    }
+  } else {
+    return;
+  }
 }

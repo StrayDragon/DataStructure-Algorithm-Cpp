@@ -4,6 +4,7 @@
 
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_BASICRAWARRAYSORT_H
 #define DATASTRUCTURE_ALGORITHM_CPP_BASICRAWARRAYSORT_H
+#include "../ADTs/LinkedQueue.h"
 
 /**
  * @brief 命名空间::定义类型别名
@@ -17,7 +18,7 @@ using ElementType = int;
  *
  */
 const int MAX_SIZE = 10;
-const int MIN_SIZE = 10;
+const int MIN_SIZE = 4;
 /**
  * @brief 命名空间::排序方式
  * 排序默认为升序
@@ -123,14 +124,30 @@ int partition(ElementType targetArray[], int first, int last);
 /**
  * @brief 基数排序(桶排序)
  *
+ * @pre digits ==  数组最大元素的位数
  * @post 升序排序完成,目标数组元素数量不变
  * @param targetArray 目标数组
  * @param size 元素数量
- * @param d 元素位数
+ * @param digits 元素位数
  */
-void radixSort(ElementType targetArray[], int size, int d);
+void radixSort(ElementType targetArray[], int size, int digits);
+namespace HelperFunc {
+inline int powExcludePower0(int base, int power) {
+  int sum = 1;
+  for (int i = 0; i < power; ++i) sum *= base;
+  return sum;
+}
+inline int countSpecificDigitOfNumber(int target, int digit) {
+  if (digit == 1 || digit == 0) {
+    return target % 10 / 1;
+  } else {
+    return target % (powExcludePower0(10, digit)) /
+           (powExcludePower0(10, digit - 1));
+  }
+}
+}
 }  // namespace SortBy
 }  // namespace RawArray
 
-#include "BasicRawArraySort.cpp"
+#include "RawArraySort.cpp"
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_BASICRAWARRAYSORT_H
