@@ -27,11 +27,11 @@ A library of Data Structure And Algorithm implemented by C++
     
 ### Algorithms
 - Basic on raw type `[]` sort algorithms:
-    - [ ] **selectionSort**
-    - [ ] **bubbleSort**
-    - [ ] **insertionSort**
-    - [ ] **mergeSort**
-    - [ ] **quickSort**
+    - [x] **selectionSort**
+    - [x] **bubbleSort**
+    - [x] **insertionSort**
+    - [x] **mergeSort**
+    - [x] **quickSort**
     - [ ] **radixSort**
     
 ## Style
@@ -42,7 +42,7 @@ A library of Data Structure And Algorithm implemented by C++
     - **`clang-format`** : **Google**
   - [x] C++ version
     - **C++11**
-  - [ ] Target compiler:
+  - [x] Target compiler:
     - **G++ (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0**
   - [x] Target Platform
     - **Linux**
