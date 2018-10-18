@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/straydragon/GitHubRepo/DataStructure-Algorithm-Cpp/build",
-  "command": "/usr/bin/g++-7    -g   -std=gnu++11 -o CMakeFiles/DataStructure-Algorithm-Cpp.dir/Test/unit_test_main.cpp.o -c /home/straydragon/GitHubRepo/DataStructure-Algorithm-Cpp/Test/unit_test_main.cpp",
-  "file": "/home/straydragon/GitHubRepo/DataStructure-Algorithm-Cpp/Test/unit_test_main.cpp"
-}
-]

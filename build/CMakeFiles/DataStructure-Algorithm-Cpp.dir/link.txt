@@ -1,1 +1,0 @@
-/usr/bin/g++-7  -g   CMakeFiles/DataStructure-Algorithm-Cpp.dir/Test/unit_test_main.cpp.o  -o DataStructure-Algorithm-Cpp 
