@@ -39,7 +39,7 @@ A library of Data Structure And Algorithm implemented by C++
   - [x] Identifier(Class:private,public,method...)
     - **Java Style** but private/protected members have prefix '**_**'
   - [x] Indent and auto format style...
-    - **`clang-format -style=Google`**
+    - **`clang-format -style=Chromium`**
   - [x] C++ version
     - **C++11**
   - [x] Target compiler:
