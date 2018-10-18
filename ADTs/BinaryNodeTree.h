@@ -32,7 +32,7 @@ class BinaryNodeTree : public BinaryTree<E> {
 
   BinaryNode<E>* _findNode(BinaryNode<E>* treePtr,
                            const E& target,
-                           bool& success);
+                           bool&& success);
 
   BinaryNode<E>* _copyTree(const BinaryNode<E>* treePtr) const;
 
@@ -63,10 +63,11 @@ class BinaryNodeTree : public BinaryTree<E> {
 
   int getNumberOfNodes() const override;
 
-  E getRootElement() const
-      noexcept(false) override;  // throw PreconditionFailedException
+  /// @throw PreconditionFailedException
+  E getRootElement() const noexcept(false) override;
 
-  void setRootElement(const E& element) override;
+  /// @throw PreconditionFailedException
+  void setRootElement(const E& element) noexcept(false) override;
 
   bool add(const E& element) override;
 
