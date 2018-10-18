@@ -5,6 +5,11 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_BINARYNODE_H
 #define DATASTRUCTURE_ALGORITHM_CPP_BINARYNODE_H
 
+/**
+ * @brief 二叉树基于链表(自引用)形式的树结点实现
+ * 
+ * @tparam E 元素类型
+ */
 template <typename E>
 class BinaryNode {
  private:

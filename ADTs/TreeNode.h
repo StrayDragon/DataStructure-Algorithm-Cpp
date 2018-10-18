@@ -5,6 +5,11 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_TREENODEC_H
 #define DATASTRUCTURE_ALGORITHM_CPP_TREENODEC_H
 
+/**
+ * @brief 二叉树基于数组(下标规约)形式树结点实现
+ *
+ * @tparam E 元素类型
+ */
 template <typename E>
 class TreeNode {
  private:
