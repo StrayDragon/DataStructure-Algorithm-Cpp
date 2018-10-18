@@ -122,7 +122,7 @@ namespace HelperFunc {
 int partition(ElementType targetArray[], int first, int last);
 }  // namespace HelperFunc
 /**
- * @brief 基数排序(桶排序)
+ * @brief 基数排序
  *
  * @pre digits ==  数组最大元素的位数
  * @post 升序排序完成,目标数组元素数量不变
