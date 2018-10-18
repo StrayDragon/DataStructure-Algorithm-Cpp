@@ -21,7 +21,8 @@ void ADTListTestMachine(List<E>* list) {
   }
   assert(list->getLength() == 0 && list->isEmpty());
 
-  for (int i = 1; i <= 10; i++) assert(list->insert(i, i));
+  for (int i = 1; i <= 10; i++)
+    assert(list->insert(i, i));
 
   assert(list->getLength() == 10);
 
@@ -126,8 +127,56 @@ void ADTQueueTestMachine(Queue<E>* queue) {
   cout << "\t\t==OK==" << endl;
 }
 
+#include "../ADTs/BinaryNodeTree.h"
+#include "../ADTs/BinarySearchTree.h"
+#include "../ADTs/interfaces/BinaryTree.h"
+
+template <typename E>
+void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
+  int nodeValue[] = {41, 20, 65, 50, 91, 72, 99, 11, 29, 32};
+  int length = sizeof(arr) / sizeof(int);
+
+  assert(binaryTree->isEmpty());
+  assert(binaryTree->getHeight() == 0);
+
+  for (int i = 0; i < 10; i++) {
+    assert(binaryTree->add(nodeValue(i)));
+    assert(binaryTree->getNumberOfNodes() == i);
+  }
+  assert(binaryTree->getHeight() == 4);
+  assert(binaryTree->getRootElement() == nodeValue[0]);
+
+  // FIXME:根节点的值需要满足一些条件,在二叉搜索树中
+  binaryTree->setRootElement(50);
+  assert(binaryTree->getRootElement() == 50);
+
+  // if (typeid(*binaryTree) == typeid(BinarySearchTree<E>)) {
+  //   int preorderAnswer[] = {41, 20, 11, 29, 32, 65, 50, 91, 72, 99};
+  //   int inorderAnsewer[] = {11, 20, 29, 32, 41, 50, 65, 72, 91, 99};
+  //   int postorderAnswer[] = {11, 32, 29, 20, 50, 72, 99, 91, 65, 41};
+  //   int levelorderAnswer[] = {41, 20, 65, 11, 29, 50, 91, 32, 72, 99};
+
+  //   binaryTree->preorderTraverse(nullptr);
+  //   binaryTree->inorderTraverse(nullptr);
+  //   binaryTree->postorderTraverse(nullptr);
+  // }
+
+  for (int i = 1; i <= 5; i++) {
+    if (binaryTree->contains(i)) {
+      assert(binaryTree->remove(i));
+    }
+  }
+
+  for (int i = 6; i <= 10; i++) {
+    assert(binaryTree->remove(binaryTree->getElement(i)));
+  }
+
+  binaryTree->clear();
+  assert(binaryTree->isEmpty());
+}
+
 int main() {
-  cout << "Hello! This is unit test main.\n" << endl;
+  cout << "Hello! Unit Tests Main() ...\n" << endl;
 
   auto* arrayList = new ArrayList<int>();
   ADTListTestMachine(arrayList);
@@ -149,6 +198,12 @@ int main() {
 
   auto* listQueue = new ListQueue<int>();
   ADTQueueTestMachine(listQueue);
+
+  auto* binaryNodeTree = new BinaryNodeTree<int>();
+  ADTBinaryTreeTestMachine(binaryNodeTree);
+
+  // auto* binarySearchTree = new BinarySearchTree<int>();
+  // ADTBinaryTreeTestMachine(binarySearchTree)
 
   cout << "\nCONGRATULATIONS! ALL TESTS PASSED SUCCESSFULLY " << endl;
   return 0;
