@@ -28,7 +28,7 @@ class Node {
   void setNext(Node<E>* next) { _next = next; }
 
   E getElement() const { return _element; }
-  
+
   Node<E>* getNext() const { return _next; }
 };
 

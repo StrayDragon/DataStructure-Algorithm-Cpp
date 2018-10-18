@@ -5,29 +5,29 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_LISTQUEUE_H
 #define DATASTRUCTURE_ALGORITHM_CPP_LISTQUEUE_H
 
+#include "LinkedList.h"
 #include "exceptions/PreconditionFailedException.h"
 #include "interfaces/Queue.h"
-#include "LinkedList.h"
 
-//P389
+// P389
 template <typename E>
-class ListQueue  : public Queue<E>{
-private:
-		LinkedList<E>* _elementsPtr;
+class ListQueue : public Queue<E> {
+ private:
+  LinkedList<E>* _elementsPtr;
 
-public:
-		ListQueue();
-		ListQueue(const ListQueue& listQueue);
-		~ListQueue();
+ public:
+  ListQueue();
+  ListQueue(const ListQueue& listQueue);
+  ~ListQueue();
 
-		bool isEmpty() const override ;
+  bool isEmpty() const override;
 
-		bool enqueue(const E &element) override;
+  bool enqueue(const E& element) override;
 
-		bool dequeue() override ;
+  bool dequeue() override;
 
-		E front() const noexcept(false) override ;
+  E front() const noexcept(false) override;
 };
 
 #include "ListQueue.cpp"
-#endif //DATASTRUCTURE_ALGORITHM_CPP_LISTQUEUE_H
+#endif  // DATASTRUCTURE_ALGORITHM_CPP_LISTQUEUE_H

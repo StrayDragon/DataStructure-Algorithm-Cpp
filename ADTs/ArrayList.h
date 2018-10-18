@@ -22,7 +22,7 @@ class ArrayList : public List<E> {
 
   bool isEmpty() const override;
   int getLength() const override;
-  bool insert(int newPosition, const E &element) override;
+  bool insert(int newPosition, const E& element) override;
 
   bool remove(int position) override;
 
@@ -31,7 +31,7 @@ class ArrayList : public List<E> {
   // TODO:这俩货的命名改成get/setElementLogicallyAt会不会更好些2333333
   E getElementAt(int position) noexcept(false) override;
 
-  void setElementAt(int position, E &&element) noexcept(false) override;
+  void setElementAt(int position, E&& element) noexcept(false) override;
 };
 
 #include "ArrayList.cpp"

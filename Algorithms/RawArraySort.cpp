@@ -7,7 +7,8 @@
 #include <typeinfo>
 
 int RawArray::SortBy::HelperFunc::findIndexOfLargest(
-    const RawArray::ElementType *targetArray, int size) {
+    const RawArray::ElementType* targetArray,
+    int size) {
   int guessBiggestIndex = 0;
 
   for (int cur = 1; cur < size; cur++) {
@@ -17,7 +18,7 @@ int RawArray::SortBy::HelperFunc::findIndexOfLargest(
   return guessBiggestIndex;
 }
 
-void RawArray::SortBy::selectionSort(RawArray::ElementType *targetArray,
+void RawArray::SortBy::selectionSort(RawArray::ElementType* targetArray,
                                      int size) {
   int biggestIndex;
   for (int last = size - 1; last >= 1; last--) {
@@ -26,7 +27,7 @@ void RawArray::SortBy::selectionSort(RawArray::ElementType *targetArray,
   }
 }
 
-void RawArray::SortBy::bubbleSort(RawArray::ElementType *targetArray,
+void RawArray::SortBy::bubbleSort(RawArray::ElementType* targetArray,
                                   int size) {
   bool sorted = false;
   int pass = 1;
@@ -51,7 +52,7 @@ void RawArray::SortBy::bubbleSort(RawArray::ElementType *targetArray,
   }
 }
 
-void RawArray::SortBy::insertionSort(RawArray::ElementType *targetArray,
+void RawArray::SortBy::insertionSort(RawArray::ElementType* targetArray,
                                      int size) {
   for (int unsorted = 0; unsorted < size; unsorted++) {
     ElementType nextElement = targetArray[unsorted];
@@ -65,7 +66,8 @@ void RawArray::SortBy::insertionSort(RawArray::ElementType *targetArray,
   }
 }
 
-void RawArray::SortBy::insertionSort(ElementType targetArray[], int first,
+void RawArray::SortBy::insertionSort(ElementType targetArray[],
+                                     int first,
                                      int last) {
   for (int unsorted = first; unsorted <= last; unsorted++) {
     ElementType nextElement = targetArray[unsorted];
@@ -79,8 +81,10 @@ void RawArray::SortBy::insertionSort(ElementType targetArray[], int first,
   }
 }
 
-void RawArray::SortBy::HelperFunc::merge(RawArray::ElementType *targetArray,
-                                         int first, int mid, int last) {
+void RawArray::SortBy::HelperFunc::merge(RawArray::ElementType* targetArray,
+                                         int first,
+                                         int mid,
+                                         int last) {
   ElementType tmpArray[RawArray::MAX_SIZE];
 
   int first1 = first;
@@ -112,10 +116,12 @@ void RawArray::SortBy::HelperFunc::merge(RawArray::ElementType *targetArray,
     i++;
   }
 
-  for (i = first; i <= last; i++) targetArray[i] = tmpArray[i];
+  for (i = first; i <= last; i++)
+    targetArray[i] = tmpArray[i];
 }
 
-void RawArray::SortBy::mergeSort(RawArray::ElementType *targetArray, int first,
+void RawArray::SortBy::mergeSort(RawArray::ElementType* targetArray,
+                                 int first,
                                  int last) {
   if (first < last) {
     int mid = first + (last - first) / 2;
@@ -125,8 +131,9 @@ void RawArray::SortBy::mergeSort(RawArray::ElementType *targetArray, int first,
   }
 }
 
-int RawArray::SortBy::HelperFunc::partition(RawArray::ElementType *targetArray,
-                                            int first, int last) {
+int RawArray::SortBy::HelperFunc::partition(RawArray::ElementType* targetArray,
+                                            int first,
+                                            int last) {
   // 把原数组的第一个元素 targetArray[first]
   // 中间元素             targetArray[(last - first) / 2]
   // 最后一个元素         targetArray[last]
@@ -149,7 +156,8 @@ int RawArray::SortBy::HelperFunc::partition(RawArray::ElementType *targetArray,
   return mid;
 }
 
-void RawArray::SortBy::quickSort(RawArray::ElementType *targetArray, int first,
+void RawArray::SortBy::quickSort(RawArray::ElementType* targetArray,
+                                 int first,
                                  int last) {
   if (last - first + 1 < RawArray::MIN_SIZE) {
     RawArray::SortBy::insertionSort(targetArray, first, last);
@@ -160,7 +168,8 @@ void RawArray::SortBy::quickSort(RawArray::ElementType *targetArray, int first,
   }
 }
 
-void RawArray::SortBy::radixSort(RawArray::ElementType *targetArray, int size,
+void RawArray::SortBy::radixSort(RawArray::ElementType* targetArray,
+                                 int size,
                                  int digits) {
   if (typeid(targetArray[0]) == typeid(int)) {
     //创建10个桶（队列）分别给每个数位（0到9）

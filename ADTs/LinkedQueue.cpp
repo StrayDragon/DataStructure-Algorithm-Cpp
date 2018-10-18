@@ -22,13 +22,14 @@ LinkedQueue<E>::LinkedQueue() : _headPtr(nullptr), _rearPtr(nullptr) {}
 // }  // FIXME:有点问题,关联enqueue()::中在new一个Node<E>对象时报SF...
 
 template <typename E>
-LinkedQueue<E>::LinkedQueue(const E &linkedQueue)
+LinkedQueue<E>::LinkedQueue(const E& linkedQueue)
     : _headPtr(linkedQueue._headPtr),
       _rearPtr(linkedQueue._rearPtr) {}  //浅拷贝
 
 template <typename E>
 LinkedQueue<E>::~LinkedQueue() {
-  while (!isEmpty()) dequeue();
+  while (!isEmpty())
+    dequeue();
 }
 
 template <typename E>
@@ -37,8 +38,8 @@ bool LinkedQueue<E>::isEmpty() const {
 }
 
 template <typename E>
-bool LinkedQueue<E>::enqueue(const E &element) {
-  auto *node = new Node<E>(element);
+bool LinkedQueue<E>::enqueue(const E& element) {
+  auto* node = new Node<E>(element);
   if (isEmpty())
     _headPtr = node;
   else {
@@ -53,7 +54,7 @@ template <typename E>
 bool LinkedQueue<E>::dequeue() {
   bool canDequeue = false;
   if (!isEmpty()) {
-    Node<E> *willDeleteNode = _headPtr;
+    Node<E>* willDeleteNode = _headPtr;
     if (_headPtr == _rearPtr)
       _headPtr = _rearPtr = nullptr;
     else

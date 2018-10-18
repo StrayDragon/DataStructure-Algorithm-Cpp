@@ -134,7 +134,8 @@ void radixSort(ElementType targetArray[], int size, int digits);
 namespace HelperFunc {
 inline int powExcludePower0(int base, int power) {
   int sum = 1;
-  for (int i = 0; i < power; ++i) sum *= base;
+  for (int i = 0; i < power; ++i)
+    sum *= base;
   return sum;
 }
 inline int countSpecificDigitOfNumber(int target, int digit) {
@@ -145,7 +146,7 @@ inline int countSpecificDigitOfNumber(int target, int digit) {
            (powExcludePower0(10, digit - 1));
   }
 }
-}
+}  // namespace HelperFunc
 }  // namespace SortBy
 }  // namespace RawArray
 

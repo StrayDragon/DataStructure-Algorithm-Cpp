@@ -6,8 +6,8 @@
 #define DATASTRUCTURE_ALGORITHM_CPP_LINKEDQUEUE_H
 
 #include "Node.h"
-#include "interfaces/Queue.h"
 #include "exceptions/PreconditionFailedException.h"
+#include "interfaces/Queue.h"
 template <typename E>
 class LinkedQueue : public Queue<E> {
  private:
@@ -27,7 +27,8 @@ class LinkedQueue : public Queue<E> {
 
   bool dequeue() override;
 
-  E front() const noexcept(false) override; //throw PreconditionFailedException
+  E front() const noexcept(false) override;  // throw
+                                             // PreconditionFailedException
 };
 
 #include "LinkedQueue.cpp"

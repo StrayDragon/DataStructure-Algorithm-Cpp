@@ -13,7 +13,7 @@ bool ArrayStack<E>::isEmpty() const {
 }
 
 template <typename E>
-bool ArrayStack<E>::push(const E &element) {
+bool ArrayStack<E>::push(const E& element) {
   bool canPushed = false;
   if (_top < MAX_STACK_CAPACITY - 1) {
     _top++;

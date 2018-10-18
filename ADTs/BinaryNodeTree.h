@@ -24,12 +24,14 @@ class BinaryNodeTree : public BinaryTree<E> {
   BinaryNode<E>* _balancedAdd(BinaryNode<E>* subTreePtr,
                               BinaryNode<E>* newNodePtr);
 
-  BinaryNode<E>* _removeElement(BinaryNode<E>* subTreePtr, const E& target,
+  BinaryNode<E>* _removeElement(BinaryNode<E>* subTreePtr,
+                                const E& target,
                                 bool& success);
 
   BinaryNode<E>* _moveElementUpTree(BinaryNode<E>* subTreePtr);
 
-  BinaryNode<E>* _findNode(BinaryNode<E>* treePtr, const E& target,
+  BinaryNode<E>* _findNode(BinaryNode<E>* treePtr,
+                           const E& target,
                            bool& success);
 
   BinaryNode<E>* _copyTree(const BinaryNode<E>* treePtr) const;
@@ -42,9 +44,13 @@ class BinaryNodeTree : public BinaryTree<E> {
 
  public:
   BinaryNodeTree();
+
   BinaryNodeTree(const E& rootElement);
-  BinaryNodeTree(const E& rootElement, const BinaryNode<E>* leftTreePtr,
+
+  BinaryNodeTree(const E& rootElement,
+                 const BinaryNode<E>* leftTreePtr,
                  const BinaryNode<E>* rightTreePtr);
+
   BinaryNodeTree(const BinaryNodeTree<E>& binaryNodeTree);
 
   BinaryNodeTree<E>& operator=(const BinaryNodeTree<E>& binaryNodeTree);

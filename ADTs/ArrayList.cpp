@@ -18,7 +18,7 @@ int ArrayList<E>::getLength() const {
 }
 
 template <typename E>
-bool ArrayList<E>::insert(int newPosition, const E &element) {
+bool ArrayList<E>::insert(int newPosition, const E& element) {
   bool canInsert = (newPosition >= 1) && (newPosition <= _length + 1) &&
                    (_length < _maxCapacity);
 
@@ -67,7 +67,7 @@ E ArrayList<E>::getElementAt(int position) noexcept(false) {
 }
 
 template <typename E>
-void ArrayList<E>::setElementAt(int position, E &&element) noexcept(false) {
+void ArrayList<E>::setElementAt(int position, E&& element) noexcept(false) {
   if ((1 <= position) && (position <= _length)) {
     _elements[position - 1] = element;
   } else {

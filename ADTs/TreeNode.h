@@ -14,7 +14,7 @@ class TreeNode {
 
  public:
   TreeNode() : _leftChild(0), _rightChild(0){};
-  
+
   TreeNode(const E& element, int left, int right)
       : _element(element), _leftChild(left), _rightChild(right);
 

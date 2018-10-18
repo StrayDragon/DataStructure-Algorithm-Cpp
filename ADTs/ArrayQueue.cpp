@@ -14,7 +14,7 @@ bool ArrayQueue<E>::isEmpty() const {
 }
 
 template <typename E>
-bool ArrayQueue<E>::enqueue(const E &element) {
+bool ArrayQueue<E>::enqueue(const E& element) {
   bool canEnqueue = false;
 
   if (_count < MAX_QUEUE_CAPACITY) {

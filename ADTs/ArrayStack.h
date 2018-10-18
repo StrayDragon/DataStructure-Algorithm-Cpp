@@ -20,7 +20,7 @@ class ArrayStack : public Stack<E> {
 
   bool isEmpty() const override;
 
-  bool push(const E &element) override;
+  bool push(const E& element) override;
 
   bool pop() override;
 

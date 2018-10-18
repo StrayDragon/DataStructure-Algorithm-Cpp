@@ -23,7 +23,7 @@ class ArrayQueue : public Queue<E> {
 
   bool isEmpty() const override;
 
-  bool enqueue(const E &element) override;
+  bool enqueue(const E& element) override;
 
   bool dequeue() override;
 

@@ -5,11 +5,12 @@
 #include "LinkedList.h"
 
 template <typename E>
-Node<E> *LinkedList<E>::_getNodeAt(int position) const {
+Node<E>* LinkedList<E>::_getNodeAt(int position) const {
   assert((position >= 1) && (position <= _length));
 
-  Node<E> *curNode = _elementsHeadPtr;
-  for (int i = 1; i < position; i++) curNode = curNode->getNext();
+  Node<E>* curNode = _elementsHeadPtr;
+  for (int i = 1; i < position; i++)
+    curNode = curNode->getNext();
 
   return curNode;
 }
@@ -18,9 +19,9 @@ template <typename E>
 LinkedList<E>::LinkedList() : _elementsHeadPtr(nullptr), _length(0) {}
 
 template <typename E>
-LinkedList<E>::LinkedList(const LinkedList<E> &linkedList) {
+LinkedList<E>::LinkedList(const LinkedList<E>& linkedList) {
   for (int i = 1; i < linkedList._length; ++i) {
-    insert(i,(linkedList._elementsHeadPtr)->getElement());
+    insert(i, (linkedList._elementsHeadPtr)->getElement());
   }
 }
 
@@ -40,16 +41,16 @@ int LinkedList<E>::getLength() const {
 }
 
 template <typename E>
-bool LinkedList<E>::insert(int newPosition, const E &element) {
+bool LinkedList<E>::insert(int newPosition, const E& element) {
   bool canInsert = 1 <= newPosition && newPosition <= _length + 1;
   if (canInsert) {
-    auto *node = new Node<E>(element);
+    auto* node = new Node<E>(element);
     if (newPosition == 1) {
       //插入节点到链表头
       node->setNext(_elementsHeadPtr);
       _elementsHeadPtr = node;
     } else {
-      Node<E> *prevNode = _getNodeAt(newPosition - 1);
+      Node<E>* prevNode = _getNodeAt(newPosition - 1);
       node->setNext(prevNode->getNext());
       prevNode->setNext(node);
     }
@@ -63,12 +64,12 @@ template <typename E>
 bool LinkedList<E>::remove(int position) {
   bool canRemove = (1 <= position && position <= _length);
   if (canRemove) {
-    Node<E> *curNode = nullptr;
+    Node<E>* curNode = nullptr;
     if (position == 1) {
       curNode = _elementsHeadPtr;
       _elementsHeadPtr = _elementsHeadPtr->getNext();
     } else {
-      Node<E> *prevNode = _getNodeAt(position - 1);
+      Node<E>* prevNode = _getNodeAt(position - 1);
       curNode = prevNode->getNext();
       prevNode->setNext(curNode->getNext());
     }
@@ -92,7 +93,7 @@ void LinkedList<E>::clear() {
 template <typename E>
 E LinkedList<E>::getElementAt(int position) noexcept(false) {
   if (1 <= position && position <= _length) {
-    Node<E> *targetNode = _getNodeAt(position);
+    Node<E>* targetNode = _getNodeAt(position);
     return targetNode->getElement();
   } else {
     std::string msg = std::string(typeid(this).name()) +
@@ -103,9 +104,9 @@ E LinkedList<E>::getElementAt(int position) noexcept(false) {
 }
 
 template <typename E>
-void LinkedList<E>::setElementAt(int position, E &&element) noexcept(false) {
+void LinkedList<E>::setElementAt(int position, E&& element) noexcept(false) {
   if (1 <= position && position <= _length) {
-    Node<E> *targetNode = _getNodeAt(position);
+    Node<E>* targetNode = _getNodeAt(position);
     return targetNode->setElement(element);
   } else {
     std::string msg = std::string(typeid(this).name()) +

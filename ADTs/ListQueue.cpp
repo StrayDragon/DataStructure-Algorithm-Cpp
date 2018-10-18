@@ -10,7 +10,7 @@ ListQueue<E>::ListQueue() {
 }
 
 template <typename E>
-ListQueue<E>::ListQueue(const ListQueue &listQueue)
+ListQueue<E>::ListQueue(const ListQueue& listQueue)
     : _elementsPtr(listQueue._elementsPtr) {}
 
 template <typename E>
@@ -22,7 +22,7 @@ bool ListQueue<E>::isEmpty() const {
 }
 
 template <typename E>
-bool ListQueue<E>::enqueue(const E &element) {
+bool ListQueue<E>::enqueue(const E& element) {
   return _elementsPtr->insert(_elementsPtr->getLength() + 1, element);
 }
 

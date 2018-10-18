@@ -20,7 +20,8 @@ class BinarySearchTree : public BinaryNodeTree<E> {
   BinaryNode<E>* _insertInOrder(BinaryNode<E>* subTreePtr,
                                 BinaryNode<E>* newNode);
 
-  BinaryNode<E>* _removeElement(BinaryNode<E>* subTreePtr, const E& target,
+  BinaryNode<E>* _removeElement(BinaryNode<E>* subTreePtr,
+                                const E& target,
                                 bool& success);
 
   BinaryNode<E>* _removeNode(BinaryNode<E>* nodePtr);
@@ -28,7 +29,8 @@ class BinarySearchTree : public BinaryNodeTree<E> {
   BinaryNode<E>* _removeLeftLeafNode(BinaryNode<E>* subTreePtr,
                                      E& inorderSuccessor);
 
-  BinaryNode<E>* _findNode(BinaryNode<E>* treePtr, const E& target,
+  BinaryNode<E>* _findNode(BinaryNode<E>* treePtr,
+                           const E& target,
                            bool& success);
 
  public:
