@@ -127,6 +127,7 @@ fabric.properties
 !.vscode/launch.json
 !.vscode/extensions.json
 
+.build/*
 将删除 .gitignore
 将删除 .idea/
 将删除 cmake-build-debug/
