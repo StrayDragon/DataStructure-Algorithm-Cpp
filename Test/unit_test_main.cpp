@@ -128,25 +128,27 @@ void ADTQueueTestMachine(Queue<E>* queue) {
 }
 
 #include "../ADTs/BinaryNodeTree.h"
-#include "../ADTs/BinarySearchTree.h"
+// #include "../ADTs/BinarySearchTree.h"
 #include "../ADTs/interfaces/BinaryTree.h"
 
 template <typename E>
 void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
+  cout << flush
+       << "\ttest target implementation : " << typeid(*binaryTree).name();
   int nodeValue[] = {41, 20, 65, 50, 91, 72, 99, 11, 29, 32};
-  int length = sizeof(arr) / sizeof(int);
+  int length = sizeof(nodeValue) / sizeof(int);
 
   assert(binaryTree->isEmpty());
   assert(binaryTree->getHeight() == 0);
 
   for (int i = 0; i < 10; i++) {
-    assert(binaryTree->add(nodeValue(i)));
-    assert(binaryTree->getNumberOfNodes() == i);
+    assert(binaryTree->add(nodeValue[i]));
+    assert(binaryTree->getNumberOfNodes() == (i + 1));
   }
   assert(binaryTree->getHeight() == 4);
   assert(binaryTree->getRootElement() == nodeValue[0]);
 
-  // FIXME:根节点的值需要满足一些条件,在二叉搜索树中
+  // 这里根节点的值需要满足一些条件(二叉搜索树性质)
   binaryTree->setRootElement(50);
   assert(binaryTree->getRootElement() == 50);
 
@@ -161,18 +163,19 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
   //   binaryTree->postorderTraverse(nullptr);
   // }
 
-  for (int i = 1; i <= 5; i++) {
-    if (binaryTree->contains(i)) {
-      assert(binaryTree->remove(i));
-    }
-  }
+  // for (int i = 1; i <= 5; i++) {
+  //   if (binaryTree->contains(i)) {
+  //     assert(binaryTree->remove(i));
+  //   }
+  // }
 
-  for (int i = 6; i <= 10; i++) {
-    assert(binaryTree->remove(binaryTree->getElement(i)));
-  }
+  // for (int i = 6; i <= 10; i++) {
+  //   assert(binaryTree->remove(binaryTree->getElement(i)));
+  // }
 
-  binaryTree->clear();
-  assert(binaryTree->isEmpty());
+  // binaryTree->clear();
+  // assert(binaryTree->isEmpty());
+  cout << "\t==OK==" << endl;
 }
 
 int main() {
