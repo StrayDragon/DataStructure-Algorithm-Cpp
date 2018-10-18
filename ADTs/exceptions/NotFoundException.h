@@ -8,6 +8,7 @@
 #include "Exception.h"
 
 class NotFoundException : public Exception {
+ public:
   explicit NotFoundException(const std::string& msg = "") : Exception(msg) {}
 };
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_NOTFOUNDEXCEPTION_H
