@@ -1,7 +1,6 @@
 //
 // Created by straydragon on 18-10-15.
 //
-// TODO:等待实现BinaryNodeTree 1/2
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_BINARYNODETREE_H
 #define DATASTRUCTURE_ALGORITHM_CPP_BINARYNODETREE_H
 
@@ -9,7 +8,7 @@
 #include "exceptions/NotFoundException.h"
 #include "exceptions/PreconditionFailedException.h"
 #include "interfaces/BinaryTree.h"
-
+#include <functional>
 template <typename E>
 class BinaryNodeTree : public BinaryTree<E> {
  private:
@@ -19,7 +18,7 @@ class BinaryNodeTree : public BinaryTree<E> {
   int _getHeightHelper(BinaryNode<E>* subTreePtr) const;
   int _getNumberOfNodesHelper(BinaryNode<E>* subTreePtr) const;
 
-  void _destoryTree(BinaryNode<E>* subTreePtr);
+  void _destroyTree(BinaryNode<E>* subTreePtr);
 
   BinaryNode<E>* _balancedAdd(BinaryNode<E>* subTreePtr,
                               BinaryNode<E>* newNodePtr);
@@ -33,13 +32,15 @@ class BinaryNodeTree : public BinaryTree<E> {
   BinaryNode<E>* _findNode(BinaryNode<E>* treePtr,
                            const E& target,
                            bool& success);
-  void _findNodeHelper(void visit(BinaryNode<E>* curTreeNod, E&),
-                       BinaryNode<E>* treePtr) const;
 
   BinaryNode<E>* _copyTree(const BinaryNode<E>* treePtr) const;
 
-  void _preorderTraverseHelper(void visit(E&), BinaryNode<E>* treePtr) const;
-
+  void _preorderTraverseHelper(
+      std::function<void(E&)> visit /* void (*visit)(E&)*/,
+      BinaryNode<E>* treePtr) const;
+  void _preorderTraverseHelper(std::function<void(BinaryNode<E>*)>
+                                   visit /*void (*visit)(BinaryTree<E>*)*/,
+                               BinaryNode<E>* treePtr) const;
   void _inorderTraverseHelper(void visit(E&), BinaryNode<E>* treePtr) const;
 
   void _postorderTraverseHelper(void visit(E&), BinaryNode<E>* treePtr) const;
@@ -47,7 +48,7 @@ class BinaryNodeTree : public BinaryTree<E> {
  public:
   BinaryNodeTree();
 
-  BinaryNodeTree(const E& rootElement);
+  explicit BinaryNodeTree(const E& rootElement);
 
   BinaryNodeTree(const E& rootElement,
                  const BinaryNode<E>* leftTreePtr,

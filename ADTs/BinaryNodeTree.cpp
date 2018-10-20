@@ -1,7 +1,6 @@
 //
 // Created by straydragon on 18-10-15.
 //
-// TODO:等待实现BinaryNodeTree 2/2
 #include "BinaryNodeTree.h"
 #include <algorithm>
 template <typename E>
@@ -34,10 +33,10 @@ int BinaryNodeTree<E>::_getNumberOfNodesHelper(
 }
 
 template <typename E>
-void BinaryNodeTree<E>::_destoryTree(BinaryNode<E>* subTreePtr) {
+void BinaryNodeTree<E>::_destroyTree(BinaryNode<E>* subTreePtr) {
   if (subTreePtr != nullptr) {
-    _destoryTree(subTreePtr->getLeft());
-    _destoryTree(subTreePtr->getRight());
+    _destroyTree(subTreePtr->getLeft());
+    _destroyTree(subTreePtr->getRight());
     delete subTreePtr;
   }
 }
@@ -63,44 +62,50 @@ BinaryNode<E>* BinaryNodeTree<E>::_balancedAdd(BinaryNode<E>* subTreePtr,
   }
 }
 
-// TODO:前置方法2
 template <typename E>
 BinaryNode<E>* BinaryNodeTree<E>::_removeValue(BinaryNode<E>* subTreePtr,
                                                const E& target,
                                                bool& success) {
-  return nullptr;
+  return _moveValueUpTree(subTreePtr);
 }
 
-// TODO:前置方法3
 template <typename E>
 BinaryNode<E>* BinaryNodeTree<E>::_moveValueUpTree(BinaryNode<E>* subTreePtr) {
-  return nullptr;
+  BinaryNode<E>* willDelete = subTreePtr;
+  BinaryNode<E>* left = nullptr;
+  BinaryNode<E>* right = nullptr;
+  while (not willDelete->isLeaf()) {
+    left = willDelete->getLeft();
+    right = willDelete->getRight();
+    if (left && !right) {
+      willDelete = willDelete->getLeft();
+    } else if (!left && right) {
+      willDelete = willDelete->getRight();
+    } else {
+      if (_getHeightHelper(left) >= _getHeightHelper(right)) {
+        willDelete = willDelete->getLeft();
+      } else {
+        willDelete = willDelete->getRight();
+      }
+    }
+  }
+  subTreePtr->setElement(willDelete->getElement());
+  delete willDelete;
+  return subTreePtr;
 }
 
 template <typename E>
 BinaryNode<E>* BinaryNodeTree<E>::_findNode(BinaryNode<E>* treePtr,
                                             const E& target,
                                             bool& success) {
-  BinaryNode<E>* ExistedNode = nullptr;
-  auto findTargetExist = [&](BinaryNode<E>* curTreeNode, E& e) {
-    if (e == target) {
-      ExistedNode = curTreeNode;
-      success = true;
+  BinaryNode<E>* existedNode = nullptr;
+  std::function<void(BinaryNode<E>*)> f = [&](BinaryNode<E>* bn) {
+    if (bn->getElement() == target) {
+      existedNode = bn;
     }
   };
-  _findNodeHelper(findTargetExist, treePtr);
-  return ExistedNode;
-}
-
-template <typename E>
-void BinaryNodeTree<E>::_findNodeHelper(void (*visit)(BinaryNode<E>*, E&),
-                                        BinaryNode<E>* treePtr) const {
-  if (treePtr != nullptr) {
-    E rvalue = treePtr->getElement();
-    visit(treePtr, rvalue);
-    _findNodeHelper(visit, treePtr);
-    _findNodeHelper();
-  }
+  _preorderTraverseHelper(f, _rootPtr);
+  return existedNode;
 }
 
 template <typename E>
@@ -116,32 +121,47 @@ BinaryNode<E>* BinaryNodeTree<E>::_copyTree(
 }
 
 template <typename E>
-void BinaryNodeTree<E>::_preorderTraverseHelper(void (*visit)(E&),
-                                                BinaryNode<E>* treePtr) const {
+void BinaryNodeTree<E>::_preorderTraverseHelper(
+    std::function<void(E&)> visit /* void (*visit)(E&)*/,
+    BinaryNode<E>* treePtr) const {
   if (treePtr != nullptr) {
     E rvalue = treePtr->getElement();
     visit(rvalue);
-    _preorderTraverseHelper(treePtr->getLeft());
-    _preorderTraverseHelper(treePtr->getRight());
+    _preorderTraverseHelper(visit, treePtr->getLeft());
+    _preorderTraverseHelper(visit, treePtr->getRight());
+  }
+}
+template <typename E>
+void BinaryNodeTree<E>::_preorderTraverseHelper(
+    std::function<void(BinaryNode<E>*)> visit /*void (*visit)(BinaryTree<E>*)*/,
+    BinaryNode<E>* treePtr) const {
+  if (treePtr != nullptr) {
+    visit(treePtr);
+    _preorderTraverseHelper(visit, treePtr->getLeft());
+    _preorderTraverseHelper(visit, treePtr->getRight());
   }
 }
 
 template <typename E>
 void BinaryNodeTree<E>::_inorderTraverseHelper(void (*visit)(E&),
                                                BinaryNode<E>* treePtr) const {
-  _inorderTraverseHelper(treePtr->getLeft());
-  E rvalue = treePtr->getElement();
-  visit(rvalue);
-  _inorderTraverseHelper(treePtr->getRight());
+  if (treePtr != nullptr) {
+    _inorderTraverseHelper(visit, treePtr->getLeft());
+    E rvalue = treePtr->getElement();
+    visit(rvalue);
+    _inorderTraverseHelper(visit, treePtr->getRight());
+  }
 }
 
 template <typename E>
 void BinaryNodeTree<E>::_postorderTraverseHelper(void (*visit)(E&),
                                                  BinaryNode<E>* treePtr) const {
-  _postorderTraverseHelper(treePtr->getLeft());
-  _postorderTraverseHelper(treePtr->getRight());
-  E rvalue = treePtr->getElement();
-  visit(rvalue);
+  if (treePtr != nullptr) {
+    _postorderTraverseHelper(visit, treePtr->getLeft());
+    _postorderTraverseHelper(visit, treePtr->getRight());
+    E rvalue = treePtr->getElement();
+    visit(rvalue);
+  }
 }
 
 template <typename E>
@@ -176,7 +196,7 @@ BinaryNodeTree<E>& BinaryNodeTree<E>::operator=(
 
 template <typename E>
 BinaryNodeTree<E>::~BinaryNodeTree() {
-  _destoryTree(_rootPtr);
+  _destroyTree(_rootPtr);
 }
 
 template <typename E>
@@ -221,58 +241,43 @@ bool BinaryNodeTree<E>::add(const E& element) {
 
 template <typename E>
 bool BinaryNodeTree<E>::remove(const E& element) {
-  // TODO: 前置方法1之后要实现的
-  BinaryNode<E>* targetNode = _findNode(_rootPtr, element, true);
+  bool wasFound = false;
+  BinaryNode<E>* targetNode = _findNode(_rootPtr, element, wasFound);
+  bool isRemoved = false;
   if (targetNode == nullptr)
-    return false;
+    return isRemoved;
   else {
-    if (targetNode->isLeaf()) {  //没儿子
-      auto* willDelete = targetNode;
-      delete willDelete;
-      targetNode = nullptr;
-    } else if (targetNode->getLeft() != nullptr &&
-               targetNode->getRight() != nullptr) {  //有两个儿子
-      BinaryNode<E>* willDelete = nullptr;
-      auto childSelector = [&]() {
-        if (_getHeightHelper(targetNode->getLeft()) >=
-            _getHeightHelper(targetNode->getRight())) {
-          // FIXME:我要干啥来着?我是谁?我在哪?困 =_=
-        }
-        // while (targetNode->getLeft())
-      };
-    } else {  //有左或右一个儿子
-    }
-    return true;
+    _removeValue(targetNode, element, isRemoved);
   }
+  return isRemoved;
 }
-
 template <typename E>
 void BinaryNodeTree<E>::clear() {
-  _destoryTree(_rootPtr);
+  _destroyTree(_rootPtr);
 }
 
 template <typename E>
 E BinaryNodeTree<E>::getElement(const E& element) const noexcept(false) {
-  bool wasFound = false;
-  auto* targetNode = _findNode(_rootPtr, element, wasFound);
-  if (targetNode) {
-    return element;
-  } else {
-    throw NotFoundException(std::string(typeid(this).name()) +
-                            " getElement():指定元素 " + element +
-                            "并不存在于树中");
-  }
+  //    bool wasFound = false;
+  //    auto* targetNode = _getElementHelper(element,wasFound);
+  //    if (targetNode) {
+  //      return element;
+  //    } else {
+  //      throw NotFoundException(std::string(typeid(this).name()) +
+  //                              " getElement():指定元素并不存在于树中");
+  //    }
+  return element;
 }
 
 template <typename E>
 bool BinaryNodeTree<E>::contains(const E& element) const {
   bool isExist = false;
-  auto judgeTargetExist = [&](E& e) {
-    if (e == target)
+  std::function<void(E&)> judgeTargetExist = [element, &isExist](E& e) {
+    if (e == element)
       isExist = true;
   };
 
-  preorderTraverse(judgeTargetExist);
+  _preorderTraverseHelper(judgeTargetExist, _rootPtr);
   return isExist;
 }
 
@@ -283,10 +288,10 @@ void BinaryNodeTree<E>::preorderTraverse(void (*visit)(E&)) const {
 
 template <typename E>
 void BinaryNodeTree<E>::inorderTraverse(void (*visit)(E&)) const {
-  inorderTraverse(visit, _rootPtr);
+  _inorderTraverseHelper(visit, _rootPtr);
 }
 
 template <typename E>
 void BinaryNodeTree<E>::postorderTraverse(void (*visit)(E&)) const {
-  postorderTraverse(visit, _rootPtr);
+  _postorderTraverseHelper(visit, _rootPtr);
 }
