@@ -63,25 +63,44 @@ BinaryNode<E>* BinaryNodeTree<E>::_balancedAdd(BinaryNode<E>* subTreePtr,
   }
 }
 
-// TODO:这个名字要改..有歧义,暂时没想好啥名...QwQ
+// TODO:前置方法2
 template <typename E>
-BinaryNode<E>* BinaryNodeTree<E>::_removeElement(BinaryNode<E>* subTreePtr,
-                                                 const E& target,
-                                                 bool& success) {
+BinaryNode<E>* BinaryNodeTree<E>::_removeValue(BinaryNode<E>* subTreePtr,
+                                               const E& target,
+                                               bool& success) {
   return nullptr;
 }
 
+// TODO:前置方法3
 template <typename E>
-BinaryNode<E>* BinaryNodeTree<E>::_moveElementUpTree(
-    BinaryNode<E>* subTreePtr) {
+BinaryNode<E>* BinaryNodeTree<E>::_moveValueUpTree(BinaryNode<E>* subTreePtr) {
   return nullptr;
 }
 
 template <typename E>
 BinaryNode<E>* BinaryNodeTree<E>::_findNode(BinaryNode<E>* treePtr,
                                             const E& target,
-                                            bool&& success) {
-  return nullptr;
+                                            bool& success) {
+  BinaryNode<E>* ExistedNode = nullptr;
+  auto findTargetExist = [&](BinaryNode<E>* curTreeNode, E& e) {
+    if (e == target) {
+      ExistedNode = curTreeNode;
+      success = true;
+    }
+  };
+  _findNodeHelper(findTargetExist, treePtr);
+  return ExistedNode;
+}
+
+template <typename E>
+void BinaryNodeTree<E>::_findNodeHelper(void (*visit)(BinaryNode<E>*, E&),
+                                        BinaryNode<E>* treePtr) const {
+  if (treePtr != nullptr) {
+    E rvalue = treePtr->getElement();
+    visit(treePtr, rvalue);
+    _findNodeHelper(visit, treePtr);
+    _findNodeHelper();
+  }
 }
 
 template <typename E>
@@ -98,15 +117,31 @@ BinaryNode<E>* BinaryNodeTree<E>::_copyTree(
 
 template <typename E>
 void BinaryNodeTree<E>::_preorderTraverseHelper(void (*visit)(E&),
-                                                BinaryNode<E>* treePtr) const {}
+                                                BinaryNode<E>* treePtr) const {
+  if (treePtr != nullptr) {
+    E rvalue = treePtr->getElement();
+    visit(rvalue);
+    _preorderTraverseHelper(treePtr->getLeft());
+    _preorderTraverseHelper(treePtr->getRight());
+  }
+}
 
 template <typename E>
 void BinaryNodeTree<E>::_inorderTraverseHelper(void (*visit)(E&),
-                                               BinaryNode<E>* treePtr) const {}
+                                               BinaryNode<E>* treePtr) const {
+  _inorderTraverseHelper(treePtr->getLeft());
+  E rvalue = treePtr->getElement();
+  visit(rvalue);
+  _inorderTraverseHelper(treePtr->getRight());
+}
 
 template <typename E>
 void BinaryNodeTree<E>::_postorderTraverseHelper(void (*visit)(E&),
                                                  BinaryNode<E>* treePtr) const {
+  _postorderTraverseHelper(treePtr->getLeft());
+  _postorderTraverseHelper(treePtr->getRight());
+  E rvalue = treePtr->getElement();
+  visit(rvalue);
 }
 
 template <typename E>
@@ -132,7 +167,11 @@ BinaryNodeTree<E>::BinaryNodeTree(const BinaryNodeTree<E>& binaryNodeTree) {
 template <typename E>
 BinaryNodeTree<E>& BinaryNodeTree<E>::operator=(
     const BinaryNodeTree<E>& binaryNodeTree) {
-  return BinaryNodeTree<E>();
+  if (this != &binaryNodeTree) {
+    this->clear();
+    this = _copyTree(binaryNodeTree._rootPtr);
+  }
+  return *this;
 }
 
 template <typename E>
@@ -214,20 +253,40 @@ void BinaryNodeTree<E>::clear() {
 
 template <typename E>
 E BinaryNodeTree<E>::getElement(const E& element) const noexcept(false) {
-  return E();
+  bool wasFound = false;
+  auto* targetNode = _findNode(_rootPtr, element, wasFound);
+  if (targetNode) {
+    return element;
+  } else {
+    throw NotFoundException(std::string(typeid(this).name()) +
+                            " getElement():指定元素 " + element +
+                            "并不存在于树中");
+  }
 }
 
 template <typename E>
 bool BinaryNodeTree<E>::contains(const E& element) const {
-  // TODO:前置方法1
-  return false;
+  bool isExist = false;
+  auto judgeTargetExist = [&](E& e) {
+    if (e == target)
+      isExist = true;
+  };
+
+  preorderTraverse(judgeTargetExist);
+  return isExist;
 }
 
 template <typename E>
-void BinaryNodeTree<E>::preorderTraverse(void (*visit)(E&)) const {}
+void BinaryNodeTree<E>::preorderTraverse(void (*visit)(E&)) const {
+  _preorderTraverseHelper(visit, _rootPtr);
+}
 
 template <typename E>
-void BinaryNodeTree<E>::inorderTraverse(void (*visit)(E&)) const {}
+void BinaryNodeTree<E>::inorderTraverse(void (*visit)(E&)) const {
+  inorderTraverse(visit, _rootPtr);
+}
 
 template <typename E>
-void BinaryNodeTree<E>::postorderTraverse(void (*visit)(E&)) const {}
+void BinaryNodeTree<E>::postorderTraverse(void (*visit)(E&)) const {
+  postorderTraverse(visit, _rootPtr);
+}

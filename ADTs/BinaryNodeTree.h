@@ -24,15 +24,17 @@ class BinaryNodeTree : public BinaryTree<E> {
   BinaryNode<E>* _balancedAdd(BinaryNode<E>* subTreePtr,
                               BinaryNode<E>* newNodePtr);
 
-  BinaryNode<E>* _removeElement(BinaryNode<E>* subTreePtr,
-                                const E& target,
-                                bool& success);
+  BinaryNode<E>* _removeValue(BinaryNode<E>* subTreePtr,
+                              const E& target,
+                              bool& success);
 
-  BinaryNode<E>* _moveElementUpTree(BinaryNode<E>* subTreePtr);
+  BinaryNode<E>* _moveValueUpTree(BinaryNode<E>* subTreePtr);
 
   BinaryNode<E>* _findNode(BinaryNode<E>* treePtr,
                            const E& target,
-                           bool&& success);
+                           bool& success);
+  void _findNodeHelper(void visit(BinaryNode<E>* curTreeNod, E&),
+                       BinaryNode<E>* treePtr) const;
 
   BinaryNode<E>* _copyTree(const BinaryNode<E>* treePtr) const;
 
