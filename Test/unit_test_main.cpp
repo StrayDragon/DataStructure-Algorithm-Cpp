@@ -163,18 +163,18 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
   //   binaryTree->postorderTraverse(nullptr);
   // }
 
-  // for (int i = 1; i <= 5; i++) {
-  //   if (binaryTree->contains(i)) {
-  //     assert(binaryTree->remove(i));
-  //   }
-  // }
+//   for (int i = 1; i <= 5; i++) {
+//     if (binaryTree->contains(nodeValue[i])) {
+//       assert(binaryTree->remove(nodeValue[i]));
+//     }
+//   }
 
-  // for (int i = 6; i <= 10; i++) {
-  //   assert(binaryTree->remove(binaryTree->getElement(i)));
-  // }
+//   for (int i = 6; i <= 10; i++) {
+//     assert(binaryTree->remove(binaryTree->getElement(nodeValue[i])));
+//   }
 
-  // binaryTree->clear();
-  // assert(binaryTree->isEmpty());
+   binaryTree->clear();
+   assert(binaryTree->isEmpty());
   cout << "\t==OK==" << endl;
 }
 
