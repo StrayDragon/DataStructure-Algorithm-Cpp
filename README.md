@@ -22,6 +22,8 @@ A library of Data Structure And Algorithm implemented by C++
     - [ ] **BinarySearchTree**
 - [ ] **Heap** and implementations : 
     - [ ] ...
+- [ ] **Dictionary** and implementations : 
+    - [ ] ...
 - [ ] **Graph** and implementations : 
     - [ ] ...
     
@@ -57,4 +59,4 @@ A library of Data Structure And Algorithm implemented by C++
       - Error2: Not expect result (Clang++)
 
 # :+1: Good Learning Reference:
-- :octocat: kdn251/interviews [中文](https://github.com/kdn251/interviews?utm_source=gold_browser_extension#data-structures) [English](https://github.com/kdn251/interviews/blob/master/README-zh-cn.md#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)
+- :octocat: kdn251/interviews [中文](https://github.com/kdn251/interviews?utm_source=gold_browser_extension#data-structures) **|** [English](https://github.com/kdn251/interviews/blob/master/README-zh-cn.md#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)
