@@ -128,7 +128,7 @@ void ADTQueueTestMachine(Queue<E>* queue) {
 }
 
 #include "../ADTs/BinaryNodeTree.h"
-// #include "../ADTs/BinarySearchTree.h"
+#include "../ADTs/BinarySearchTree.h"
 #include "../ADTs/interfaces/BinaryTree.h"
 
 template <typename E>
@@ -137,77 +137,75 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
        << "\ttest target implementation : " << typeid(*binaryTree).name();
   int nodeValue[] = {41, 20, 65, 50, 91, 72, 99, 11, 29, 32};
   int length = sizeof(nodeValue) / sizeof(int);
+  //  assert(binaryTree->isEmpty());
+  //  assert(binaryTree->getHeight() == 0);
+  //
+  //  for (int i = 0; i < 10; i++) {
+  //    assert(binaryTree->add(nodeValue[i]));
+  //    assert(binaryTree->getNumberOfNodes() == (i + 1));
+  //  }
+  //  assert(binaryTree->getHeight() == 4);
+  //  assert(binaryTree->getRootElement() == nodeValue[0]);
+  //
+  //  // 这里根节点的值需要满足一些条件(二叉搜索树性质)
+  //  binaryTree->setRootElement(50);
+  //  assert(binaryTree->getRootElement() == 50);
 
-  assert(binaryTree->isEmpty());
-  assert(binaryTree->getHeight() == 0);
+  if (typeid(*binaryTree) == typeid(BinarySearchTree<E>)) {
+    //    int preorderAnswer[] = {41, 20, 11, 29, 32, 65, 50, 91, 72, 99};
+    //    int inorderAnsewer[] = {11, 20, 29, 32, 41, 50, 65, 72, 91, 99};
+    //    int postorderAnswer[] = {11, 32, 29, 20, 50, 72, 99, 91, 65, 41};
+    //    int levelorderAnswer[] = {41, 20, 65, 11, 29, 50, 91, 32, 72, 99};
+    //
+    //    binaryTree->preorderTraverse(nullptr);
+    //    binaryTree->inorderTraverse(nullptr);
+    //    binaryTree->postorderTraverse(nullptr);
+    //    for (int i = 1; i <= 5; i++) {
+    //      if (binaryTree->contains(nodeValue[i])) {
+    //        assert(binaryTree->remove(nodeValue[i]));
+    //      }
+    //    }
+    //
+    //    for (int i = 6; i <= 10; i++) {
+    //      assert(binaryTree->remove(binaryTree->getElement(nodeValue[i])));
+    //    }
+    //  }
 
-  for (int i = 0; i < 10; i++) {
-    assert(binaryTree->add(nodeValue[i]));
-    assert(binaryTree->getNumberOfNodes() == (i + 1));
+    //  binaryTree->clear();
+    //  assert(binaryTree->isEmpty());
+    cout << "\t==OK==" << endl;
   }
-  assert(binaryTree->getHeight() == 4);
-  assert(binaryTree->getRootElement() == nodeValue[0]);
 
-  // 这里根节点的值需要满足一些条件(二叉搜索树性质)
-  binaryTree->setRootElement(50);
-  assert(binaryTree->getRootElement() == 50);
+  int main() {
+    cout << "Hello! Unit Tests Main() ...\n" << endl;
 
-  // if (typeid(*binaryTree) == typeid(BinarySearchTree<E>)) {
-  //   int preorderAnswer[] = {41, 20, 11, 29, 32, 65, 50, 91, 72, 99};
-  //   int inorderAnsewer[] = {11, 20, 29, 32, 41, 50, 65, 72, 91, 99};
-  //   int postorderAnswer[] = {11, 32, 29, 20, 50, 72, 99, 91, 65, 41};
-  //   int levelorderAnswer[] = {41, 20, 65, 11, 29, 50, 91, 32, 72, 99};
+    auto* arrayList = new ArrayList<int>();
+    ADTListTestMachine(arrayList);
 
-  //   binaryTree->preorderTraverse(nullptr);
-  //   binaryTree->inorderTraverse(nullptr);
-  //   binaryTree->postorderTraverse(nullptr);
-  // }
+    auto* linkedList = new LinkedList<int>();
+    ADTListTestMachine(linkedList);
 
-//   for (int i = 1; i <= 5; i++) {
-//     if (binaryTree->contains(nodeValue[i])) {
-//       assert(binaryTree->remove(nodeValue[i]));
-//     }
-//   }
+    auto* arrayStack = new ArrayStack<int>();
+    ADTStackTestMachine(arrayStack);
 
-//   for (int i = 6; i <= 10; i++) {
-//     assert(binaryTree->remove(binaryTree->getElement(nodeValue[i])));
-//   }
+    auto* linkedStack = new LinkedStack<int>();
+    ADTStackTestMachine(linkedStack);
 
-   binaryTree->clear();
-   assert(binaryTree->isEmpty());
-  cout << "\t==OK==" << endl;
-}
+    auto* arrayQueue = new ArrayQueue<int>();
+    ADTQueueTestMachine(arrayQueue);
 
-int main() {
-  cout << "Hello! Unit Tests Main() ...\n" << endl;
+    auto* linkedQueue = new LinkedQueue<int>();
+    ADTQueueTestMachine(linkedQueue);
 
-  auto* arrayList = new ArrayList<int>();
-  ADTListTestMachine(arrayList);
+    auto* listQueue = new ListQueue<int>();
+    ADTQueueTestMachine(listQueue);
 
-  auto* linkedList = new LinkedList<int>();
-  ADTListTestMachine(linkedList);
+    auto* binaryNodeTree = new BinaryNodeTree<int>();
+    ADTBinaryTreeTestMachine(binaryNodeTree);
 
-  auto* arrayStack = new ArrayStack<int>();
-  ADTStackTestMachine(arrayStack);
+    auto* binarySearchTree = new BinarySearchTree<int>();
+    ADTBinaryTreeTestMachine(binarySearchTree);
 
-  auto* linkedStack = new LinkedStack<int>();
-  ADTStackTestMachine(linkedStack);
-
-  auto* arrayQueue = new ArrayQueue<int>();
-  ADTQueueTestMachine(arrayQueue);
-
-  auto* linkedQueue = new LinkedQueue<int>();
-  ADTQueueTestMachine(linkedQueue);
-
-  auto* listQueue = new ListQueue<int>();
-  ADTQueueTestMachine(listQueue);
-
-  auto* binaryNodeTree = new BinaryNodeTree<int>();
-  ADTBinaryTreeTestMachine(binaryNodeTree);
-
-  // auto* binarySearchTree = new BinarySearchTree<int>();
-  // ADTBinaryTreeTestMachine(binarySearchTree)
-
-  cout << "\nCONGRATULATIONS! ALL TESTS PASSED SUCCESSFULLY " << endl;
-  return 0;
-}
+    cout << "\nCONGRATULATIONS! ALL TESTS PASSED SUCCESSFULLY " << endl;
+    return 0;
+  }
