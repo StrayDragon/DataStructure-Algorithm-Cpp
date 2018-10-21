@@ -3,6 +3,7 @@
 //
 #include "BinaryNodeTree.h"
 #include <algorithm>
+
 template <typename E>
 int BinaryNodeTree<E>::_getHeightHelper(BinaryNode<E>* subTreePtr) const {
   if (subTreePtr == nullptr)
@@ -26,7 +27,7 @@ int BinaryNodeTree<E>::_getNumberOfNodesHelper(
     // return _getNumberOfNodesHelper(subTreePtr->getLeft()) +
     //       _getNumberOfNodesHelper(subTreePtr->getRight()) +
     //       1;
-    //因为表达式中多个相同函数求职顺序不确定(虽然这个用例无所谓),是UB
+    //因为表达式中多个相同函数求值顺序不确定(虽然这个用例无所谓),是UB
     //为了拒绝不好的C/C++编程习惯,所以多引入一个变量一条语句一个函数.
     //见 https://zh.cppreference.com/w/cpp/language/eval_order
   }
@@ -66,6 +67,11 @@ template <typename E>
 BinaryNode<E>* BinaryNodeTree<E>::_removeValue(BinaryNode<E>* subTreePtr,
                                                const E& target,
                                                bool& success) {
+  if (target->isLeaf()) {
+    delete target;
+    target = nullptr;
+    return target;
+  }
   return _moveValueUpTree(subTreePtr);
 }
 
@@ -131,6 +137,7 @@ void BinaryNodeTree<E>::_preorderTraverseHelper(
     _preorderTraverseHelper(visit, treePtr->getRight());
   }
 }
+
 template <typename E>
 void BinaryNodeTree<E>::_preorderTraverseHelper(
     std::function<void(BinaryNode<E>*)> visit /*void (*visit)(BinaryTree<E>*)*/,
@@ -254,6 +261,7 @@ bool BinaryNodeTree<E>::remove(const E& element) {
 template <typename E>
 void BinaryNodeTree<E>::clear() {
   _destroyTree(_rootPtr);
+  _rootPtr = nullptr;
 }
 
 template <typename E>
