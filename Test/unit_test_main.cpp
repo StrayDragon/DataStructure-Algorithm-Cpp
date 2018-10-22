@@ -137,13 +137,13 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
        << "\ttest target implementation : " << typeid(*binaryTree).name();
   int nodeValue[] = {41, 20, 65, 50, 91, 72, 99, 11, 29, 32};
   int length = sizeof(nodeValue) / sizeof(int);
-  //  assert(binaryTree->isEmpty());
-  //  assert(binaryTree->getHeight() == 0);
-  //
-  //  for (int i = 0; i < 10; i++) {
-  //    assert(binaryTree->add(nodeValue[i]));
-  //    assert(binaryTree->getNumberOfNodes() == (i + 1));
-  //  }
+  assert(binaryTree->isEmpty());
+  assert(binaryTree->getHeight() == 0);
+
+  for (int i = 0; i < 10; i++) {
+    assert(binaryTree->add(nodeValue[i]));
+//    assert(binaryTree->getNumberOfNodes() == (i + 1));
+  }
   //  assert(binaryTree->getHeight() == 4);
   //  assert(binaryTree->getRootElement() == nodeValue[0]);
   //
@@ -151,61 +151,61 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
   //  binaryTree->setRootElement(50);
   //  assert(binaryTree->getRootElement() == 50);
 
-  if (typeid(*binaryTree) == typeid(BinarySearchTree<E>)) {
-    //    int preorderAnswer[] = {41, 20, 11, 29, 32, 65, 50, 91, 72, 99};
-    //    int inorderAnsewer[] = {11, 20, 29, 32, 41, 50, 65, 72, 91, 99};
-    //    int postorderAnswer[] = {11, 32, 29, 20, 50, 72, 99, 91, 65, 41};
-    //    int levelorderAnswer[] = {41, 20, 65, 11, 29, 50, 91, 32, 72, 99};
-    //
-    //    binaryTree->preorderTraverse(nullptr);
-    //    binaryTree->inorderTraverse(nullptr);
-    //    binaryTree->postorderTraverse(nullptr);
-    //    for (int i = 1; i <= 5; i++) {
-    //      if (binaryTree->contains(nodeValue[i])) {
-    //        assert(binaryTree->remove(nodeValue[i]));
-    //      }
-    //    }
-    //
-    //    for (int i = 6; i <= 10; i++) {
-    //      assert(binaryTree->remove(binaryTree->getElement(nodeValue[i])));
-    //    }
-    //  }
+  //  if (typeid(*binaryTree) == typeid(BinarySearchTree<E>)) {
+  //    int preorderAnswer[] = {41, 20, 11, 29, 32, 65, 50, 91, 72, 99};
+  //    int inorderAnsewer[] = {11, 20, 29, 32, 41, 50, 65, 72, 91, 99};
+  //    int postorderAnswer[] = {11, 32, 29, 20, 50, 72, 99, 91, 65, 41};
+  //    int levelorderAnswer[] = {41, 20, 65, 11, 29, 50, 91, 32, 72, 99};
+  //
+  //    binaryTree->preorderTraverse(nullptr);
+  //    binaryTree->inorderTraverse(nullptr);
+  //    binaryTree->postorderTraverse(nullptr);
+  //    for (int i = 1; i <= 5; i++) {
+  //      if (binaryTree->contains(nodeValue[i])) {
+  //        assert(binaryTree->remove(nodeValue[i]));
+  //      }
+  //    }
+  //
+  //    for (int i = 6; i <= 10; i++) {
+  //      assert(binaryTree->remove(binaryTree->getElement(nodeValue[i])));
+  //    }
+  //  }
 
-    //  binaryTree->clear();
-    //  assert(binaryTree->isEmpty());
-    cout << "\t==OK==" << endl;
-  }
+  //  binaryTree->clear();
+  //  assert(binaryTree->isEmpty());
+  cout << "\t==OK==" << endl;
+}
 
-  int main() {
-    cout << "Hello! Unit Tests Main() ...\n" << endl;
+int main() {
+  cout << "Hello! Unit Tests Main() ...\n" << endl;
 
-    auto* arrayList = new ArrayList<int>();
-    ADTListTestMachine(arrayList);
+  auto* arrayList = new ArrayList<int>();
+  ADTListTestMachine(arrayList);
 
-    auto* linkedList = new LinkedList<int>();
-    ADTListTestMachine(linkedList);
+  auto* linkedList = new LinkedList<int>();
+  ADTListTestMachine(linkedList);
 
-    auto* arrayStack = new ArrayStack<int>();
-    ADTStackTestMachine(arrayStack);
+  auto* arrayStack = new ArrayStack<int>();
+  ADTStackTestMachine(arrayStack);
 
-    auto* linkedStack = new LinkedStack<int>();
-    ADTStackTestMachine(linkedStack);
+  auto* linkedStack = new LinkedStack<int>();
+  ADTStackTestMachine(linkedStack);
 
-    auto* arrayQueue = new ArrayQueue<int>();
-    ADTQueueTestMachine(arrayQueue);
+  auto* arrayQueue = new ArrayQueue<int>();
+  ADTQueueTestMachine(arrayQueue);
 
-    auto* linkedQueue = new LinkedQueue<int>();
-    ADTQueueTestMachine(linkedQueue);
+  auto* linkedQueue = new LinkedQueue<int>();
+  ADTQueueTestMachine(linkedQueue);
 
-    auto* listQueue = new ListQueue<int>();
-    ADTQueueTestMachine(listQueue);
+  auto* listQueue = new ListQueue<int>();
+  ADTQueueTestMachine(listQueue);
 
-    auto* binaryNodeTree = new BinaryNodeTree<int>();
-    ADTBinaryTreeTestMachine(binaryNodeTree);
+  auto* binaryNodeTree = new BinaryNodeTree<int>();
+  ADTBinaryTreeTestMachine(binaryNodeTree);
 
-    auto* binarySearchTree = new BinarySearchTree<int>();
-    ADTBinaryTreeTestMachine(binarySearchTree);
+  auto* binarySearchTree = new BinarySearchTree<int>();
+  ADTBinaryTreeTestMachine(binarySearchTree);
 
-    cout << "\nCONGRATULATIONS! ALL TESTS PASSED SUCCESSFULLY " << endl;
-    return 0;
-  }
+  cout << "\nCONGRATULATIONS! ALL TESTS PASSED SUCCESSFULLY " << endl;
+  return 0;
+}
