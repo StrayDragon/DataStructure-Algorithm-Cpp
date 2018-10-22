@@ -67,10 +67,10 @@ template <typename E>
 BinaryNode<E>* BinaryNodeTree<E>::_removeValue(BinaryNode<E>* subTreePtr,
                                                const E& target,
                                                bool& success) {
-  if (target->isLeaf()) {
-    delete target;
-    target = nullptr;
-    return target;
+  if (subTreePtr->isLeaf()) {
+    delete subTreePtr;
+    subTreePtr = nullptr;
+    return subTreePtr;
   }
   return _moveValueUpTree(subTreePtr);
 }
@@ -150,7 +150,7 @@ void BinaryNodeTree<E>::_preorderTraverseHelper(
 }
 
 template <typename E>
-void BinaryNodeTree<E>::_inorderTraverseHelper(void (*visit)(E&),
+void BinaryNodeTree<E>::_inorderTraverseHelper(std::function<void(E&)> visit/*void (*visit)(E&)*/,
                                                BinaryNode<E>* treePtr) const {
   if (treePtr != nullptr) {
     _inorderTraverseHelper(visit, treePtr->getLeft());

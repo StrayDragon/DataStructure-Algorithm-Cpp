@@ -48,9 +48,9 @@ class BinaryNodeTree : public BinaryTree<E> {
    * @param success callback变量
    * @return BinaryNode<E>*
    */
-  BinaryNode<E>* _removeValue(BinaryNode<E>* subTreePtr,
-                              const E& target,
-                              bool& success);
+  virtual BinaryNode<E>* _removeValue(BinaryNode<E>* subTreePtr,
+                                      const E& target,
+                                      bool& success);
 
   /**
    * @brief _removeValue()方法的辅助函数
@@ -73,9 +73,9 @@ class BinaryNodeTree : public BinaryTree<E> {
    * @param success callback变量,用来表示成功与否
    * @return BinaryNode<E>* 若查询成功,则返回找到的节点,否则,返回nullptr
    */
-  BinaryNode<E>* _findNode(BinaryNode<E>* treePtr,
-                           const E& target,
-                           bool& success);
+  virtual BinaryNode<E>* _findNode(BinaryNode<E>* treePtr,
+                                   const E& target,
+                                   bool& success);
   /**
    * @brief 复制指定树的所有节点(深拷贝)
    *
@@ -109,7 +109,7 @@ class BinaryNodeTree : public BinaryTree<E> {
    * @param visit
    * @param treePtr
    */
-  void _inorderTraverseHelper(void visit(E&), BinaryNode<E>* treePtr) const;
+  void _inorderTraverseHelper(std::function<void(E&)> visit/*void (*visit)(E&)*/, BinaryNode<E>* treePtr) const;
 
   /**
    * @brief postorderTraverse()方法的辅助函数
