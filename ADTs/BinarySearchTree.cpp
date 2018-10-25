@@ -20,26 +20,25 @@ BinaryNode<E>* BinarySearchTree<E>::_insertInOrder(BinaryNode<E>* subTreePtr,
 
 template <typename E>
 BinaryNode<E>* BinarySearchTree<E>::_removeNode(BinaryNode<E>* subTreePtr,
-                                                 const E& target,
-                                                 bool& success) {
-  BinaryNode<E>* tmp = nullptr;
-  if (subTreePtr == nullptr)
+                                                const E& target,
+                                                bool& success) {
+  if (subTreePtr == nullptr)  //目标不存在
     return nullptr;
-  else if (target < subTreePtr->getElement())
+  else if (target < subTreePtr->getElement())  //目标是不是在左面
     subTreePtr->setLeft(_removeNode(subTreePtr->getLeft(), target, success));
-  else if (target > subTreePtr->getElement())
+  else if (target > subTreePtr->getElement())  //目标是不是在右面
     subTreePtr->setRight(_removeNode(subTreePtr->getRight(), target, success));
-  else if (subTreePtr->getLeft() && subTreePtr->getRight()) {
+  else if (subTreePtr->getLeft() && subTreePtr->getRight()) {  //有两个儿子
     BinaryNode<E>* properNode = subTreePtr->getRight();
     while (properNode->getLeft()) {
       properNode = properNode->getLeft();
     }
-    tmp = properNode;
+    BinaryNode<E>* tmp = properNode;
     subTreePtr->setElement(tmp->getElement());
-    subTreePtr->setRight(_removeNode(subTreePtr->getRight(),
-                                      subTreePtr->getElement(), success));
-  } else {
-    tmp = subTreePtr;
+    subTreePtr->setRight(
+        _removeNode(subTreePtr->getRight(), subTreePtr->getElement(), success));
+  } else {  //有一个儿子或没有儿子
+    BinaryNode<E>* tmp = subTreePtr;
     if (subTreePtr->getLeft() == nullptr) {
       subTreePtr = subTreePtr->getRight();
     } else {
@@ -50,7 +49,6 @@ BinaryNode<E>* BinarySearchTree<E>::_removeNode(BinaryNode<E>* subTreePtr,
   }
   return subTreePtr;
 }
-
 
 template <typename E>
 BinaryNode<E>* BinarySearchTree<E>::_findNode(BinaryNode<E>* treePtr,
@@ -78,8 +76,9 @@ BinarySearchTree<E>::BinarySearchTree(const E& rootElement) {
 
 template <typename E>
 BinarySearchTree<E>::BinarySearchTree(
-    const BinarySearchTree<E>& binarySearchTree)
-    : BinaryNodeTree<E>(binarySearchTree) {}
+    const BinarySearchTree<E>& binarySearchTree) {
+  _rootPtr = BinaryNodeTree<E>::_copyTree(binarySearchTree._rootPtr);
+}
 
 template <typename E>
 BinarySearchTree<E>::~BinarySearchTree() {
@@ -91,7 +90,7 @@ BinarySearchTree<E>& BinarySearchTree<E>::operator=(
     const BinarySearchTree<E>& binarySearchTree) {
   if (this != &binarySearchTree) {
     this->clear();
-    this = _copyTree(binarySearchTree._rootPtr);
+    this = BinaryNodeTree<E>::_copyTree(binarySearchTree._rootPtr);
   }
   return *this;
 }

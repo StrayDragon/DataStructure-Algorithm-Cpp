@@ -154,6 +154,7 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
     while (!binaryTree->isEmpty()) {
       assert(binaryTree->remove(binaryTree->getRootElement()));
     }
+    assert(binaryTree->isEmpty());
   }
 
   binaryTree->clear();
