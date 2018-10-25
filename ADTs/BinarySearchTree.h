@@ -26,20 +26,9 @@ class BinarySearchTree : public BinaryNodeTree<E> {
    * @brief (辅助函数) 移除树中存在的指定元素(target)
    * P.S.该函数遮盖掉了protected继承的同名函数
    */
-  BinaryNode<E>* _removeValue(BinaryNode<E>* subTreePtr,
-                              const E& target,
-                              bool& success);
-
-  /**
-   * @brief (辅助函数) 从树中移除指定的节点
-   */
-  BinaryNode<E>* _removeNode(BinaryNode<E>* nodePtr);
-
-  /**
-   * @brief (辅助函数) 从树中移除二叉搜索树中最左面的叶子(权值最低节点)
-   */
-  BinaryNode<E>* _removeLeftMostNode(BinaryNode<E>* subTreePtr,
-                                     E& inorderSuccessor);
+  BinaryNode<E>* _removeNode(BinaryNode<E>* subTreePtr,
+                             const E& target,
+                             bool& success);
 
   /**
    * @brief (辅助函数)
@@ -61,31 +50,31 @@ class BinarySearchTree : public BinaryNodeTree<E> {
 
   BinarySearchTree<E>& operator=(const BinarySearchTree<E>& binarySearchTree);
 
-//  bool isEmpty() const override;
+ bool isEmpty() const override;
 
-//  int getHeight() const override;
-//
-//  int getNumberOfNodes() const override;
-//
-//  E getRootElement() const override;
-//
-//  void setRootElement(const E& element) override;
+ int getHeight() const override;
+
+ int getNumberOfNodes() const override;
+
+ E getRootElement() const override;
+
+ void setRootElement(const E& element) override;
 
   bool add(const E& element) override;
 
   bool remove(const E& element) override;
 
-//  void clear() override;
-//
-//  E getElement(const E& element) const override;
-//
-//  bool contains(const E& element) const override;
-//
-//  void preorderTraverse(void (*visit)(E&)) const override;
-//
-//  void inorderTraverse(void (*visit)(E&)) const override;
-//
-//  void postorderTraverse(void (*visit)(E&)) const override;
+ void clear() override;
+
+ E getElement(const E& element) const override;
+
+ bool contains(const E& element) const override;
+
+ void preorderTraverse(void (*visit)(E&)) const override;
+
+ void inorderTraverse(void (*visit)(E&)) const override;
+
+ void postorderTraverse(void (*visit)(E&)) const override;
 };
 
 #include "BinarySearchTree.cpp"
