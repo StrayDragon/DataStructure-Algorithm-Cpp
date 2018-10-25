@@ -136,43 +136,28 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
   cout << flush
        << "\ttest target implementation : " << typeid(*binaryTree).name();
   int nodeValue[] = {41, 20, 65, 50, 91, 72, 99, 11, 29, 32};
-  int length = sizeof(nodeValue) / sizeof(int);
   assert(binaryTree->isEmpty());
   assert(binaryTree->getHeight() == 0);
 
   for (int i = 0; i < 10; i++) {
     assert(binaryTree->add(nodeValue[i]));
-//    assert(binaryTree->getNumberOfNodes() == (i + 1));
+    assert(binaryTree->getNumberOfNodes() == (i + 1));
   }
-  //  assert(binaryTree->getHeight() == 4);
-  //  assert(binaryTree->getRootElement() == nodeValue[0]);
-  //
-  //  // 这里根节点的值需要满足一些条件(二叉搜索树性质)
-  //  binaryTree->setRootElement(50);
-  //  assert(binaryTree->getRootElement() == 50);
+  assert(binaryTree->getHeight() == 4);
+  assert(binaryTree->getRootElement() == nodeValue[0]);
 
-  //  if (typeid(*binaryTree) == typeid(BinarySearchTree<E>)) {
-  //    int preorderAnswer[] = {41, 20, 11, 29, 32, 65, 50, 91, 72, 99};
-  //    int inorderAnsewer[] = {11, 20, 29, 32, 41, 50, 65, 72, 91, 99};
-  //    int postorderAnswer[] = {11, 32, 29, 20, 50, 72, 99, 91, 65, 41};
-  //    int levelorderAnswer[] = {41, 20, 65, 11, 29, 50, 91, 32, 72, 99};
-  //
-  //    binaryTree->preorderTraverse(nullptr);
-  //    binaryTree->inorderTraverse(nullptr);
-  //    binaryTree->postorderTraverse(nullptr);
-  //    for (int i = 1; i <= 5; i++) {
-  //      if (binaryTree->contains(nodeValue[i])) {
-  //        assert(binaryTree->remove(nodeValue[i]));
-  //      }
-  //    }
-  //
-  //    for (int i = 6; i <= 10; i++) {
-  //      assert(binaryTree->remove(binaryTree->getElement(nodeValue[i])));
-  //    }
-  //  }
+  // 这里根节点的值需要满足一些条件(二叉搜索树性质)
+  binaryTree->setRootElement(50);
+  assert(binaryTree->getRootElement() == 50);
 
-  //  binaryTree->clear();
-  //  assert(binaryTree->isEmpty());
+  if (typeid(*binaryTree) == typeid(BinarySearchTree<E>)) {
+    while (!binaryTree->isEmpty()) {
+      assert(binaryTree->remove(binaryTree->getRootElement()));
+    }
+  }
+
+  binaryTree->clear();
+  assert(binaryTree->isEmpty());
   cout << "\t==OK==" << endl;
 }
 

@@ -150,8 +150,9 @@ void BinaryNodeTree<E>::_preorderTraverseHelper(
 }
 
 template <typename E>
-void BinaryNodeTree<E>::_inorderTraverseHelper(std::function<void(E&)> visit/*void (*visit)(E&)*/,
-                                               BinaryNode<E>* treePtr) const {
+void BinaryNodeTree<E>::_inorderTraverseHelper(
+    std::function<void(E&)> visit /*void (*visit)(E&)*/,
+    BinaryNode<E>* treePtr) const {
   if (treePtr != nullptr) {
     _inorderTraverseHelper(visit, treePtr->getLeft());
     E rvalue = treePtr->getElement();
