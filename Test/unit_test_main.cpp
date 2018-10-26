@@ -162,8 +162,8 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
   cout << "\t==OK==" << endl;
 }
 
-#include "../ADTs/interfaces/Heap.h"
 #include "../ADTs/ArrayHeap.h"
+#include "../ADTs/interfaces/Heap.h"
 
 template <typename E, typename Comp = std::greater<E>>
 void ADTHeapTestMachine(Heap<E>* heap) {
@@ -178,12 +178,11 @@ void ADTHeapTestMachine(Heap<E>* heap) {
   assert(not heap->isEmpty());
   assert(heap->getNumberOfElements() == 6);
   assert(heap->getHeight() == 3);
-  cout << endl;
-  while (!heap->isEmpty()) {
-    cout << heap->top() << " ";
-    assert(heap->remove());
-  }
-  cout << endl;
+  // while (!heap->isEmpty())
+  //   assert(heap->remove());
+
+  heap->clear();
+
   assert(heap->isEmpty());
   assert(heap->add(7));
   assert(heap->add(3));
@@ -192,16 +191,24 @@ void ADTHeapTestMachine(Heap<E>* heap) {
   assert(heap->add(11));
 
   int previous = heap->top();
-  int current;
-  while (not heap->isEmpty()) {
-    current = heap->top();
-    //    if (typeid(*heap) == typeid(ArrayHeap<E, std::greater<E>>)) {
-    assert(previous > current);
-    //    } else {
-    //      assert(previous < current);
-    //    }
+  assert(heap->remove());
+  int current = heap->top();
+  while (true) {
+    if (typeid(*heap) == typeid(ArrayHeap<E, std::greater<E>>)) {
+      assert(previous > current);
+    } else {
+      assert(previous < current);
+    }
     previous = current;
+    assert(heap->remove());
+    if (heap->isEmpty())
+      break;
+    else
+      current = heap->top();
   }
+  heap->clear();
+  assert(heap->isEmpty());
+
   cout << "\t==OK==" << endl;
 }
 
