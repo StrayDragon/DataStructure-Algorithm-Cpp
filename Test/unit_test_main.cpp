@@ -162,6 +162,49 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
   cout << "\t==OK==" << endl;
 }
 
+#include "../ADTs/interfaces/Heap.h"
+#include "../ADTs/ArrayHeap.h"
+
+template <typename E, typename Comp = std::greater<E>>
+void ADTHeapTestMachine(Heap<E>* heap) {
+  cout << flush << "\ttest target implementation : " << typeid(*heap).name();
+#ifdef DEBUG
+  auto downCastClass = [](Heap<E>* h) -> ArrayHeap<E>* {
+    return dynamic_cast<ArrayHeap<E, Comp>*>(h);
+  };
+
+  cout << "\n" << downCastClass(heap) << endl;
+#endif
+  assert(not heap->isEmpty());
+  assert(heap->getNumberOfElements() == 6);
+  assert(heap->getHeight() == 3);
+  cout << endl;
+  while (!heap->isEmpty()) {
+    cout << heap->top() << " ";
+    assert(heap->remove());
+  }
+  cout << endl;
+  assert(heap->isEmpty());
+  assert(heap->add(7));
+  assert(heap->add(3));
+  assert(heap->add(5));
+  assert(heap->add(2));
+  assert(heap->add(11));
+
+  int previous = heap->top();
+  int current;
+  while (not heap->isEmpty()) {
+    current = heap->top();
+    //    if (typeid(*heap) == typeid(ArrayHeap<E, std::greater<E>>)) {
+    assert(previous > current);
+    //    } else {
+    //      assert(previous < current);
+    //    }
+    previous = current;
+  }
+  cout << "\t==OK==" << endl;
+}
+
 int main() {
   cout << "Hello! Unit Tests Main() ...\n" << endl;
 
@@ -192,6 +235,12 @@ int main() {
   auto* binarySearchTree = new BinarySearchTree<int>();
   ADTBinaryTreeTestMachine(binarySearchTree);
 
-  cout << "\nCONGRATULATIONS! ALL TESTS PASSED SUCCESSFULLY " << endl;
+  auto* maxHeap = new ArrayHeap<int>({6, 3, 5, 9, 2, 10});  //最大堆
+  ADTHeapTestMachine(maxHeap);
+
+  auto* minHeap = new ArrayHeap<int, less<int>>({6, 3, 5, 9, 2, 10});  //最小堆
+  ADTHeapTestMachine(minHeap);
+
+  cout << "\nCONGRATULATIONS! ALL TEST CASES PASSED SUCCESSFULLY " << endl;
   return 0;
 }
