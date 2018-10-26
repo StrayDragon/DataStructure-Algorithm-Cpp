@@ -11,13 +11,13 @@ int ArrayHeap<E, Compare>::_getLeftChildIndex(int nodeIndex) const {
 
 template <typename E, typename Compare>
 int ArrayHeap<E, Compare>::_getRightChildIndex(int nodeIndex) const {
-  return _getLeftChildIndex(nodeIndex) + 1;
+  return (2 * nodeIndex) + 2;
 }
 
 template <typename E, typename Compare>
 int ArrayHeap<E, Compare>::_getParentIndex(int nodeIndex) const {
   if (nodeIndex == 0)
-    return 0;  // TODO:应该异常
+    return 0;  //防止只有根节点的add导致无限循环
   return ((nodeIndex - 1) / 2);
 }
 
@@ -125,6 +125,8 @@ bool ArrayHeap<E, Compare>::add(const E& element) {
 
   for (int parentIndex; (newIndex >= 0) && !isPlacedInProperPosition;) {
     parentIndex = _getParentIndex(newIndex);
+    if (parentIndex == newIndex && newIndex == 0)
+      isPlacedInProperPosition = true;
     //  默认 _comp( lhs , rhs ):  lhs > rhs ? true : false;
     if (_comp(_elements[parentIndex], _elements[newIndex])) {
       isPlacedInProperPosition = true;
