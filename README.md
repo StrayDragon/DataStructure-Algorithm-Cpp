@@ -13,14 +13,15 @@ A library of Data Structure And Algorithm implemented by C++
 - [x] **Stack** and implementations :
     - [x] **ArrayList**
     - [x] **LinkedList**
-- [X] **Queue** and implementations :
+- [x] **Queue** and implementations :
     - [x] **ArrayQueue**
     - [x] **LinkedQueue**
     - [x] **ListQueue**
-- [ ] **BinaryTree** and implementations : 
-    - [ ] **BinaryNodeTree**
-    - [ ] **BinarySearchTree**
+- [x] **BinaryTree** and implementations : 
+    - [x] **BinaryNodeTree**
+    - [x] **BinarySearchTree**
 - [ ] **Heap** and implementations : 
+    - [x] **ArrayHeap** 
     - [ ] ...
 - [ ] **Dictionary** and implementations : 
     - [ ] ...
