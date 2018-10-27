@@ -172,7 +172,7 @@ void BinarySearchTree<E>::preorderTraverse(void (*visit)(E&)) const {
 }
 
 template <typename E>
-void BinarySearchTree<E>::inorderTraverse(void (*visit)(E&)) const {
+void BinarySearchTree<E>::inorderTraverse(std::function<void(E&)> visit) const {
   BinaryNodeTree<E>::_inorderTraverseHelper(visit, _rootPtr);
 }
 

@@ -72,7 +72,7 @@ class BinarySearchTree : public BinaryNodeTree<E> {
 
  void preorderTraverse(void (*visit)(E&)) const override;
 
- void inorderTraverse(void (*visit)(E&)) const override;
+ void inorderTraverse(std::function<void(E&)> visit) const override;
 
  void postorderTraverse(void (*visit)(E&)) const override;
 };

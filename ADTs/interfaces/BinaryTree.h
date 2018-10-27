@@ -5,6 +5,7 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_BINARYTREE_H
 #define DATASTRUCTURE_ALGORITHM_CPP_BINARYTREE_H
 
+#include <functional>
 #include "../exceptions/NotFoundException.h"
 
 /**
@@ -111,7 +112,7 @@ class BinaryTree {
    *
    * @param visit 由用户定义的一个函数,用于在遍历的节点上执行相对应的操作
    */
-  virtual void inorderTraverse(void visit(E&)) const = 0;
+  virtual void inorderTraverse(std::function<void(E&)> visit) const = 0;
 
   /**
    * @brief 后序遍历
