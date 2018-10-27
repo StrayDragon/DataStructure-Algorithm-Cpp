@@ -2,7 +2,7 @@
 A library of Data Structure And Algorithm implemented by C++
 
 # UML Class Relation Diagram
-![](https://s1.ax1x.com/2018/10/15/iaQrRI.png)
+![](https://s1.ax1x.com/2018/10/26/i6wGO1.png)
 
 # TODO
 ## Code
@@ -36,6 +36,8 @@ A library of Data Structure And Algorithm implemented by C++
     - [x] **mergeSort**
     - [x] **quickSort**
     - [x] **radixSort**
+    - [x] **heapSort**
+    - [x] **treeSort** (Base on _BinarySearchTree_)
     
 ## Style
 - Code Specification
