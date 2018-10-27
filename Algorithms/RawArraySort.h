@@ -4,6 +4,12 @@
 
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_BASICRAWARRAYSORT_H
 #define DATASTRUCTURE_ALGORITHM_CPP_BASICRAWARRAYSORT_H
+
+#ifdef DEBUG
+#include <iostream>
+#include <cassert>
+#endif
+
 #include "../ADTs/LinkedQueue.h"
 
 /**
@@ -147,6 +153,34 @@ inline int countSpecificDigitOfNumber(int target, int digit) {
   }
 }
 }  // namespace HelperFunc
+/**
+ * @brief 树排序
+ * 基于二叉搜索树的实现
+ * @post 升序排序完成,目标数组元素数量不变
+ * @param targetArray 目标数组
+ * @param size 元素数量
+ */
+void treeSort(ElementType targetArray[], int size);
+
+/**
+ * @brief 堆排序
+ * @post 升序排序完成,目标数组元素数量不变
+ * @param targetArray 目标数组
+ * @param size 元素数量
+ */
+void heapSort(ElementType targetArray[], int size);
+
+namespace HelperFunc {
+/**
+* @brief heapSort的辅助函数
+*
+* 将半堆恢复成堆
+* @param index 子堆的根位置
+* @param targetArray 目标数组
+* @param size 元素数量
+*/
+void heapRebuild(int index, ElementType targetArray[], int size);
+}
 }  // namespace SortBy
 }  // namespace RawArray
 

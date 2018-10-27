@@ -42,11 +42,9 @@ void RawArray::SortBy::bubbleSort(RawArray::ElementType* targetArray,
       }
     }
 #ifdef DEBUG
-
     for (int i = 0; i < size - pass; i++) {
       assert(targetArray[i] < targetArray[size - pass]);
     }
-
 #endif
     pass++;
   }
@@ -197,5 +195,55 @@ void RawArray::SortBy::radixSort(RawArray::ElementType* targetArray,
     }
   } else {
     return;
+  }
+}
+
+#include "../ADTs/BinarySearchTree.h"
+void RawArray::SortBy::binarySearchTreeSort(RawArray::ElementType* targetArray,
+                                            int size) {
+  using namespace HelperFunc;
+  BinarySearchTree<ElementType> bst;
+  for (int i = 0; i < size; ++i) {
+    bst.add(targetArray[i]);
+  }
+  int i = 0;
+  bst.inorderTraverse([&](ElementType e) { targetArray[i++] = e; });
+}
+
+void RawArray::SortBy::heapSort(RawArray::ElementType* targetArray, int size) {
+  for (int i = size / 2; i >= 0; i--) {
+    HelperFunc::heapRebuild(i, targetArray, size);
+  }
+
+#ifdef DEBUG
+  for (int j = 0; j < size; ++j)
+    std::cout << targetArray[j] << " ";
+  std::cout<< std::endl;
+#endif
+
+  std::swap(targetArray[0], targetArray[size - 1]);
+  int heapSize = size - 1;
+  while (heapSize > 1) {
+    HelperFunc::heapRebuild(0, targetArray, heapSize);
+    std::swap(targetArray[0], targetArray[heapSize - 1]);
+    heapSize--;
+  }
+}
+
+void RawArray::SortBy::HelperFunc::heapRebuild(
+    int index,
+    RawArray::ElementType* targetArray,
+    int size) {
+  int leftIndex = index * 2 + 1;
+  if (leftIndex < size) {
+    int rightIndex = index * 2 + 2;
+    if (rightIndex < size) {
+      if (targetArray[leftIndex] < targetArray[rightIndex])
+        leftIndex = rightIndex;
+    }
+    if (targetArray[index] < targetArray[leftIndex]) {
+      std::swap(targetArray[index], targetArray[leftIndex]);
+      heapRebuild(leftIndex, targetArray, size);
+    }
   }
 }
