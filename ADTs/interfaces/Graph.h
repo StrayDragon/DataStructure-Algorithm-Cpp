@@ -8,18 +8,18 @@
 /**
  * @brief 图(Graph) 接口声明
  *
- * @tparam E 元素类型
+ * @tparam VertexType 元素类型
  */
-template <typename T>
+template <typename VertexType>
 class Graph {
  public:
   virtual int getNumberOfVertices() const = 0;
   virtual int getNumberOfEdges() const = 0;
-  virtual bool add(T startPosition, T endPosition, int edgeWight) = 0;
-  virtual bool remove(T startPosition, T endPosition) = 0;
-  virtual bool getEdgeWeight((T startPosition, T endPosition)) const = 0;
-  virtual void depthFirstTraversal((T startPosition, void (*visit)(T&))) = 0;
-  virtual void breadthFirstTraversal((T startPosition, void (*visit)(T&))) = 0;
+  virtual bool add(VertexType startPosition, VertexType endPosition, int edgeWight) = 0;
+  virtual bool remove(VertexType startPosition, VertexType endPosition) = 0;
+  virtual bool getEdgeWeight(VertexType startPosition, VertexType endPosition) const = 0;
+  virtual void depthFirstTraversal(VertexType startPosition, void (*visit)(VertexType&)) = 0;
+  virtual void breadthFirstTraversal(VertexType startPosition, void (*visit)(VertexType&)) = 0;
 };
 
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_GRAPH_H
