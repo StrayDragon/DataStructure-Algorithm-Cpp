@@ -89,5 +89,4 @@ class Graph {
   virtual void breadthFirstTraversal(VertexType startPosition,
                                      std::function<void(T&)> visit) = 0;
 };
-
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_GRAPH_H
