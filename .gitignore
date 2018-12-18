@@ -128,7 +128,7 @@ fabric.properties
 !.vscode/extensions.json
 
 .build/*
-/Lib/googletest/
+/lib/googletest/
 将删除 .idea/DataStructure-Algorithm-Cpp.iml
 将删除 .idea/codeStyles/codeStyleConfig.xml
 将删除 .idea/encodings.xml
