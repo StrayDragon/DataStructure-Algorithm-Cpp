@@ -8,8 +8,9 @@
 using namespace std;
 int main() {
   BigNumber bn;
-  bn += 123123123123;
-  cout << boolalpha << (bn + 123123123123 > bn) << endl;
+  bn = 123123123123;
+  cin >> bn;
+  cout << boolalpha << (BigNumber(123123123123) > bn) << endl;
   string s = bn.toString();
   cout << s << endl;
   return 0;

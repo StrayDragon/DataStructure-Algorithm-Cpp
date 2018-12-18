@@ -10,11 +10,16 @@
 #include <ostream>
 #include <cstring>
 
-struct BigNumber {
+class BigNumber {
+  friend std::ostream;
+  friend std::istream;
+
   static const int BASE = 100000000;
   static const int WIDTH = 8;
   std::vector<int> digits;
-  BigNumber(long long num = 0) {
+
+ public:
+  explicit BigNumber(long long num = 0) {
     *this = num;
   }
 
@@ -24,7 +29,7 @@ struct BigNumber {
 
   BigNumber& operator=(const BigNumber& bn) = default;
 
-  BigNumber operator=(long long num) {
+  BigNumber& operator=(long long num) {
     digits.clear();
     do {
       digits.push_back(static_cast<int&&>(num % BASE)); // digits.push_back(num % BASE);
@@ -33,7 +38,7 @@ struct BigNumber {
     return *this;
   }
 
-  BigNumber operator=(const std::string& s) {
+  BigNumber& operator=(const std::string& s) {
     digits.clear();
     size_t len = (s.size() - 1) / WIDTH + 1;
     int x;
@@ -95,13 +100,17 @@ struct BigNumber {
       str += std::to_string(*itr);
     return str;
   }
+
+  const std::vector<int>& getDigits() const {
+    return digits;
+  }
 };
 
 std::ostream& operator<<(std::ostream& out, const BigNumber& bn) {
-  out << bn.digits.back();
-  for (int i = static_cast<int>(bn.digits.size() - 2); i >= 0; --i) {
+  out << bn.getDigits().back();
+  for (int i = static_cast<int>(bn.getDigits().size() - 2); i >= 0; --i) {
     char buf[20];
-    std::sprintf(buf, "%d", bn.digits[i]);
+    std::sprintf(buf, "%d", (bn.getDigits())[i]);
     for (size_t j = 0; j < std::strlen(buf); ++j) {
       out << buf[j];
     }
@@ -116,4 +125,5 @@ std::istream& operator>>(std::istream& in, BigNumber& bn) {
   bn = s;
   return in;
 }
+
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_BIGNUMBER_H
