@@ -1,9 +1,77 @@
 # DataStructure-Algorithm-Cpp
 A library of Data Structure And Algorithm implemented by C++
 
-# UML Class Relation Diagram
+
+# About Project
+## Try to use it!
+- You can open it in **Clion**, and install the [google-test](https://github.com/google/googletest) src in the `lib` directory (_**Dependence**_):
+```bash
+git clone https://github.com/Straydragonl/DataStructure-Algorithm-Cpp.git \
+cd DataStructure-Algorithm-Cpp \
+mkdir lib \
+cd lib \
+git clone https://github.com/google/googletest.git
+# Use Clion open the project (DataStructure-Algorithm-Cpp)
+```
+
+- or install manually by terminal:
+```bash
+git clone https://github.com/Straydragonl/DataStructure-Algorithm-Cpp.git \
+cd DataStructure-Algorithm-Cpp \
+mkdir lib \
+cd lib \
+git clone https://github.com/google/googletest.git
+cd .. \
+cmake . \
+make
+```
+
+## UML Class Relation Diagram
 ![](https://s1.ax1x.com/2018/10/26/i6wGO1.png)
 
+## Chief Structure
+```bash
+src
+├── ADTs
+│   ├── exceptions
+│   ├── interfaces
+│   │   ├── BinaryTree.h
+│   │   ├── Dictionary.h
+│   │   ├── Graph.h
+│   │   ├── Heap.h
+│   │   ├── List.h
+│   │   ├── Queue.h
+│   │   └── Stack.h
+│   ├── AdjacencyMatrixGraph.cpp
+│   ├── AdjacencyMatrixGraph.h
+│   ├── ArrayHeap.cpp
+│   ├── ArrayHeap.h
+│   ├── ArrayList.cpp
+│   ├── ArrayList.h
+│   ├── ArrayQueue.cpp
+│   ├── ArrayQueue.h
+│   ├── ArrayStack.cpp
+│   ├── ArrayStack.h
+│   ├── BinaryNode.h
+│   ├── BinaryNodeTree.cpp
+│   ├── BinaryNodeTree.h
+│   ├── BinarySearchTree.cpp
+│   ├── BinarySearchTree.h
+│   ├── LinkedList.cpp
+│   ├── LinkedList.h
+│   ├── LinkedQueue.cpp
+│   ├── LinkedQueue.h
+│   ├── LinkedStack.cpp
+│   ├── LinkedStack.h
+│   ├── ListQueue.cpp
+│   ├── ListQueue.h
+│   ├── Node.h
+│   └── TreeNode.h
+├── Algorithms
+│   ├── RawArraySort.cpp
+│   └── RawArraySort.h
+└── Experiments
+```
 # TODO
 ## Code
 ### ADTs
