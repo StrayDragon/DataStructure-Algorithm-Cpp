@@ -149,7 +149,7 @@ inline int countSpecificDigitOfNumber(int target, int digit) {
     return target % 10 / 1;
   } else {
     return target % (powExcludePower0(10, digit)) /
-           (powExcludePower0(10, digit - 1));
+        (powExcludePower0(10, digit - 1));
   }
 }
 }  // namespace HelperFunc

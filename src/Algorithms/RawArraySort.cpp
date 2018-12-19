@@ -199,8 +199,8 @@ void RawArray::SortBy::radixSort(RawArray::ElementType* targetArray,
 }
 
 #include "../ADTs/BinarySearchTree.h"
-void RawArray::SortBy::binarySearchTreeSort(RawArray::ElementType* targetArray,
-                                            int size) {
+void RawArray::SortBy::treeSort(RawArray::ElementType* targetArray,
+                                int size) {
   using namespace HelperFunc;
   BinarySearchTree<ElementType> bst;
   for (int i = 0; i < size; ++i) {
