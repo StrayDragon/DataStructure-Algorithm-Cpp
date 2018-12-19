@@ -13,13 +13,22 @@ include_directories(${Lib_GoogleTest}/googletest/include)
 #include the googlemock/include dir
 include_directories(${Lib_GoogleTest}/googlemock/include)
 
+set(TEMP_SOURCE_FILE
+        #        src/ADTs/interfaces/Graph.h
+        #        src/ADTs/AdjacencyMatrixGraph.h
+        #        src/ADTs/AdjacencyMatrixGraph.cpp
+        )
+
 set(SOURCE_FILE
+        ${TEMP_SOURCE_FILE}
         test/unit_main.cpp
         test/unit_ADTs_List_Interface.cpp
         test/unit_ADTs_Stack_Interface.cpp
         test/unit_ADTs_Queue_Interface.cpp
         test/unit_ADTs_Tree_Interface.cpp
         test/unit_ADTs_Heap_Interface.cpp
+        test/unit_ADTs_Graph_Interface.cpp
+        test/unit_Algorithms_RawArray_Sort.cpp
         )
 
 add_executable(GTest ${SOURCE_FILE})

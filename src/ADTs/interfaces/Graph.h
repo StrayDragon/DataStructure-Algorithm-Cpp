@@ -6,13 +6,20 @@
 #define DATASTRUCTURE_ALGORITHM_CPP_GRAPH_H
 
 #include <functional>
+enum class AcyclicGraphTypes {
+  UNDIRECTED_UNWEIGHTED,
+  UNDIRECTED_WEIGHTED,
+  DIRECTED_UNWEIGHTED,
+  DIRECTED_WEIGHTED
+};
+
 /**
  * @brief 图(Graph) 接口声明
  *
  * @tparam VertexType 顶点类型
  * @tparam EdgeWight 边权重类型,默认为int
  */
-template <typename VertexType, typename EdgeWight = int>
+template<typename VertexType, typename EdgeWight = int>
 class Graph {
  public:
   /**
@@ -20,14 +27,25 @@ class Graph {
    *
    * @return size_t 顶点个数
    */
-  virtual size_t getNumberOfVertices() const = 0;
+  virtual size_t getAmountOfVertices() const = 0;
 
   /**
    * @brief 获得边的个数
    *
    * @return size_t 边的个数
    */
-  virtual size_t getNumberOfEdges() const = 0;
+  virtual size_t getAmountOfEdges() const = 0;
+
+  /**
+   * @brief 加入指定边,默认的边权重值
+   *
+   * @param startPosition
+   * @param endPosition
+   * @return true
+   * @return false
+   */
+  virtual bool add(VertexType startPosition,
+                   VertexType endPosition) = 0;
 
   /**
    * @brief 加入指定边
@@ -57,9 +75,8 @@ class Graph {
    * @return false
    */
   virtual bool remove(VertexType startPosition, VertexType endPosition) = 0;
-  // virtual bool removeEdge(VertexType startPosition, VertexType endPosition) =
-  // 0; virtual bool removeVertex(VertexType startPosition, VertexType
-  // endPosition) = 0;
+  // virtual bool removeEdge(VertexType startPosition, VertexType endPosition) = 0;
+  // virtual bool removeVertex(VertexType startPosition, VertexType endPosition) = 0;
 
   /**
    * @brief 获取指定边的权重
@@ -78,7 +95,7 @@ class Graph {
    * @param visit
    */
   virtual void depthFirstTraversal(VertexType startPosition,
-                                   std::function<void(T&)> visit) = 0;
+                                   std::function<void(VertexType&)> visit) = 0;
 
   /**
    * @brief 广度优先遍历
@@ -87,6 +104,6 @@ class Graph {
    * @param visit
    */
   virtual void breadthFirstTraversal(VertexType startPosition,
-                                     std::function<void(T&)> visit) = 0;
+                                     std::function<void(VertexType&)> visit) = 0;
 };
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_GRAPH_H
