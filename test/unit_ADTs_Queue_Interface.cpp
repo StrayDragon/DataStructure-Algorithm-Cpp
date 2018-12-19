@@ -38,16 +38,19 @@ void QueueInterfaceTestSuit(Queue<E>* queue) {
 TEST(ADTs_Queue_Interface, impl_ArrayQueue_int) { // NOLINT(cert-err58-cpp)
   auto* arrayQueue = new ArrayQueue<int>();
   QueueInterfaceTestSuit(arrayQueue);
+  delete arrayQueue;
 }
 
 TEST(ADTs_Queue_Interface, impl_LinkedQueue_int) { // NOLINT(cert-err58-cpp)
   auto* linkedQueue = new LinkedQueue<int>();
   QueueInterfaceTestSuit(linkedQueue);
+  delete linkedQueue;
 }
 
 TEST(ADTs_Queue_Interface, impl_ListQueue_int) { // NOLINT(cert-err58-cpp)
   auto* listQueue = new ListQueue<int>();
   QueueInterfaceTestSuit(listQueue);
+  delete listQueue;
 }
 
 

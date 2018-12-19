@@ -38,10 +38,12 @@ void TreeInterfaceTestSuit(BinaryTree<E>* binaryTree) {
 TEST(ADTs_Tree_Interface, impl_BinaryNodeTree_int) { // NOLINT(cert-err58-cpp)
   auto* binaryNodeTree = new BinaryNodeTree<int>();
   TreeInterfaceTestSuit(binaryNodeTree);
+  delete binaryNodeTree;
 }
 
 TEST(ADTs_Tree_Interface, impl_BinarySearchTree_int) { // NOLINT(cert-err58-cpp)
   auto* binarySearchTree = new BinarySearchTree<int>();
   TreeInterfaceTestSuit(binarySearchTree);
+  delete binarySearchTree;
 }
 

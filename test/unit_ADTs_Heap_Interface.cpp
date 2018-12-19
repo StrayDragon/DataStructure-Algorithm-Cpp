@@ -53,10 +53,12 @@ void HeapInterfaceTestSuit(Heap<E>* heap) {
 TEST(ADTs_Heap_Interface, impl_ArrayHeap_int_std$greater) { // NOLINT(cert-err58-cpp)
   auto* maxHeap = new ArrayHeap<int>({6, 3, 5, 9, 2, 10});  //最大堆
   HeapInterfaceTestSuit(maxHeap);
+  delete maxHeap;
 }
 
 TEST(ADTs_Heap_Interface, impl_ArrayHeap_int_std$less) { // NOLINT(cert-err58-cpp)
   auto* minHeap = new ArrayHeap<int, std::less<int>>({6, 3, 5, 9, 2, 10});  //最小堆
   HeapInterfaceTestSuit(minHeap);
+  delete minHeap;
 }
 

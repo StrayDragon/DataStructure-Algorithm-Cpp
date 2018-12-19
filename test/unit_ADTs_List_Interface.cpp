@@ -57,10 +57,12 @@ void ListInterfaceTestSuit(List<E>* list) {
 TEST(ADTs_List_Interface, impl_ArrayList_int) { // NOLINT(cert-err58-cpp)
   auto* arrayList = new ArrayList<int>();
   ListInterfaceTestSuit(arrayList);
+  delete arrayList;
 }
 
 TEST(ADTs_List_Interface, impl_LinkedList_int) { // NOLINT(cert-err58-cpp)
   auto* linkedList = new LinkedList<int>();
   ListInterfaceTestSuit(linkedList);
+  delete linkedList;
 }
 

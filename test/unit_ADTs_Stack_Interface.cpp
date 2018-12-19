@@ -38,10 +38,12 @@ void StackInterfaceTestSuit(Stack<E>* stack) {
 TEST(ADTs_Stack_Interface, impl_ArrayStack_int) { // NOLINT(cert-err58-cpp)
   auto* arrayStack = new ArrayStack<int>();
   StackInterfaceTestSuit(arrayStack);
+  delete arrayStack;
 }
 
 TEST(ADTs_Stack_Interface, impl_LinkedStack_int) { // NOLINT(cert-err58-cpp)
   auto* linkedStack = new LinkedStack<int>();
   StackInterfaceTestSuit(linkedStack);
+  delete linkedStack;
 }
 
