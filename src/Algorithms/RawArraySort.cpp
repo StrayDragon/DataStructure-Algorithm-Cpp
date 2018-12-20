@@ -141,15 +141,17 @@ int RawArray::SortBy::HelperFunc::partition(RawArray::ElementType* targetArray,
     std::swap(targetArray[first], targetArray[mid]);
   }
 #ifdef DEBUG
-  std::cout << targetArray[first] << " " << targetArray[mid] << " "
-            << targetArray[last] << std::endl;
+  std::cout << first << " " << mid << " " << last << std::endl;
+//  std::cout << targetArray[first] << " " << targetArray[mid] << " "
+//            << targetArray[last] << std::endl;
 #endif
   if (targetArray[mid] > targetArray[last]) {
     std::swap(targetArray[mid], targetArray[last]);
   }
 #ifdef DEBUG
-  std::cout << targetArray[first] << " " << targetArray[mid] << " "
-            << targetArray[last] << std::endl;
+  std::cout << first << " " << mid << " " << last << std::endl;
+//  std::cout << targetArray[first] << " " << targetArray[mid] << " "
+//            << targetArray[last] << std::endl;
 #endif
   return mid;
 }
@@ -161,8 +163,8 @@ void RawArray::SortBy::quickSort(RawArray::ElementType* targetArray,
     RawArray::SortBy::insertionSort(targetArray, first, last);
   } else {
     int pivotIndex = HelperFunc::partition(targetArray, first, last);
-    quickSort(targetArray, first, pivotIndex - 1);
-    quickSort(targetArray, pivotIndex + 1, last);
+    quickSort(targetArray, first + 1, pivotIndex + 1);
+    quickSort(targetArray, pivotIndex - 1, last - 1);
   }
 }
 
