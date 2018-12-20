@@ -40,7 +40,7 @@ bool AdjacencyMatrixGraph<VertexType, WeightType>::add(VertexType startPosition,
   if (_countOfVertices + 2 > MAX_VERTICES_NUM)
     return false;
   else {
-    _eages.push_back(Edge(startPosition, endPosition));
+    _edges.push_back(Edge(startPosition, endPosition));
     _countOfEdges++;
 
     if (!_isFound(startPosition))
@@ -60,7 +60,7 @@ bool AdjacencyMatrixGraph<VertexType, WeightType>::add(VertexType startPosition,
   if (_countOfVertices + 2 > MAX_VERTICES_NUM)
     return false;
   else {
-    _eages.push_back(Edge(startPosition, endPosition, edgeWight));
+    _edges.push_back(Edge(startPosition, endPosition, edgeWight));
     _countOfEdges++;
 
     _relationTable[_countOfVertices][_countOfVertices + 1] = edgeWight;

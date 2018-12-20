@@ -12,7 +12,7 @@
 #include "interfaces/noncopyable.h"
 
 template<typename VertexType, typename WeightType = int>
-class AdjacencyMatrixGraph final : public Graph<VertexType, WeightType>, noncopyable {
+class AdjacencyMatrixGraph final : noncopyable, public Graph<VertexType, WeightType> {
 
   static const AcyclicGraphTypes TYPE = AcyclicGraphTypes::UNDIRECTED_WEIGHTED;
 
@@ -37,7 +37,7 @@ class AdjacencyMatrixGraph final : public Graph<VertexType, WeightType>, noncopy
  private:
   WeightType _relationTable[MAX_VERTICES_NUM][MAX_VERTICES_NUM]; //表示权重大小
   VertexType _vertices[MAX_VERTICES_NUM];//表示顶点
-  std::vector<Edge> _eages;//表示边信息
+  std::vector<Edge> _edges;//表示边信息
   size_t _countOfVertices;//顶点数量
   size_t _countOfEdges;//边数量
 
