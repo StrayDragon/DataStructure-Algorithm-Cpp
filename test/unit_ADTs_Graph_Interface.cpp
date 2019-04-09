@@ -19,11 +19,11 @@ void GraphInterfaceTestSuit(Graph<VertexType, WeightType>* graph) {
   ASSERT_EQ(graph->getAmountOfEdges(), 3);
 }
 
-TEST(ADTs_Graph_Interface, impl_AdjacencyMatrixGraph_int) {
-  auto* adjMatrixGraph = new AdjacencyMatrixGraph<int>();
-  GraphInterfaceTestSuit(adjMatrixGraph);
-  delete adjMatrixGraph;
-}
+//TEST(ADTs_Graph_Interface, impl_AdjacencyMatrixGraph_int) {
+//  auto* adjMatrixGraph = new AdjacencyMatrixGraph<int>();
+//  GraphInterfaceTestSuit(adjMatrixGraph);
+//  delete adjMatrixGraph;
+//}
 
 //TEST(ADTs_Graph_Interface_, attempt_to_test_interface_by_constructor) {
 //  using type = AcyclicGraphTypes;
