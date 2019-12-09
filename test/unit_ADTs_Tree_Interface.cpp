@@ -7,7 +7,7 @@
 #include "../src/ADTs/BinarySearchTree.h"
 #include "../src/ADTs/interfaces/BinaryTree.h"
 
-template<typename E>
+template <typename E>
 void TreeInterfaceTestSuit(BinaryTree<E>* binaryTree) {
   int nodeValue[] = {41, 20, 65, 50, 91, 72, 99, 11, 29, 32};
   EXPECT_TRUE(binaryTree->isEmpty());
@@ -35,15 +35,15 @@ void TreeInterfaceTestSuit(BinaryTree<E>* binaryTree) {
   EXPECT_TRUE(binaryTree->isEmpty());
 }
 
-TEST(ADTs_Tree_Interface, impl_BinaryNodeTree_int) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_Tree_Interface, impl_BinaryNodeTree_int) {  // NOLINT(cert-err58-cpp)
   auto* binaryNodeTree = new BinaryNodeTree<int>();
   TreeInterfaceTestSuit(binaryNodeTree);
   delete binaryNodeTree;
 }
 
-TEST(ADTs_Tree_Interface, impl_BinarySearchTree_int) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_Tree_Interface,
+     impl_BinarySearchTree_int) {  // NOLINT(cert-err58-cpp)
   auto* binarySearchTree = new BinarySearchTree<int>();
   TreeInterfaceTestSuit(binarySearchTree);
   delete binarySearchTree;
 }
-

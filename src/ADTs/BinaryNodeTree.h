@@ -109,7 +109,9 @@ class BinaryNodeTree : public BinaryTree<E> {
    * @param visit
    * @param treePtr
    */
-  void _inorderTraverseHelper(std::function<void(E&)> visit/*void (*visit)(E&)*/, BinaryNode<E>* treePtr) const;
+  void _inorderTraverseHelper(
+      std::function<void(E&)> visit /*void (*visit)(E&)*/,
+      BinaryNode<E>* treePtr) const;
 
   /**
    * @brief postorderTraverse()方法的辅助函数

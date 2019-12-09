@@ -7,7 +7,7 @@
 
 /**
  * @brief 二叉树基于链表(自引用)形式的树结点实现
- * 
+ *
  * @tparam E 元素类型
  */
 template <typename E>
@@ -25,7 +25,7 @@ class BinaryNode {
 
   BinaryNode(const E& element, BinaryNode<E>* left, BinaryNode<E>* right)
       : _element(element), _left(left), _right(right) {}
-			
+
   bool isLeaf() const { return (_left == nullptr && _right == nullptr); }
 
   E getElement() const { return _element; }

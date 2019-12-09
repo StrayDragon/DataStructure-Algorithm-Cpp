@@ -201,8 +201,7 @@ void RawArray::SortBy::radixSort(RawArray::ElementType* targetArray,
 }
 
 #include "../ADTs/BinarySearchTree.h"
-void RawArray::SortBy::treeSort(RawArray::ElementType* targetArray,
-                                int size) {
+void RawArray::SortBy::treeSort(RawArray::ElementType* targetArray, int size) {
   using namespace HelperFunc;
   BinarySearchTree<ElementType> bst;
   for (int i = 0; i < size; ++i) {
@@ -220,7 +219,7 @@ void RawArray::SortBy::heapSort(RawArray::ElementType* targetArray, int size) {
 #ifdef DEBUG
   for (int j = 0; j < size; ++j)
     std::cout << targetArray[j] << " ";
-  std::cout<< std::endl;
+  std::cout << std::endl;
 #endif
 
   std::swap(targetArray[0], targetArray[size - 1]);

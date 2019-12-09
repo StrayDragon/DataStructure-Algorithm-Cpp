@@ -5,10 +5,10 @@
 #ifndef DATASTRUCTURE_ALGORITHM_CPP_BIGNUMBER_H
 #define DATASTRUCTURE_ALGORITHM_CPP_BIGNUMBER_H
 
+#include <cstring>
+#include <ostream>
 #include <string>
 #include <vector>
-#include <ostream>
-#include <cstring>
 
 class BigNumber {
   friend std::ostream;
@@ -19,20 +19,17 @@ class BigNumber {
   std::vector<int> digits;
 
  public:
-  explicit BigNumber(long long num = 0) {
-    *this = num;
-  }
+  explicit BigNumber(long long num = 0) { *this = num; }
 
-  BigNumber(const BigNumber& bn) {
-    digits = bn.digits;
-  }
+  BigNumber(const BigNumber& bn) { digits = bn.digits; }
 
   BigNumber& operator=(const BigNumber& bn) = default;
 
   BigNumber& operator=(long long num) {
     digits.clear();
     do {
-      digits.push_back(static_cast<int&&>(num % BASE)); // digits.push_back(num % BASE);
+      digits.push_back(
+          static_cast<int&&>(num % BASE));  // digits.push_back(num % BASE);
       num /= BASE;
     } while (num > 0);
     return *this;
@@ -55,10 +52,13 @@ class BigNumber {
     BigNumber cpy;
     cpy.digits.clear();
     for (size_t i = 0, g = 0;; ++i) {
-      if (g == 0 && i >= digits.size() && i >= rhs.digits.size()) break;
+      if (g == 0 && i >= digits.size() && i >= rhs.digits.size())
+        break;
       size_t x = g;
-      if (i < digits.size()) x += digits[i];
-      if (i < rhs.digits.size()) x += rhs.digits[i];
+      if (i < digits.size())
+        x += digits[i];
+      if (i < rhs.digits.size())
+        x += rhs.digits[i];
       cpy.digits.push_back(static_cast<int&&>(x % BASE));
       g = x / BASE;
     }
@@ -71,28 +71,20 @@ class BigNumber {
   }
 
   bool operator<(const BigNumber& rhs) const {
-    if (digits.size() != rhs.digits.size()) return digits.size() < rhs.digits.size();
+    if (digits.size() != rhs.digits.size())
+      return digits.size() < rhs.digits.size();
     for (size_t i = digits.size() - 1; i >= 0; ++i)
-      if (digits[i] != rhs.digits[i]) return digits[i] < rhs.digits[i];
+      if (digits[i] != rhs.digits[i])
+        return digits[i] < rhs.digits[i];
     return false;
   }
 
-  bool operator==(const BigNumber& rhs) const {
-    return digits == rhs.digits;
-  }
-  bool operator!=(const BigNumber& rhs) const {
-    return !(rhs == *this);
-  }
+  bool operator==(const BigNumber& rhs) const { return digits == rhs.digits; }
+  bool operator!=(const BigNumber& rhs) const { return !(rhs == *this); }
 
-  bool operator>(const BigNumber& rhs) const {
-    return rhs < *this;
-  }
-  bool operator<=(const BigNumber& rhs) const {
-    return !(rhs < *this);
-  }
-  bool operator>=(const BigNumber& rhs) const {
-    return !(*this < rhs);
-  }
+  bool operator>(const BigNumber& rhs) const { return rhs < *this; }
+  bool operator<=(const BigNumber& rhs) const { return !(rhs < *this); }
+  bool operator>=(const BigNumber& rhs) const { return !(*this < rhs); }
 
   std::string toString() {
     std::string str = std::to_string(digits.back());
@@ -101,9 +93,7 @@ class BigNumber {
     return str;
   }
 
-  const std::vector<int>& getDigits() const {
-    return digits;
-  }
+  const std::vector<int>& getDigits() const { return digits; }
 };
 
 std::ostream& operator<<(std::ostream& out, const BigNumber& bn) {

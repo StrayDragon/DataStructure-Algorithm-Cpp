@@ -6,8 +6,8 @@
 #define DATASTRUCTURE_ALGORITHM_CPP_BASICRAWARRAYSORT_H
 
 #ifdef DEBUG
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #endif
 
 #include "../ADTs/LinkedQueue.h"
@@ -149,7 +149,7 @@ inline int countSpecificDigitOfNumber(int target, int digit) {
     return target % 10 / 1;
   } else {
     return target % (powExcludePower0(10, digit)) /
-        (powExcludePower0(10, digit - 1));
+           (powExcludePower0(10, digit - 1));
   }
 }
 }  // namespace HelperFunc
@@ -172,15 +172,15 @@ void heapSort(ElementType targetArray[], int size);
 
 namespace HelperFunc {
 /**
-* @brief heapSort的辅助函数
-*
-* 将半堆恢复成堆
-* @param index 子堆的根位置
-* @param targetArray 目标数组
-* @param size 元素数量
-*/
+ * @brief heapSort的辅助函数
+ *
+ * 将半堆恢复成堆
+ * @param index 子堆的根位置
+ * @param targetArray 目标数组
+ * @param size 元素数量
+ */
 void heapRebuild(int index, ElementType targetArray[], int size);
-}
+}  // namespace HelperFunc
 }  // namespace SortBy
 }  // namespace RawArray
 

@@ -7,13 +7,13 @@
 #include "../src/ADTs/LinkedList.h"
 #include "../src/ADTs/interfaces/List.h"
 
-template<typename E>
+template <typename E>
 void ListInterfaceTestSuit(List<E>* list) {
-  //FIXME:这里对于ArrayList 有点问题
-//  if (typeid(*list) == typeid(LinkedList<E>)) {
-//    LinkedList<E> linkedListCopy;
-//    list = new LinkedList<E>(linkedListCopy);  // 浅拷贝
-//  }
+  // FIXME:这里对于ArrayList 有点问题
+  //  if (typeid(*list) == typeid(LinkedList<E>)) {
+  //    LinkedList<E> linkedListCopy;
+  //    list = new LinkedList<E>(linkedListCopy);  // 浅拷贝
+  //  }
   list->clear();
 
   EXPECT_EQ(list->getLength(), 0);
@@ -51,18 +51,16 @@ void ListInterfaceTestSuit(List<E>* list) {
 
   list->clear();
   EXPECT_TRUE(list->getLength() == 0 && list->isEmpty());
-
 }
 
-TEST(ADTs_List_Interface, impl_ArrayList_int) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_List_Interface, impl_ArrayList_int) {  // NOLINT(cert-err58-cpp)
   auto* arrayList = new ArrayList<int>();
   ListInterfaceTestSuit(arrayList);
   delete arrayList;
 }
 
-TEST(ADTs_List_Interface, impl_LinkedList_int) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_List_Interface, impl_LinkedList_int) {  // NOLINT(cert-err58-cpp)
   auto* linkedList = new LinkedList<int>();
   ListInterfaceTestSuit(linkedList);
   delete linkedList;
 }
-

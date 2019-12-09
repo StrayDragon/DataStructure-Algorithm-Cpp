@@ -50,31 +50,31 @@ class BinarySearchTree : public BinaryNodeTree<E> {
 
   BinarySearchTree<E>& operator=(const BinarySearchTree<E>& binarySearchTree);
 
- bool isEmpty() const override;
+  bool isEmpty() const override;
 
- int getHeight() const override;
+  int getHeight() const override;
 
- int getNumberOfNodes() const override;
+  int getNumberOfNodes() const override;
 
- E getRootElement() const override;
+  E getRootElement() const override;
 
- void setRootElement(const E& element) override;
+  void setRootElement(const E& element) override;
 
   bool add(const E& element) override;
 
   bool remove(const E& element) override;
 
- void clear() override;
+  void clear() override;
 
- E getElement(const E& element) const override;
+  E getElement(const E& element) const override;
 
- bool contains(const E& element) const override;
+  bool contains(const E& element) const override;
 
- void preorderTraverse(void (*visit)(E&)) const override;
+  void preorderTraverse(void (*visit)(E&)) const override;
 
- void inorderTraverse(std::function<void(E&)> visit) const override;
+  void inorderTraverse(std::function<void(E&)> visit) const override;
 
- void postorderTraverse(void (*visit)(E&)) const override;
+  void postorderTraverse(void (*visit)(E&)) const override;
 };
 
 #include "BinarySearchTree.cpp"

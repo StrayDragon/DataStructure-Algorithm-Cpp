@@ -5,8 +5,7 @@ class PreconditionFailedException : public Exception {
  public:
   explicit PreconditionFailedException(const std::string& msg = "")
       : Exception(msg) {}
-  explicit PreconditionFailedException(const char* msg)
-      : Exception(msg) {}
+  explicit PreconditionFailedException(const char* msg) : Exception(msg) {}
 };
 
 #endif

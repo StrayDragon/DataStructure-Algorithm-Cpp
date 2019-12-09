@@ -6,7 +6,7 @@
 #define DATASTRUCTURE_ALGORITHM_CPP_RC_HPP
 
 #include <memory>
-template<typename T>
+template <typename T>
 using Rc = std::shared_ptr<T>;
 
-#endif //DATASTRUCTURE_ALGORITHM_CPP_RC_H
+#endif  // DATASTRUCTURE_ALGORITHM_CPP_RC_H

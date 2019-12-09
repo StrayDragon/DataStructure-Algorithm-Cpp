@@ -8,7 +8,7 @@
 #include "../src/ADTs/ListQueue.h"
 #include "../src/ADTs/interfaces/Queue.h"
 
-template<typename E>
+template <typename E>
 void QueueInterfaceTestSuit(Queue<E>* queue) {
   // if (typeid(*queue) == typeid(LinkedQueue<E>)) {
   //   LinkedQueue<E> linkedQueue;
@@ -32,25 +32,22 @@ void QueueInterfaceTestSuit(Queue<E>* queue) {
     EXPECT_TRUE(queue->dequeue());
   }
   EXPECT_TRUE(!queue->dequeue());
-
 }
 
-TEST(ADTs_Queue_Interface, impl_ArrayQueue_int) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_Queue_Interface, impl_ArrayQueue_int) {  // NOLINT(cert-err58-cpp)
   auto* arrayQueue = new ArrayQueue<int>();
   QueueInterfaceTestSuit(arrayQueue);
   delete arrayQueue;
 }
 
-TEST(ADTs_Queue_Interface, impl_LinkedQueue_int) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_Queue_Interface, impl_LinkedQueue_int) {  // NOLINT(cert-err58-cpp)
   auto* linkedQueue = new LinkedQueue<int>();
   QueueInterfaceTestSuit(linkedQueue);
   delete linkedQueue;
 }
 
-TEST(ADTs_Queue_Interface, impl_ListQueue_int) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_Queue_Interface, impl_ListQueue_int) {  // NOLINT(cert-err58-cpp)
   auto* listQueue = new ListQueue<int>();
   QueueInterfaceTestSuit(listQueue);
   delete listQueue;
 }
-
-

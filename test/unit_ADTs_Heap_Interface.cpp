@@ -6,7 +6,7 @@
 #include "../src/ADTs/ArrayHeap.h"
 #include "../src/ADTs/interfaces/Heap.h"
 
-template<typename E, typename Comp = std::greater<E>>
+template <typename E, typename Comp = std::greater<E>>
 void HeapInterfaceTestSuit(Heap<E>* heap) {
 #ifdef DEBUG
   auto downCastClass = [](Heap<E>* h) -> ArrayHeap<E>* {
@@ -50,15 +50,17 @@ void HeapInterfaceTestSuit(Heap<E>* heap) {
   EXPECT_TRUE(heap->isEmpty());
 }
 
-TEST(ADTs_Heap_Interface, impl_ArrayHeap_int_std$greater) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_Heap_Interface,
+     impl_ArrayHeap_int_std$greater) {  // NOLINT(cert-err58-cpp)
   auto* maxHeap = new ArrayHeap<int>({6, 3, 5, 9, 2, 10});  //最大堆
   HeapInterfaceTestSuit(maxHeap);
   delete maxHeap;
 }
 
-TEST(ADTs_Heap_Interface, impl_ArrayHeap_int_std$less) { // NOLINT(cert-err58-cpp)
-  auto* minHeap = new ArrayHeap<int, std::less<int>>({6, 3, 5, 9, 2, 10});  //最小堆
+TEST(ADTs_Heap_Interface,
+     impl_ArrayHeap_int_std$less) {  // NOLINT(cert-err58-cpp)
+  auto* minHeap =
+      new ArrayHeap<int, std::less<int>>({6, 3, 5, 9, 2, 10});  //最小堆
   HeapInterfaceTestSuit(minHeap);
   delete minHeap;
 }
-

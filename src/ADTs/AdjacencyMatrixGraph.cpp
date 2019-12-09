@@ -4,8 +4,9 @@
 
 #include "AdjacencyMatrixGraph.h"
 
-template<typename VertexType, typename WeightType>
-AdjacencyMatrixGraph<VertexType, WeightType>::AdjacencyMatrixGraph():_countOfVertices(0), _countOfEdges(0) {
+template <typename VertexType, typename WeightType>
+AdjacencyMatrixGraph<VertexType, WeightType>::AdjacencyMatrixGraph()
+    : _countOfVertices(0), _countOfEdges(0) {
   for (int i = 0; i < MAX_VERTICES_NUM; ++i) {
     for (int j = 0; j < MAX_VERTICES_NUM; ++j) {
       _relationTable[i][j] = WeightType();
@@ -14,17 +15,18 @@ AdjacencyMatrixGraph<VertexType, WeightType>::AdjacencyMatrixGraph():_countOfVer
   }
 }
 
-template<typename VertexType, typename WeightType>
-size_t AdjacencyMatrixGraph<VertexType, WeightType>::getAmountOfVertices() const {
+template <typename VertexType, typename WeightType>
+size_t AdjacencyMatrixGraph<VertexType, WeightType>::getAmountOfVertices()
+    const {
   return _countOfVertices;
 }
 
-template<typename VertexType, typename WeightType>
+template <typename VertexType, typename WeightType>
 size_t AdjacencyMatrixGraph<VertexType, WeightType>::getAmountOfEdges() const {
   return _countOfEdges;
 }
 
-template<typename VertexType, typename WeightType>
+template <typename VertexType, typename WeightType>
 bool AdjacencyMatrixGraph<VertexType, WeightType>::_isFound(VertexType vertex) {
   int index = -1;
   for (int i = 0; i < _countOfVertices; ++i) {
@@ -34,9 +36,9 @@ bool AdjacencyMatrixGraph<VertexType, WeightType>::_isFound(VertexType vertex) {
   return index >= 0;
 }
 
-template<typename VertexType, typename WeightType>
-bool AdjacencyMatrixGraph<VertexType, WeightType>::add(VertexType startPosition, VertexType endPosition) {
-
+template <typename VertexType, typename WeightType>
+bool AdjacencyMatrixGraph<VertexType, WeightType>::add(VertexType startPosition,
+                                                       VertexType endPosition) {
   if (_countOfVertices + 2 > MAX_VERTICES_NUM)
     return false;
   else {
@@ -53,7 +55,7 @@ bool AdjacencyMatrixGraph<VertexType, WeightType>::add(VertexType startPosition,
   }
 }
 
-template<typename VertexType, typename WeightType>
+template <typename VertexType, typename WeightType>
 bool AdjacencyMatrixGraph<VertexType, WeightType>::add(VertexType startPosition,
                                                        VertexType endPosition,
                                                        WeightType edgeWight) {
@@ -71,25 +73,26 @@ bool AdjacencyMatrixGraph<VertexType, WeightType>::add(VertexType startPosition,
   }
 }
 
-template<typename VertexType, typename WeightType>
-bool AdjacencyMatrixGraph<VertexType, WeightType>::remove(VertexType startPosition, VertexType endPosition) {
+template <typename VertexType, typename WeightType>
+bool AdjacencyMatrixGraph<VertexType, WeightType>::remove(
+    VertexType startPosition,
+    VertexType endPosition) {
   return false;
 }
 
-template<typename VertexType, typename WeightType>
-WeightType AdjacencyMatrixGraph<VertexType, WeightType>::getEdgeWeight(VertexType startPosition,
-                                                                       VertexType endPosition) const {
+template <typename VertexType, typename WeightType>
+WeightType AdjacencyMatrixGraph<VertexType, WeightType>::getEdgeWeight(
+    VertexType startPosition,
+    VertexType endPosition) const {
   return WeightType();
 }
 
-template<typename VertexType, typename WeightType>
-void AdjacencyMatrixGraph<VertexType, WeightType>::depthFirstTraversal(VertexType startPosition,
-                                                                       std::function<void(VertexType&)> visit) {
+template <typename VertexType, typename WeightType>
+void AdjacencyMatrixGraph<VertexType, WeightType>::depthFirstTraversal(
+    VertexType startPosition,
+    std::function<void(VertexType&)> visit) {}
 
-}
-
-template<typename VertexType, typename WeightType>
-void AdjacencyMatrixGraph<VertexType, WeightType>::breadthFirstTraversal(VertexType startPosition,
-                                                                         std::function<void(VertexType&)> visit) {
-
-}
+template <typename VertexType, typename WeightType>
+void AdjacencyMatrixGraph<VertexType, WeightType>::breadthFirstTraversal(
+    VertexType startPosition,
+    std::function<void(VertexType&)> visit) {}

@@ -48,7 +48,7 @@ class Heap {
 
   /**
    * @brief 向堆中加入指定元素
-   * 
+   *
    * @param element 指定元素
    * @post 堆持有指定元素
    * @return true 添加成功
@@ -58,7 +58,7 @@ class Heap {
 
   /**
    * @brief 移除堆顶元素
-   * 
+   *
    * @return true 移除成功
    * @return false 移除成功
    */
@@ -66,7 +66,7 @@ class Heap {
 
   /**
    * @brief 清空所有结点
-   * 
+   *
    */
   virtual void clear() = 0;
 };

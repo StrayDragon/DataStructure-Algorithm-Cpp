@@ -6,7 +6,7 @@
 
 #include "../src/Algorithms/RawArraySort.h"
 
-TEST(RawArray_Sort, selectionSort) { // NOLINT(cert-err58-cpp)
+TEST(RawArray_Sort, selectionSort) {  // NOLINT(cert-err58-cpp)
   int test_case[] = {1, 3, 2, 5, 6, 7, 8, 9, 19, 23};
   size_t len = sizeof(test_case) / sizeof(int);
   std::vector<int> comparison(std::begin(test_case), std::end(test_case));
@@ -17,7 +17,7 @@ TEST(RawArray_Sort, selectionSort) { // NOLINT(cert-err58-cpp)
   }
 }
 
-TEST(RawArray_Sort, bubbleSort) {// NOLINT(cert-err58-cpp)
+TEST(RawArray_Sort, bubbleSort) {  // NOLINT(cert-err58-cpp)
   int test_case[] = {1, 3, 2, 5, 6, 7, 8, 9, 19, 23};
   size_t len = sizeof(test_case) / sizeof(int);
   std::vector<int> comparison(std::begin(test_case), std::end(test_case));
@@ -28,7 +28,7 @@ TEST(RawArray_Sort, bubbleSort) {// NOLINT(cert-err58-cpp)
   }
 }
 
-TEST(RawArray_Sort, heapSort) {// NOLINT(cert-err58-cpp)
+TEST(RawArray_Sort, heapSort) {  // NOLINT(cert-err58-cpp)
   int test_case[] = {1, 3, 2, 5, 6, 7, 8, 9, 19, 23};
   size_t len = sizeof(test_case) / sizeof(int);
   std::vector<int> comparison(std::begin(test_case), std::end(test_case));
@@ -39,18 +39,19 @@ TEST(RawArray_Sort, heapSort) {// NOLINT(cert-err58-cpp)
   }
 }
 
-TEST(RawArray_Sort, mergeSort) {// NOLINT(cert-err58-cpp)
+TEST(RawArray_Sort, mergeSort) {  // NOLINT(cert-err58-cpp)
   int test_case[] = {1, 3, 2, 5, 6, 7, 8, 9, 19, 23};
   int len = sizeof(test_case) / sizeof(int);
   std::vector<int> comparison(std::begin(test_case), std::end(test_case));
   std::sort(comparison.begin(), comparison.end());
-  RawArray::SortBy::mergeSort(test_case, 0, sizeof(test_case) / sizeof(int) - 1);
+  RawArray::SortBy::mergeSort(test_case, 0,
+                              sizeof(test_case) / sizeof(int) - 1);
   for (size_t i = 0; i < len; i++) {
     ASSERT_EQ(test_case[i], comparison[i]);
   }
 }
 
-TEST(RawArray_Sort, quickSort) {// NOLINT(cert-err58-cpp)
+TEST(RawArray_Sort, quickSort) {  // NOLINT(cert-err58-cpp)
   int arr[] = {1, 3, 2, 5, 6, 7, 8, 9, 19, 23};
   int len = sizeof(arr) / sizeof(int);
   std::vector<int> comparison(std::begin(arr), std::end(arr));
@@ -61,7 +62,7 @@ TEST(RawArray_Sort, quickSort) {// NOLINT(cert-err58-cpp)
   }
 }
 
-TEST(RawArray_Sort, radixSort) {// NOLINT(cert-err58-cpp)
+TEST(RawArray_Sort, radixSort) {  // NOLINT(cert-err58-cpp)
   int test_case[] = {1, 3, 2, 5, 6, 7, 8, 9};
   size_t len = sizeof(test_case) / sizeof(int);
   std::vector<int> comparison(std::begin(test_case), std::end(test_case));
@@ -72,7 +73,7 @@ TEST(RawArray_Sort, radixSort) {// NOLINT(cert-err58-cpp)
   }
 }
 
-TEST(RawArray_Sort, treeSort) {// NOLINT(cert-err58-cpp)
+TEST(RawArray_Sort, treeSort) {  // NOLINT(cert-err58-cpp)
   int test_case[] = {1, 3, 2, 5, 6, 7, 8, 9, 19, 23};
   size_t len = sizeof(test_case) / sizeof(int);
   std::vector<int> comparison(std::begin(test_case), std::end(test_case));

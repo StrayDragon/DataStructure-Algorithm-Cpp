@@ -44,7 +44,8 @@ class SimplestAdjListGraph final : noncopyable {
    * @param v2 顶点2
    */
   void addEdge(int v1, int v2) {
-    if (v1 >= v_ || v2 >= v_) throw Exception("std::vector IndexOutOfBound!");
+    if (v1 >= v_ || v2 >= v_)
+      throw Exception("std::vector IndexOutOfBound!");
     adj_[v1].push_back(v2);
     adj_[v2].push_back(v1);
     e_++;
@@ -60,7 +61,7 @@ class SimplestAdjListGraph final : noncopyable {
     int degree = 0;
     for (auto w : adj_.at(v)) {
       degree++;
-      ((void) w);
+      ((void)w);
     }
     return degree;
   }
@@ -73,7 +74,8 @@ class SimplestAdjListGraph final : noncopyable {
   int maxDegree() {
     int max = 0;
     for (int v = 0; v < v_; ++v) {
-      if (degreeOf(v) > max) max = degreeOf(v);
+      if (degreeOf(v) > max)
+        max = degreeOf(v);
     }
     return max;
   }
@@ -94,7 +96,8 @@ class SimplestAdjListGraph final : noncopyable {
     int count = 0;
     for (int v = 0; v < v_; ++v) {
       for (auto w : adj_[v])
-        if (v == w) count++;
+        if (v == w)
+          count++;
     }
     return count / 2;
   }

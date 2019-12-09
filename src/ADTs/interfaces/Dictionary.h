@@ -11,7 +11,8 @@
  * @brief 字典(Dictionary) 接口声明
  *
  * @tparam E 元素类型
- */template <typename K, typename V>
+ */
+template <typename K, typename V>
 class Dictionary {
  public:
   virtual bool isEmpty() const = 0;

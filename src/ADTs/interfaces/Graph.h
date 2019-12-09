@@ -19,7 +19,7 @@ enum class AcyclicGraphTypes {
  * @tparam VertexType 顶点类型
  * @tparam EdgeWight 边权重类型,默认为int
  */
-template<typename VertexType, typename EdgeWight = int>
+template <typename VertexType, typename EdgeWight = int>
 class Graph {
  public:
   /**
@@ -44,8 +44,7 @@ class Graph {
    * @return true
    * @return false
    */
-  virtual bool add(VertexType startPosition,
-                   VertexType endPosition) = 0;
+  virtual bool add(VertexType startPosition, VertexType endPosition) = 0;
 
   /**
    * @brief 加入指定边
@@ -75,8 +74,9 @@ class Graph {
    * @return false
    */
   virtual bool remove(VertexType startPosition, VertexType endPosition) = 0;
-  // virtual bool removeEdge(VertexType startPosition, VertexType endPosition) = 0;
-  // virtual bool removeVertex(VertexType startPosition, VertexType endPosition) = 0;
+  // virtual bool removeEdge(VertexType startPosition, VertexType endPosition) =
+  // 0; virtual bool removeVertex(VertexType startPosition, VertexType
+  // endPosition) = 0;
 
   /**
    * @brief 获取指定边的权重
@@ -103,7 +103,8 @@ class Graph {
    * @param startPosition
    * @param visit
    */
-  virtual void breadthFirstTraversal(VertexType startPosition,
-                                     std::function<void(VertexType&)> visit) = 0;
+  virtual void breadthFirstTraversal(
+      VertexType startPosition,
+      std::function<void(VertexType&)> visit) = 0;
 };
 #endif  // DATASTRUCTURE_ALGORITHM_CPP_GRAPH_H

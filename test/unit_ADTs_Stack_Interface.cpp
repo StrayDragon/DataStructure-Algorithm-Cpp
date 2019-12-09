@@ -7,7 +7,7 @@
 #include "../src/ADTs/LinkedStack.h"
 #include "../src/ADTs/interfaces/Stack.h"
 
-template<typename E>
+template <typename E>
 void StackInterfaceTestSuit(Stack<E>* stack) {
   if (typeid(*stack) == typeid(LinkedStack<E>)) {
     LinkedStack<E> linkedStackCopy;
@@ -35,15 +35,14 @@ void StackInterfaceTestSuit(Stack<E>* stack) {
   EXPECT_TRUE(!stack->pop());
 }
 
-TEST(ADTs_Stack_Interface, impl_ArrayStack_int) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_Stack_Interface, impl_ArrayStack_int) {  // NOLINT(cert-err58-cpp)
   auto* arrayStack = new ArrayStack<int>();
   StackInterfaceTestSuit(arrayStack);
   delete arrayStack;
 }
 
-TEST(ADTs_Stack_Interface, impl_LinkedStack_int) { // NOLINT(cert-err58-cpp)
+TEST(ADTs_Stack_Interface, impl_LinkedStack_int) {  // NOLINT(cert-err58-cpp)
   auto* linkedStack = new LinkedStack<int>();
   StackInterfaceTestSuit(linkedStack);
   delete linkedStack;
 }
-

@@ -15,4 +15,4 @@ class noncopyable {
   ~noncopyable() = default;
 };
 
-#endif //DATASTRUCTURE_ALGORITHM_CPP_NONCOPYABLE_H
+#endif  // DATASTRUCTURE_ALGORITHM_CPP_NONCOPYABLE_H

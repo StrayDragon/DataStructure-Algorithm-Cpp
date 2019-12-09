@@ -1,6 +1,6 @@
+#include <functional>
 #include <initializer_list>
 #include <iostream>
-#include <functional>
 // .h
 template <typename WeightType = int>
 struct Edge;
@@ -50,7 +50,7 @@ class AdjMatrixGraph : public Graph<WeightType> {
   void addEdge(Edge<WeightType> e) override;
   void removeEdge(Edge<WeightType> e) override;
   void depthFirstTraversal(VertexType startPosition,
-                                   std::function<void(T&)> visit) override;
+                           std::function<void(T&)> visit) override;
   void breadthFirstTraversal(VertexType startPosition,
-                                     std::function<void(T&)> visit) override;
+                             std::function<void(T&)> visit) override;
 };

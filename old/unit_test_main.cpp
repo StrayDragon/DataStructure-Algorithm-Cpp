@@ -12,7 +12,7 @@ using namespace std;
 #include "../src/ADTs/LinkedList.h"
 #include "../src/ADTs/interfaces/List.h"
 
-template<typename E>
+template <typename E>
 void ADTListTestMachine(List<E>* list) {
   cout << flush << "\ttest target implementation : " << typeid(*list).name();
   if (typeid(*list) == typeid(LinkedList<E>)) {
@@ -61,7 +61,7 @@ void ADTListTestMachine(List<E>* list) {
 #include "../src/ADTs/LinkedStack.h"
 #include "../src/ADTs/interfaces/Stack.h"
 
-template<typename E>
+template <typename E>
 void ADTStackTestMachine(Stack<E>* stack) {
   cout << flush << "\ttest target implementation : " << typeid(*stack).name();
 
@@ -98,7 +98,7 @@ void ADTStackTestMachine(Stack<E>* stack) {
 #include "../src/ADTs/ListQueue.h"
 #include "../src/ADTs/interfaces/Queue.h"
 
-template<typename E>
+template <typename E>
 void ADTQueueTestMachine(Queue<E>* queue) {
   cout << flush << "\ttest target implementation : " << typeid(*queue).name();
   // if (typeid(*queue) == typeid(LinkedQueue<E>)) {
@@ -131,7 +131,7 @@ void ADTQueueTestMachine(Queue<E>* queue) {
 #include "../src/ADTs/BinarySearchTree.h"
 #include "../src/ADTs/interfaces/BinaryTree.h"
 
-template<typename E>
+template <typename E>
 void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
   cout << flush
        << "\ttest target implementation : " << typeid(*binaryTree).name();
@@ -165,7 +165,7 @@ void ADTBinaryTreeTestMachine(BinaryTree<E>* binaryTree) {
 #include "../src/ADTs/ArrayHeap.h"
 #include "../src/ADTs/interfaces/Heap.h"
 
-template<typename E, typename Comp = std::greater<E>>
+template <typename E, typename Comp = std::greater<E>>
 void ADTHeapTestMachine(Heap<E>* heap) {
   cout << flush << "\ttest target implementation : " << typeid(*heap).name();
 #ifdef DEBUG
