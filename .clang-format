@@ -1,0 +1,7 @@
+---
+Language:        Cpp
+BasedOnStyle:  Chromium
+TabWidth:        2
+UseTab:          Never
+...
+
